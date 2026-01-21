@@ -1,8 +1,6 @@
 __pycache__/
 *.pyc
 *.o
-decoder_demo
-sunspec_client
-sunspec_discovery_demo
-sunspec_inverter_example
+.vscode
+.serena
 .DS_Store
