@@ -43,9 +43,10 @@ struct Model601_tracker_Raw {
 
 class Model601 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 601;
     Model601_Raw raw;
 
-    uint16_t get_id() const override { return 601; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

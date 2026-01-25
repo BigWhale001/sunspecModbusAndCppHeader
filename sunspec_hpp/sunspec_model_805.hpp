@@ -52,9 +52,10 @@ struct Model805_lithium_ion_module_cell_Raw {
 
 class Model805 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 805;
     Model805_Raw raw;
 
-    uint16_t get_id() const override { return 805; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

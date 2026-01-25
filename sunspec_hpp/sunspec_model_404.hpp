@@ -54,9 +54,10 @@ struct Model404_string_Raw {
 
 class Model404 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 404;
     Model404_Raw raw;
 
-    uint16_t get_id() const override { return 404; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

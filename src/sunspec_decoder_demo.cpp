@@ -1,12 +1,17 @@
+/**
+ * @file sunspec_decoder_demo.cpp
+ * @brief SunSpec 解码器演示 (无需 Modbus)
+ * 
+ * 该程序演示了如何在不连接 Modbus 的情况下，直接构建模拟数据流并使用 SunSpecDecoder 进行解码。
+ * 主要用于测试解码逻辑和理解 SunSpec 复杂模型 (如 Model 708) 的结构。
+ */
+
 #include "sunspec_decoder.hpp"
 #include <vector>
 #include <iostream>
 #include <cstring>
 #include <cstdint>
-
-// 辅助：大端转换宏 (模拟网络数据)
-#define HTONS(x) ((uint16_t)((((x) & 0xFF) << 8) | (((x) >> 8) & 0xFF)))
-#define HTONL(x) ((uint32_t)((((x) & 0xFF) << 24) | (((x) & 0xFF00) << 8) | (((x) & 0xFF0000) >> 8) | (((x) >> 24) & 0xFF)))
+#include "endian_utils.hpp"
 
 int main() {
     // 构造模拟数据流

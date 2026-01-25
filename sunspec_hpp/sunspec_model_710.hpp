@@ -76,9 +76,10 @@ struct Model710_Crv_MomCess_Pt_Raw {
 
 class Model710 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 710;
     Model710_Raw raw;
 
-    uint16_t get_id() const override { return 710; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

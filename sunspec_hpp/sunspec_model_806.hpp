@@ -25,9 +25,10 @@ struct Model806_battery_string_Raw {
 
 class Model806 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 806;
     Model806_Raw raw;
 
-    uint16_t get_id() const override { return 806; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

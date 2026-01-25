@@ -113,9 +113,10 @@ struct Model6_repeating_Raw {
 
 class Model6 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 6;
     Model6_Raw raw;
 
-    uint16_t get_id() const override { return 6; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

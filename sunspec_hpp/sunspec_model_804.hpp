@@ -78,9 +78,10 @@ struct Model804_lithium_ion_string_module_Raw {
 
 class Model804 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 804;
     Model804_Raw raw;
 
-    uint16_t get_id() const override { return 804; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

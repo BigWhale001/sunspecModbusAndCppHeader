@@ -73,9 +73,10 @@ struct Model807_module_Raw {
 
 class Model807 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 807;
     Model807_Raw raw;
 
-    uint16_t get_id() const override { return 807; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

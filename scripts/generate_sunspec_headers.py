@@ -131,9 +131,10 @@ def generate_cpp_header(json_path, output_dir):
         # 3. 生成 Wrapper Class (继承自 SunSpecModelBase)
         h.write(f"class {class_name} : public SunSpecModelBase {{\n")
         h.write("public:\n")
+        h.write(f"    static constexpr uint16_t ID = {model_id};\n")
         h.write(f"    {struct_name} raw;\n\n")
         
-        h.write(f"    uint16_t get_id() const override {{ return {model_id}; }}\n\n")
+        h.write(f"    uint16_t get_id() const override {{ return ID; }}\n\n")
 
         h.write("    void from_buffer(const uint8_t* buffer) override {\n")
         h.write("        base_addr = buffer;\n")

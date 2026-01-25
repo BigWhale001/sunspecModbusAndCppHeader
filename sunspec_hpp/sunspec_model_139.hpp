@@ -76,9 +76,10 @@ struct Model139_curve_Raw {
 
 class Model139 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 139;
     Model139_Raw raw;
 
-    uint16_t get_id() const override { return 139; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

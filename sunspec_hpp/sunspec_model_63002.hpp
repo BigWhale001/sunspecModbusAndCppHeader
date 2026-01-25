@@ -27,9 +27,10 @@ struct Model63002_repeating_Raw {
 
 class Model63002 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 63002;
     Model63002_Raw raw;
 
-    uint16_t get_id() const override { return 63002; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

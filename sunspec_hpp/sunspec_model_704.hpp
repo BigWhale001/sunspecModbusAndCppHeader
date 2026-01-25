@@ -92,9 +92,10 @@ struct Model704_PFWAbsRvrt_Raw {
 
 class Model704 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 704;
     Model704_Raw raw;
 
-    uint16_t get_id() const override { return 704; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;

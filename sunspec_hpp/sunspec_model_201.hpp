@@ -89,9 +89,10 @@ struct Model201_Raw {
 
 class Model201 : public SunSpecModelBase {
 public:
+    static constexpr uint16_t ID = 201;
     Model201_Raw raw;
 
-    uint16_t get_id() const override { return 201; }
+    uint16_t get_id() const override { return ID; }
 
     void from_buffer(const uint8_t* buffer) override {
         base_addr = buffer;
