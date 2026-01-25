@@ -46,15 +46,15 @@ public:
     }
 
     uint16_t get_raw_Cfg() const {
-        return be16toh_custom_s(raw.Cfg);
+        return be16toh_custom(raw.Cfg);
     }
 
     uint16_t get_raw_Ctl() const {
-        return be16toh_custom_s(raw.Ctl);
+        return be16toh_custom(raw.Ctl);
     }
 
     uint16_t get_raw_LnkCtl() const {
-        return be16toh_custom_s(raw.LnkCtl);
+        return be16toh_custom(raw.LnkCtl);
     }
 
 };

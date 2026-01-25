@@ -55,15 +55,15 @@ public:
     }
 
     uint16_t get_raw_PVConn() const {
-        return be16toh_custom_s(raw.PVConn);
+        return be16toh_custom(raw.PVConn);
     }
 
     uint16_t get_raw_StorConn() const {
-        return be16toh_custom_s(raw.StorConn);
+        return be16toh_custom(raw.StorConn);
     }
 
     uint16_t get_raw_ECPConn() const {
-        return be16toh_custom_s(raw.ECPConn);
+        return be16toh_custom(raw.ECPConn);
     }
 
     float get_VArAval() const {
@@ -77,6 +77,10 @@ public:
         return be16toh_custom_s(raw.VArAval);
     }
 
+    int16_t get_raw_VArAval_SF() const {
+        return be16toh_custom_s(raw.VArAval_SF);
+    }
+
     float get_WAval() const {
         int16_t sf_val = be16toh_custom_s(raw.WAval_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -88,8 +92,12 @@ public:
         return be16toh_custom(raw.WAval);
     }
 
+    int16_t get_raw_WAval_SF() const {
+        return be16toh_custom_s(raw.WAval_SF);
+    }
+
     uint16_t get_raw_RtSt() const {
-        return be16toh_custom_s(raw.RtSt);
+        return be16toh_custom(raw.RtSt);
     }
 
     float get_Ris() const {
@@ -101,6 +109,10 @@ public:
 
     uint16_t get_raw_Ris() const {
         return be16toh_custom(raw.Ris);
+    }
+
+    int16_t get_raw_Ris_SF() const {
+        return be16toh_custom_s(raw.Ris_SF);
     }
 
 };

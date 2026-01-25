@@ -88,6 +88,26 @@ public:
         return be16toh_custom_s(raw.DCW);
     }
 
+    int16_t get_raw_DCA_SF() const {
+        return be16toh_custom_s(raw.DCA_SF);
+    }
+
+    int16_t get_raw_DCV_SF() const {
+        return be16toh_custom_s(raw.DCV_SF);
+    }
+
+    int16_t get_raw_DCW_SF() const {
+        return be16toh_custom_s(raw.DCW_SF);
+    }
+
+    int16_t get_raw_DCWH_SF() const {
+        return be16toh_custom_s(raw.DCWH_SF);
+    }
+
+    int16_t get_raw_Tmp_SF() const {
+        return be16toh_custom_s(raw.Tmp_SF);
+    }
+
     // Accessor for repeating group: Prt
     static const Model714_Prt_Raw* get_Prt(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model714_Prt_Raw*>(base_buffer + offset_bytes + index * sizeof(Model714_Prt_Raw));

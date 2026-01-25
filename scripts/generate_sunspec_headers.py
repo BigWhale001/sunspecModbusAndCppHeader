@@ -146,6 +146,7 @@ def generate_cpp_header(json_path, output_dir):
             ptype = f['type']
             sf = f['sf']
             
+            # 1. 生成带 Scale Factor 的 float getter (针对数值类型)
             if ptype in ['uint16', 'int16', 'enum16', 'bitfield16']:
                 if sf:
                     h.write(f"    float get_{name}() const {{\n")
@@ -165,12 +166,14 @@ def generate_cpp_header(json_path, output_dir):
                         h.write(f"        int16_t val = be16toh_custom_s(raw.{name});\n")
                     h.write(f"        return (float)val * std::pow(10.0f, sf_val);\n")
                     h.write(f"    }}\n\n")
-                
+            
+            # 2. 生成 get_raw_XXX 方法 (针对所有支持类型，包括 sunssf)
+            if ptype in ['uint16', 'int16', 'enum16', 'bitfield16', 'sunssf']:
                 h.write(f"    {f['c_type']} get_raw_{name}() const {{\n")
-                if ptype.startswith('u'):
-                    h.write(f"        return be16toh_custom(raw.{name});\n")
-                else:
-                    h.write(f"        return be16toh_custom_s(raw.{name});\n")
+                if ptype == 'uint16' or ptype == 'enum16' or ptype == 'bitfield16':
+                     h.write(f"        return be16toh_custom(raw.{name});\n")
+                else: # int16, sunssf
+                     h.write(f"        return be16toh_custom_s(raw.{name});\n")
                 h.write(f"    }}\n\n")
 
         # 3.1 生成 Subgroup Accessors

@@ -150,6 +150,10 @@ public:
         return be16toh_custom_s(raw.AphC);
     }
 
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
     float get_PhV() const {
         int16_t sf_val = be16toh_custom_s(raw.V_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -238,6 +242,10 @@ public:
         return be16toh_custom_s(raw.PhVphCA);
     }
 
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
     float get_Hz() const {
         int16_t sf_val = be16toh_custom_s(raw.Hz_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -247,6 +255,10 @@ public:
 
     int16_t get_raw_Hz() const {
         return be16toh_custom_s(raw.Hz);
+    }
+
+    int16_t get_raw_Hz_SF() const {
+        return be16toh_custom_s(raw.Hz_SF);
     }
 
     float get_W() const {
@@ -293,6 +305,10 @@ public:
         return be16toh_custom_s(raw.WphC);
     }
 
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
+    }
+
     float get_VA() const {
         int16_t sf_val = be16toh_custom_s(raw.VA_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -335,6 +351,10 @@ public:
 
     int16_t get_raw_VAphC() const {
         return be16toh_custom_s(raw.VAphC);
+    }
+
+    int16_t get_raw_VA_SF() const {
+        return be16toh_custom_s(raw.VA_SF);
     }
 
     float get_VAR() const {
@@ -381,6 +401,10 @@ public:
         return be16toh_custom_s(raw.VARphC);
     }
 
+    int16_t get_raw_VAR_SF() const {
+        return be16toh_custom_s(raw.VAR_SF);
+    }
+
     float get_PF() const {
         int16_t sf_val = be16toh_custom_s(raw.PF_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -423,6 +447,22 @@ public:
 
     int16_t get_raw_PFphC() const {
         return be16toh_custom_s(raw.PFphC);
+    }
+
+    int16_t get_raw_PF_SF() const {
+        return be16toh_custom_s(raw.PF_SF);
+    }
+
+    int16_t get_raw_TotWh_SF() const {
+        return be16toh_custom_s(raw.TotWh_SF);
+    }
+
+    int16_t get_raw_TotVAh_SF() const {
+        return be16toh_custom_s(raw.TotVAh_SF);
+    }
+
+    int16_t get_raw_TotVArh_SF() const {
+        return be16toh_custom_s(raw.TotVArh_SF);
     }
 
 };

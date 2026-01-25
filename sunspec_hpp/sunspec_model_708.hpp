@@ -94,7 +94,7 @@ public:
     }
 
     uint16_t get_raw_Ena() const {
-        return be16toh_custom_s(raw.Ena);
+        return be16toh_custom(raw.Ena);
     }
 
     uint16_t get_raw_AdptCrvReq() const {
@@ -102,7 +102,7 @@ public:
     }
 
     uint16_t get_raw_AdptCrvRslt() const {
-        return be16toh_custom_s(raw.AdptCrvRslt);
+        return be16toh_custom(raw.AdptCrvRslt);
     }
 
     uint16_t get_raw_NPt() const {
@@ -111,6 +111,14 @@ public:
 
     uint16_t get_raw_NCrvSet() const {
         return be16toh_custom(raw.NCrvSet);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_Tms_SF() const {
+        return be16toh_custom_s(raw.Tms_SF);
     }
 
     // Accessor for repeating group: Crv

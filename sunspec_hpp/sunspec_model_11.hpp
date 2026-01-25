@@ -46,15 +46,15 @@ public:
     }
 
     uint16_t get_raw_CfgSt() const {
-        return be16toh_custom_s(raw.CfgSt);
+        return be16toh_custom(raw.CfgSt);
     }
 
     uint16_t get_raw_St() const {
-        return be16toh_custom_s(raw.St);
+        return be16toh_custom(raw.St);
     }
 
     uint16_t get_raw_Ctl() const {
-        return be16toh_custom_s(raw.Ctl);
+        return be16toh_custom(raw.Ctl);
     }
 
     uint16_t get_raw_FrcSpd() const {

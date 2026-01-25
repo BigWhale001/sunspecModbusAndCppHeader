@@ -102,7 +102,7 @@ public:
     }
 
     uint16_t get_raw_ModEna() const {
-        return be16toh_custom_s(raw.ModEna);
+        return be16toh_custom(raw.ModEna);
     }
 
     uint16_t get_raw_WinTms() const {
@@ -123,6 +123,18 @@ public:
 
     uint16_t get_raw_NPt() const {
         return be16toh_custom(raw.NPt);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_DeptRef_SF() const {
+        return be16toh_custom_s(raw.DeptRef_SF);
+    }
+
+    int16_t get_raw_RmpIncDec_SF() const {
+        return be16toh_custom_s(raw.RmpIncDec_SF);
     }
 
     // Accessor for repeating group: curve

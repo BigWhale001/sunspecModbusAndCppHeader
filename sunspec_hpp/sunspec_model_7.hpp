@@ -55,7 +55,7 @@ public:
     }
 
     uint16_t get_raw_Sts() const {
-        return be16toh_custom_s(raw.Sts);
+        return be16toh_custom(raw.Sts);
     }
 
     uint16_t get_raw_Ms() const {
@@ -67,11 +67,11 @@ public:
     }
 
     uint16_t get_raw_Alm() const {
-        return be16toh_custom_s(raw.Alm);
+        return be16toh_custom(raw.Alm);
     }
 
     uint16_t get_raw_Alg() const {
-        return be16toh_custom_s(raw.Alg);
+        return be16toh_custom(raw.Alg);
     }
 
     uint16_t get_raw_N() const {

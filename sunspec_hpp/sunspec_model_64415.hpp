@@ -38,15 +38,15 @@ public:
     }
 
     uint16_t get_raw_LogEventEna() const {
-        return be16toh_custom_s(raw.LogEventEna);
+        return be16toh_custom(raw.LogEventEna);
     }
 
     uint16_t get_raw_HTTPMsg() const {
-        return be16toh_custom_s(raw.HTTPMsg);
+        return be16toh_custom(raw.HTTPMsg);
     }
 
     uint16_t get_raw_COMM004Cert() const {
-        return be16toh_custom_s(raw.COMM004Cert);
+        return be16toh_custom(raw.COMM004Cert);
     }
 
 };

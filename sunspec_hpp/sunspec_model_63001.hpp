@@ -110,6 +110,22 @@ public:
         return be16toh_custom(raw.L);
     }
 
+    int16_t get_raw_sunssf_1() const {
+        return be16toh_custom_s(raw.sunssf_1);
+    }
+
+    int16_t get_raw_sunssf_2() const {
+        return be16toh_custom_s(raw.sunssf_2);
+    }
+
+    int16_t get_raw_sunssf_3() const {
+        return be16toh_custom_s(raw.sunssf_3);
+    }
+
+    int16_t get_raw_sunssf_4() const {
+        return be16toh_custom_s(raw.sunssf_4);
+    }
+
     float get_int16_1() const {
         int16_t sf_val = be16toh_custom_s(raw.sunssf_1);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -215,19 +231,31 @@ public:
     }
 
     uint16_t get_raw_enum16() const {
-        return be16toh_custom_s(raw.enum16);
+        return be16toh_custom(raw.enum16);
     }
 
     uint16_t get_raw_enum16_u() const {
-        return be16toh_custom_s(raw.enum16_u);
+        return be16toh_custom(raw.enum16_u);
     }
 
     uint16_t get_raw_bitfield16() const {
-        return be16toh_custom_s(raw.bitfield16);
+        return be16toh_custom(raw.bitfield16);
     }
 
     uint16_t get_raw_bitfield16_u() const {
-        return be16toh_custom_s(raw.bitfield16_u);
+        return be16toh_custom(raw.bitfield16_u);
+    }
+
+    int16_t get_raw_sunssf_5() const {
+        return be16toh_custom_s(raw.sunssf_5);
+    }
+
+    int16_t get_raw_sunssf_6() const {
+        return be16toh_custom_s(raw.sunssf_6);
+    }
+
+    int16_t get_raw_sunssf_7() const {
+        return be16toh_custom_s(raw.sunssf_7);
     }
 
     // Accessor for repeating group: repeating

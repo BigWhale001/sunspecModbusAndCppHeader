@@ -230,11 +230,11 @@ public:
     }
 
     uint16_t get_raw_VArAct() const {
-        return be16toh_custom_s(raw.VArAct);
+        return be16toh_custom(raw.VArAct);
     }
 
     uint16_t get_raw_ClcTotVA() const {
-        return be16toh_custom_s(raw.ClcTotVA);
+        return be16toh_custom(raw.ClcTotVA);
     }
 
     float get_MaxRmpRte() const {
@@ -260,7 +260,47 @@ public:
     }
 
     uint16_t get_raw_ConnPh() const {
-        return be16toh_custom_s(raw.ConnPh);
+        return be16toh_custom(raw.ConnPh);
+    }
+
+    int16_t get_raw_WMax_SF() const {
+        return be16toh_custom_s(raw.WMax_SF);
+    }
+
+    int16_t get_raw_VRef_SF() const {
+        return be16toh_custom_s(raw.VRef_SF);
+    }
+
+    int16_t get_raw_VRefOfs_SF() const {
+        return be16toh_custom_s(raw.VRefOfs_SF);
+    }
+
+    int16_t get_raw_VMinMax_SF() const {
+        return be16toh_custom_s(raw.VMinMax_SF);
+    }
+
+    int16_t get_raw_VAMax_SF() const {
+        return be16toh_custom_s(raw.VAMax_SF);
+    }
+
+    int16_t get_raw_VArMax_SF() const {
+        return be16toh_custom_s(raw.VArMax_SF);
+    }
+
+    int16_t get_raw_WGra_SF() const {
+        return be16toh_custom_s(raw.WGra_SF);
+    }
+
+    int16_t get_raw_PFMin_SF() const {
+        return be16toh_custom_s(raw.PFMin_SF);
+    }
+
+    int16_t get_raw_MaxRmpRte_SF() const {
+        return be16toh_custom_s(raw.MaxRmpRte_SF);
+    }
+
+    int16_t get_raw_ECPNomHz_SF() const {
+        return be16toh_custom_s(raw.ECPNomHz_SF);
     }
 
 };

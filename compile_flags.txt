@@ -3,3 +3,4 @@
 -Iinclude
 -Igenerated
 -pthread
+-IThirdParty/x86_64/libmodbus/include

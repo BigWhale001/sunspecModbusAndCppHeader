@@ -57,6 +57,10 @@ public:
         return be16toh_custom(raw.Irr);
     }
 
+    int16_t get_raw_Irr_SF() const {
+        return be16toh_custom_s(raw.Irr_SF);
+    }
+
     // Accessor for repeating group: IV
     static const Model64413_IV_Raw* get_IV(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model64413_IV_Raw*>(base_buffer + offset_bytes + index * sizeof(Model64413_IV_Raw));

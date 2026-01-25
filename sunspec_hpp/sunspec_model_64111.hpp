@@ -61,6 +61,26 @@ public:
         return be16toh_custom(raw.Port);
     }
 
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_P_SF() const {
+        return be16toh_custom_s(raw.P_SF);
+    }
+
+    int16_t get_raw_AH_SF() const {
+        return be16toh_custom_s(raw.AH_SF);
+    }
+
+    int16_t get_raw_KWH_SF() const {
+        return be16toh_custom_s(raw.KWH_SF);
+    }
+
     float get_BattV() const {
         int16_t sf_val = be16toh_custom_s(raw.V_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -106,7 +126,7 @@ public:
     }
 
     uint16_t get_raw_ChargerSt() const {
-        return be16toh_custom_s(raw.ChargerSt);
+        return be16toh_custom(raw.ChargerSt);
     }
 
     float get_OutputW() const {

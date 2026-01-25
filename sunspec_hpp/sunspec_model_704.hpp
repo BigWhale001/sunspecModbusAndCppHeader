@@ -110,23 +110,23 @@ public:
     }
 
     uint16_t get_raw_PFWInjEna() const {
-        return be16toh_custom_s(raw.PFWInjEna);
+        return be16toh_custom(raw.PFWInjEna);
     }
 
     uint16_t get_raw_PFWInjEnaRvrt() const {
-        return be16toh_custom_s(raw.PFWInjEnaRvrt);
+        return be16toh_custom(raw.PFWInjEnaRvrt);
     }
 
     uint16_t get_raw_PFWAbsEna() const {
-        return be16toh_custom_s(raw.PFWAbsEna);
+        return be16toh_custom(raw.PFWAbsEna);
     }
 
     uint16_t get_raw_PFWAbsEnaRvrt() const {
-        return be16toh_custom_s(raw.PFWAbsEnaRvrt);
+        return be16toh_custom(raw.PFWAbsEnaRvrt);
     }
 
     uint16_t get_raw_WMaxLimPctEna() const {
-        return be16toh_custom_s(raw.WMaxLimPctEna);
+        return be16toh_custom(raw.WMaxLimPctEna);
     }
 
     float get_WMaxLimPct() const {
@@ -152,15 +152,15 @@ public:
     }
 
     uint16_t get_raw_WMaxLimPctEnaRvrt() const {
-        return be16toh_custom_s(raw.WMaxLimPctEnaRvrt);
+        return be16toh_custom(raw.WMaxLimPctEnaRvrt);
     }
 
     uint16_t get_raw_WSetEna() const {
-        return be16toh_custom_s(raw.WSetEna);
+        return be16toh_custom(raw.WSetEna);
     }
 
     uint16_t get_raw_WSetMod() const {
-        return be16toh_custom_s(raw.WSetMod);
+        return be16toh_custom(raw.WSetMod);
     }
 
     float get_WSetPct() const {
@@ -186,19 +186,19 @@ public:
     }
 
     uint16_t get_raw_WSetEnaRvrt() const {
-        return be16toh_custom_s(raw.WSetEnaRvrt);
+        return be16toh_custom(raw.WSetEnaRvrt);
     }
 
     uint16_t get_raw_VarSetEna() const {
-        return be16toh_custom_s(raw.VarSetEna);
+        return be16toh_custom(raw.VarSetEna);
     }
 
     uint16_t get_raw_VarSetMod() const {
-        return be16toh_custom_s(raw.VarSetMod);
+        return be16toh_custom(raw.VarSetMod);
     }
 
     uint16_t get_raw_VarSetPri() const {
-        return be16toh_custom_s(raw.VarSetPri);
+        return be16toh_custom(raw.VarSetPri);
     }
 
     float get_VarSetPct() const {
@@ -224,7 +224,7 @@ public:
     }
 
     uint16_t get_raw_VarSetEnaRvrt() const {
-        return be16toh_custom_s(raw.VarSetEnaRvrt);
+        return be16toh_custom(raw.VarSetEnaRvrt);
     }
 
     uint16_t get_raw_WRmp() const {
@@ -232,7 +232,7 @@ public:
     }
 
     uint16_t get_raw_WRmpRef() const {
-        return be16toh_custom_s(raw.WRmpRef);
+        return be16toh_custom(raw.WRmpRef);
     }
 
     uint16_t get_raw_VarRmp() const {
@@ -240,7 +240,31 @@ public:
     }
 
     uint16_t get_raw_AntiIslEna() const {
-        return be16toh_custom_s(raw.AntiIslEna);
+        return be16toh_custom(raw.AntiIslEna);
+    }
+
+    int16_t get_raw_PF_SF() const {
+        return be16toh_custom_s(raw.PF_SF);
+    }
+
+    int16_t get_raw_WMaxLimPct_SF() const {
+        return be16toh_custom_s(raw.WMaxLimPct_SF);
+    }
+
+    int16_t get_raw_WSet_SF() const {
+        return be16toh_custom_s(raw.WSet_SF);
+    }
+
+    int16_t get_raw_WSetPct_SF() const {
+        return be16toh_custom_s(raw.WSetPct_SF);
+    }
+
+    int16_t get_raw_VarSet_SF() const {
+        return be16toh_custom_s(raw.VarSet_SF);
+    }
+
+    int16_t get_raw_VarSetPct_SF() const {
+        return be16toh_custom_s(raw.VarSetPct_SF);
     }
 
     // Accessor for repeating group: PFWInj

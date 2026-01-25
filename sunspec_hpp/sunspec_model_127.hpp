@@ -78,11 +78,11 @@ public:
     }
 
     uint16_t get_raw_HysEna() const {
-        return be16toh_custom_s(raw.HysEna);
+        return be16toh_custom(raw.HysEna);
     }
 
     uint16_t get_raw_ModEna() const {
-        return be16toh_custom_s(raw.ModEna);
+        return be16toh_custom(raw.ModEna);
     }
 
     float get_HzStopWGra() const {
@@ -94,6 +94,18 @@ public:
 
     uint16_t get_raw_HzStopWGra() const {
         return be16toh_custom(raw.HzStopWGra);
+    }
+
+    int16_t get_raw_WGra_SF() const {
+        return be16toh_custom_s(raw.WGra_SF);
+    }
+
+    int16_t get_raw_HzStrStop_SF() const {
+        return be16toh_custom_s(raw.HzStrStop_SF);
+    }
+
+    int16_t get_raw_RmpIncDec_SF() const {
+        return be16toh_custom_s(raw.RmpIncDec_SF);
     }
 
 };

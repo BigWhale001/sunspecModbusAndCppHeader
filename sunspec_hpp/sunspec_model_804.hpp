@@ -104,7 +104,7 @@ public:
     }
 
     uint16_t get_raw_ConFail() const {
-        return be16toh_custom_s(raw.ConFail);
+        return be16toh_custom(raw.ConFail);
     }
 
     uint16_t get_raw_NCellBal() const {
@@ -249,11 +249,39 @@ public:
     }
 
     uint16_t get_raw_SetEna() const {
-        return be16toh_custom_s(raw.SetEna);
+        return be16toh_custom(raw.SetEna);
     }
 
     uint16_t get_raw_SetCon() const {
-        return be16toh_custom_s(raw.SetCon);
+        return be16toh_custom(raw.SetCon);
+    }
+
+    int16_t get_raw_SoC_SF() const {
+        return be16toh_custom_s(raw.SoC_SF);
+    }
+
+    int16_t get_raw_SoH_SF() const {
+        return be16toh_custom_s(raw.SoH_SF);
+    }
+
+    int16_t get_raw_DoD_SF() const {
+        return be16toh_custom_s(raw.DoD_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_CellV_SF() const {
+        return be16toh_custom_s(raw.CellV_SF);
+    }
+
+    int16_t get_raw_ModTmp_SF() const {
+        return be16toh_custom_s(raw.ModTmp_SF);
     }
 
     // Accessor for repeating group: lithium_ion_string_module

@@ -55,16 +55,32 @@ public:
         return be16toh_custom(raw.L);
     }
 
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
+    }
+
+    int16_t get_raw_Wh_SF() const {
+        return be16toh_custom_s(raw.Wh_SF);
+    }
+
     uint16_t get_raw_Stat() const {
-        return be16toh_custom_s(raw.Stat);
+        return be16toh_custom(raw.Stat);
     }
 
     uint16_t get_raw_StatVend() const {
-        return be16toh_custom_s(raw.StatVend);
+        return be16toh_custom(raw.StatVend);
     }
 
     uint16_t get_raw_Ctl() const {
-        return be16toh_custom_s(raw.Ctl);
+        return be16toh_custom(raw.Ctl);
     }
 
     float get_OutA() const {

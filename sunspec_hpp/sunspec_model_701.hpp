@@ -105,19 +105,19 @@ public:
     }
 
     uint16_t get_raw_ACType() const {
-        return be16toh_custom_s(raw.ACType);
+        return be16toh_custom(raw.ACType);
     }
 
     uint16_t get_raw_St() const {
-        return be16toh_custom_s(raw.St);
+        return be16toh_custom(raw.St);
     }
 
     uint16_t get_raw_InvSt() const {
-        return be16toh_custom_s(raw.InvSt);
+        return be16toh_custom(raw.InvSt);
     }
 
     uint16_t get_raw_ConnSt() const {
-        return be16toh_custom_s(raw.ConnSt);
+        return be16toh_custom(raw.ConnSt);
     }
 
     float get_W() const {
@@ -496,6 +496,46 @@ public:
 
     uint16_t get_raw_ThrotPct() const {
         return be16toh_custom(raw.ThrotPct);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_Hz_SF() const {
+        return be16toh_custom_s(raw.Hz_SF);
+    }
+
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
+    }
+
+    int16_t get_raw_PF_SF() const {
+        return be16toh_custom_s(raw.PF_SF);
+    }
+
+    int16_t get_raw_VA_SF() const {
+        return be16toh_custom_s(raw.VA_SF);
+    }
+
+    int16_t get_raw_Var_SF() const {
+        return be16toh_custom_s(raw.Var_SF);
+    }
+
+    int16_t get_raw_TotWh_SF() const {
+        return be16toh_custom_s(raw.TotWh_SF);
+    }
+
+    int16_t get_raw_TotVarh_SF() const {
+        return be16toh_custom_s(raw.TotVarh_SF);
+    }
+
+    int16_t get_raw_Tmp_SF() const {
+        return be16toh_custom_s(raw.Tmp_SF);
     }
 
 };

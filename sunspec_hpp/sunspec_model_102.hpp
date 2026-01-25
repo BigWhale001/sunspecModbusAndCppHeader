@@ -121,6 +121,10 @@ public:
         return be16toh_custom(raw.AphC);
     }
 
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
     float get_PPVphAB() const {
         int16_t sf_val = be16toh_custom_s(raw.V_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -187,6 +191,10 @@ public:
         return be16toh_custom(raw.PhVphC);
     }
 
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
     float get_W() const {
         int16_t sf_val = be16toh_custom_s(raw.W_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -196,6 +204,10 @@ public:
 
     int16_t get_raw_W() const {
         return be16toh_custom_s(raw.W);
+    }
+
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
     }
 
     float get_Hz() const {
@@ -209,6 +221,10 @@ public:
         return be16toh_custom(raw.Hz);
     }
 
+    int16_t get_raw_Hz_SF() const {
+        return be16toh_custom_s(raw.Hz_SF);
+    }
+
     float get_VA() const {
         int16_t sf_val = be16toh_custom_s(raw.VA_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -218,6 +234,10 @@ public:
 
     int16_t get_raw_VA() const {
         return be16toh_custom_s(raw.VA);
+    }
+
+    int16_t get_raw_VA_SF() const {
+        return be16toh_custom_s(raw.VA_SF);
     }
 
     float get_VAr() const {
@@ -231,6 +251,10 @@ public:
         return be16toh_custom_s(raw.VAr);
     }
 
+    int16_t get_raw_VAr_SF() const {
+        return be16toh_custom_s(raw.VAr_SF);
+    }
+
     float get_PF() const {
         int16_t sf_val = be16toh_custom_s(raw.PF_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -240,6 +264,14 @@ public:
 
     int16_t get_raw_PF() const {
         return be16toh_custom_s(raw.PF);
+    }
+
+    int16_t get_raw_PF_SF() const {
+        return be16toh_custom_s(raw.PF_SF);
+    }
+
+    int16_t get_raw_WH_SF() const {
+        return be16toh_custom_s(raw.WH_SF);
     }
 
     float get_DCA() const {
@@ -253,6 +285,10 @@ public:
         return be16toh_custom(raw.DCA);
     }
 
+    int16_t get_raw_DCA_SF() const {
+        return be16toh_custom_s(raw.DCA_SF);
+    }
+
     float get_DCV() const {
         int16_t sf_val = be16toh_custom_s(raw.DCV_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -264,6 +300,10 @@ public:
         return be16toh_custom(raw.DCV);
     }
 
+    int16_t get_raw_DCV_SF() const {
+        return be16toh_custom_s(raw.DCV_SF);
+    }
+
     float get_DCW() const {
         int16_t sf_val = be16toh_custom_s(raw.DCW_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -273,6 +313,10 @@ public:
 
     int16_t get_raw_DCW() const {
         return be16toh_custom_s(raw.DCW);
+    }
+
+    int16_t get_raw_DCW_SF() const {
+        return be16toh_custom_s(raw.DCW_SF);
     }
 
     float get_TmpCab() const {
@@ -319,12 +363,16 @@ public:
         return be16toh_custom_s(raw.TmpOt);
     }
 
+    int16_t get_raw_Tmp_SF() const {
+        return be16toh_custom_s(raw.Tmp_SF);
+    }
+
     uint16_t get_raw_St() const {
-        return be16toh_custom_s(raw.St);
+        return be16toh_custom(raw.St);
     }
 
     uint16_t get_raw_StVnd() const {
-        return be16toh_custom_s(raw.StVnd);
+        return be16toh_custom(raw.StVnd);
     }
 
 };

@@ -46,7 +46,7 @@ public:
     }
 
     uint16_t get_raw_ES() const {
-        return be16toh_custom_s(raw.ES);
+        return be16toh_custom(raw.ES);
     }
 
     float get_ESVHi() const {
@@ -69,6 +69,14 @@ public:
 
     uint16_t get_raw_ESVLo() const {
         return be16toh_custom(raw.ESVLo);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_Hz_SF() const {
+        return be16toh_custom_s(raw.Hz_SF);
     }
 
 };

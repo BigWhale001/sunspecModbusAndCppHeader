@@ -66,11 +66,11 @@ public:
     }
 
     uint16_t get_raw_St() const {
-        return be16toh_custom_s(raw.St);
+        return be16toh_custom(raw.St);
     }
 
     uint16_t get_raw_StVnd() const {
-        return be16toh_custom_s(raw.StVnd);
+        return be16toh_custom(raw.StVnd);
     }
 
 };

@@ -92,7 +92,7 @@ public:
     }
 
     uint16_t get_raw_StorCtl_Mod() const {
-        return be16toh_custom_s(raw.StorCtl_Mod);
+        return be16toh_custom(raw.StorCtl_Mod);
     }
 
     float get_VAChaMax() const {
@@ -151,7 +151,7 @@ public:
     }
 
     uint16_t get_raw_ChaSt() const {
-        return be16toh_custom_s(raw.ChaSt);
+        return be16toh_custom(raw.ChaSt);
     }
 
     float get_OutWRte() const {
@@ -189,7 +189,39 @@ public:
     }
 
     uint16_t get_raw_ChaGriSet() const {
-        return be16toh_custom_s(raw.ChaGriSet);
+        return be16toh_custom(raw.ChaGriSet);
+    }
+
+    int16_t get_raw_WChaMax_SF() const {
+        return be16toh_custom_s(raw.WChaMax_SF);
+    }
+
+    int16_t get_raw_WChaDisChaGra_SF() const {
+        return be16toh_custom_s(raw.WChaDisChaGra_SF);
+    }
+
+    int16_t get_raw_VAChaMax_SF() const {
+        return be16toh_custom_s(raw.VAChaMax_SF);
+    }
+
+    int16_t get_raw_MinRsvPct_SF() const {
+        return be16toh_custom_s(raw.MinRsvPct_SF);
+    }
+
+    int16_t get_raw_ChaState_SF() const {
+        return be16toh_custom_s(raw.ChaState_SF);
+    }
+
+    int16_t get_raw_StorAval_SF() const {
+        return be16toh_custom_s(raw.StorAval_SF);
+    }
+
+    int16_t get_raw_InBatV_SF() const {
+        return be16toh_custom_s(raw.InBatV_SF);
+    }
+
+    int16_t get_raw_InOutWRte_SF() const {
+        return be16toh_custom_s(raw.InOutWRte_SF);
     }
 
 };

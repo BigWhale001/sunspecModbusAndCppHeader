@@ -61,7 +61,7 @@ public:
     }
 
     uint16_t get_raw_Typ() const {
-        return be16toh_custom_s(raw.Typ);
+        return be16toh_custom(raw.Typ);
     }
 
     uint16_t get_raw_Day() const {
@@ -69,11 +69,15 @@ public:
     }
 
     uint16_t get_raw_GlblCtl() const {
-        return be16toh_custom_s(raw.GlblCtl);
+        return be16toh_custom(raw.GlblCtl);
     }
 
     uint16_t get_raw_GlblAlm() const {
-        return be16toh_custom_s(raw.GlblAlm);
+        return be16toh_custom(raw.GlblAlm);
+    }
+
+    int16_t get_raw_Dgr_SF() const {
+        return be16toh_custom_s(raw.Dgr_SF);
     }
 
     uint16_t get_raw_N() const {

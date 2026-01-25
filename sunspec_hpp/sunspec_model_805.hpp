@@ -211,6 +211,30 @@ public:
         return be16toh_custom(raw.NCellBal);
     }
 
+    int16_t get_raw_SoC_SF() const {
+        return be16toh_custom_s(raw.SoC_SF);
+    }
+
+    int16_t get_raw_SoH_SF() const {
+        return be16toh_custom_s(raw.SoH_SF);
+    }
+
+    int16_t get_raw_DoD_SF() const {
+        return be16toh_custom_s(raw.DoD_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_CellV_SF() const {
+        return be16toh_custom_s(raw.CellV_SF);
+    }
+
+    int16_t get_raw_Tmp_SF() const {
+        return be16toh_custom_s(raw.Tmp_SF);
+    }
+
     // Accessor for repeating group: lithium_ion_module_cell
     static const Model805_lithium_ion_module_cell_Raw* get_lithium_ion_module_cell(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model805_lithium_ion_module_cell_Raw*>(base_buffer + offset_bytes + index * sizeof(Model805_lithium_ion_module_cell_Raw));

@@ -235,6 +235,30 @@ public:
         return be16toh_custom(raw.NCellBal);
     }
 
+    int16_t get_raw_CellV_SF() const {
+        return be16toh_custom_s(raw.CellV_SF);
+    }
+
+    int16_t get_raw_ModTmp_SF() const {
+        return be16toh_custom_s(raw.ModTmp_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_SoH_SF() const {
+        return be16toh_custom_s(raw.SoH_SF);
+    }
+
+    int16_t get_raw_SoC_SF() const {
+        return be16toh_custom_s(raw.SoC_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
     // Accessor for repeating group: string
     static const Model803_string_Raw* get_string(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model803_string_Raw*>(base_buffer + offset_bytes + index * sizeof(Model803_string_Raw));

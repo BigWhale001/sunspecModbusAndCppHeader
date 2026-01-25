@@ -56,6 +56,18 @@ public:
         return be16toh_custom(raw.L);
     }
 
+    int16_t get_raw_DCA_SF() const {
+        return be16toh_custom_s(raw.DCA_SF);
+    }
+
+    int16_t get_raw_DCAhr_SF() const {
+        return be16toh_custom_s(raw.DCAhr_SF);
+    }
+
+    int16_t get_raw_DCV_SF() const {
+        return be16toh_custom_s(raw.DCV_SF);
+    }
+
     float get_DCAMax() const {
         int16_t sf_val = be16toh_custom_s(raw.DCA_SF);
         if (sf_val == (int16_t)0x8000) return NAN;

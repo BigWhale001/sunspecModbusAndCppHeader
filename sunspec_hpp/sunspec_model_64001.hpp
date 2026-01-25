@@ -70,7 +70,7 @@ public:
     }
 
     uint16_t get_raw_Cmd() const {
-        return be16toh_custom_s(raw.Cmd);
+        return be16toh_custom(raw.Cmd);
     }
 
     uint16_t get_raw_HWRev() const {
@@ -90,7 +90,7 @@ public:
     }
 
     uint16_t get_raw_Switch() const {
-        return be16toh_custom_s(raw.Switch);
+        return be16toh_custom(raw.Switch);
     }
 
     uint16_t get_raw_Sensors() const {
@@ -102,11 +102,11 @@ public:
     }
 
     uint16_t get_raw_Status() const {
-        return be16toh_custom_s(raw.Status);
+        return be16toh_custom(raw.Status);
     }
 
     uint16_t get_raw_Config() const {
-        return be16toh_custom_s(raw.Config);
+        return be16toh_custom(raw.Config);
     }
 
     uint16_t get_raw_LEDblink() const {
@@ -122,7 +122,7 @@ public:
     }
 
     uint16_t get_raw_S1ID() const {
-        return be16toh_custom_s(raw.S1ID);
+        return be16toh_custom(raw.S1ID);
     }
 
     uint16_t get_raw_S1Addr() const {
@@ -134,7 +134,7 @@ public:
     }
 
     uint16_t get_raw_S2ID() const {
-        return be16toh_custom_s(raw.S2ID);
+        return be16toh_custom(raw.S2ID);
     }
 
     uint16_t get_raw_S2Addr() const {
@@ -146,7 +146,7 @@ public:
     }
 
     uint16_t get_raw_S3ID() const {
-        return be16toh_custom_s(raw.S3ID);
+        return be16toh_custom(raw.S3ID);
     }
 
     uint16_t get_raw_S3Addr() const {
@@ -158,7 +158,7 @@ public:
     }
 
     uint16_t get_raw_S4ID() const {
-        return be16toh_custom_s(raw.S4ID);
+        return be16toh_custom(raw.S4ID);
     }
 
     uint16_t get_raw_S4Addr() const {

@@ -71,6 +71,26 @@ public:
         return be16toh_custom(raw.L);
     }
 
+    int16_t get_raw_DCA_SF() const {
+        return be16toh_custom_s(raw.DCA_SF);
+    }
+
+    int16_t get_raw_DCAhr_SF() const {
+        return be16toh_custom_s(raw.DCAhr_SF);
+    }
+
+    int16_t get_raw_DCV_SF() const {
+        return be16toh_custom_s(raw.DCV_SF);
+    }
+
+    int16_t get_raw_DCW_SF() const {
+        return be16toh_custom_s(raw.DCW_SF);
+    }
+
+    int16_t get_raw_DCWh_SF() const {
+        return be16toh_custom_s(raw.DCWh_SF);
+    }
+
     float get_DCAMax() const {
         int16_t sf_val = be16toh_custom_s(raw.DCA_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -121,6 +141,26 @@ public:
 
     int16_t get_raw_DCPR() const {
         return be16toh_custom_s(raw.DCPR);
+    }
+
+    int16_t get_raw_InDCA_SF() const {
+        return be16toh_custom_s(raw.InDCA_SF);
+    }
+
+    int16_t get_raw_InDCAhr_SF() const {
+        return be16toh_custom_s(raw.InDCAhr_SF);
+    }
+
+    int16_t get_raw_InDCV_SF() const {
+        return be16toh_custom_s(raw.InDCV_SF);
+    }
+
+    int16_t get_raw_InDCW_SF() const {
+        return be16toh_custom_s(raw.InDCW_SF);
+    }
+
+    int16_t get_raw_InDCWh_SF() const {
+        return be16toh_custom_s(raw.InDCWh_SF);
     }
 
     // Accessor for repeating group: string

@@ -315,7 +315,7 @@ public:
     }
 
     uint16_t get_raw_Alg() const {
-        return be16toh_custom_s(raw.Alg);
+        return be16toh_custom(raw.Alg);
     }
 
     uint16_t get_raw_N() const {

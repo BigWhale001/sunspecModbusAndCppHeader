@@ -119,4 +119,8 @@ public:
         return be16toh_custom(raw.AGra);
     }
 
+    int16_t get_raw_Rmp_SF() const {
+        return be16toh_custom_s(raw.Rmp_SF);
+    }
+
 };

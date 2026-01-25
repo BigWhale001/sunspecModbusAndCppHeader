@@ -43,11 +43,11 @@ public:
     }
 
     uint16_t get_raw_ModEna() const {
-        return be16toh_custom_s(raw.ModEna);
+        return be16toh_custom(raw.ModEna);
     }
 
     uint16_t get_raw_SigType() const {
-        return be16toh_custom_s(raw.SigType);
+        return be16toh_custom(raw.SigType);
     }
 
     float get_Sig() const {
@@ -71,6 +71,10 @@ public:
 
     uint16_t get_raw_RmpTms() const {
         return be16toh_custom(raw.RmpTms);
+    }
+
+    int16_t get_raw_Sig_SF() const {
+        return be16toh_custom_s(raw.Sig_SF);
     }
 
 };

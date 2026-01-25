@@ -44,7 +44,7 @@ public:
     }
 
     uint16_t get_raw_Fmt() const {
-        return be16toh_custom_s(raw.Fmt);
+        return be16toh_custom(raw.Fmt);
     }
 
     uint16_t get_raw_N() const {

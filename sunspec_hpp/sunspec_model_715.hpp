@@ -40,7 +40,7 @@ public:
     }
 
     uint16_t get_raw_LocRemCtl() const {
-        return be16toh_custom_s(raw.LocRemCtl);
+        return be16toh_custom(raw.LocRemCtl);
     }
 
     uint16_t get_raw_AlarmReset() const {
@@ -48,7 +48,7 @@ public:
     }
 
     uint16_t get_raw_OpCtl() const {
-        return be16toh_custom_s(raw.OpCtl);
+        return be16toh_custom(raw.OpCtl);
     }
 
 };

@@ -61,7 +61,7 @@ public:
     }
 
     uint16_t get_raw_DERTyp() const {
-        return be16toh_custom_s(raw.DERTyp);
+        return be16toh_custom(raw.DERTyp);
     }
 
     float get_WRtg() const {
@@ -75,6 +75,10 @@ public:
         return be16toh_custom(raw.WRtg);
     }
 
+    int16_t get_raw_WRtg_SF() const {
+        return be16toh_custom_s(raw.WRtg_SF);
+    }
+
     float get_VARtg() const {
         int16_t sf_val = be16toh_custom_s(raw.VARtg_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -84,6 +88,10 @@ public:
 
     uint16_t get_raw_VARtg() const {
         return be16toh_custom(raw.VARtg);
+    }
+
+    int16_t get_raw_VARtg_SF() const {
+        return be16toh_custom_s(raw.VARtg_SF);
     }
 
     float get_VArRtgQ1() const {
@@ -130,6 +138,10 @@ public:
         return be16toh_custom_s(raw.VArRtgQ4);
     }
 
+    int16_t get_raw_VArRtg_SF() const {
+        return be16toh_custom_s(raw.VArRtg_SF);
+    }
+
     float get_ARtg() const {
         int16_t sf_val = be16toh_custom_s(raw.ARtg_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -139,6 +151,10 @@ public:
 
     uint16_t get_raw_ARtg() const {
         return be16toh_custom(raw.ARtg);
+    }
+
+    int16_t get_raw_ARtg_SF() const {
+        return be16toh_custom_s(raw.ARtg_SF);
     }
 
     float get_PFRtgQ1() const {
@@ -185,6 +201,10 @@ public:
         return be16toh_custom_s(raw.PFRtgQ4);
     }
 
+    int16_t get_raw_PFRtg_SF() const {
+        return be16toh_custom_s(raw.PFRtg_SF);
+    }
+
     float get_WHRtg() const {
         int16_t sf_val = be16toh_custom_s(raw.WHRtg_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -194,6 +214,10 @@ public:
 
     uint16_t get_raw_WHRtg() const {
         return be16toh_custom(raw.WHRtg);
+    }
+
+    int16_t get_raw_WHRtg_SF() const {
+        return be16toh_custom_s(raw.WHRtg_SF);
     }
 
     float get_AhrRtg() const {
@@ -207,6 +231,10 @@ public:
         return be16toh_custom(raw.AhrRtg);
     }
 
+    int16_t get_raw_AhrRtg_SF() const {
+        return be16toh_custom_s(raw.AhrRtg_SF);
+    }
+
     float get_MaxChaRte() const {
         int16_t sf_val = be16toh_custom_s(raw.MaxChaRte_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -218,6 +246,10 @@ public:
         return be16toh_custom(raw.MaxChaRte);
     }
 
+    int16_t get_raw_MaxChaRte_SF() const {
+        return be16toh_custom_s(raw.MaxChaRte_SF);
+    }
+
     float get_MaxDisChaRte() const {
         int16_t sf_val = be16toh_custom_s(raw.MaxDisChaRte_SF);
         if (sf_val == (int16_t)0x8000) return NAN;
@@ -227,6 +259,10 @@ public:
 
     uint16_t get_raw_MaxDisChaRte() const {
         return be16toh_custom(raw.MaxDisChaRte);
+    }
+
+    int16_t get_raw_MaxDisChaRte_SF() const {
+        return be16toh_custom_s(raw.MaxDisChaRte_SF);
     }
 
 };

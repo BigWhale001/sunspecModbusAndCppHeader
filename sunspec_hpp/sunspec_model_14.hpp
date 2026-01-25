@@ -43,15 +43,15 @@ public:
     }
 
     uint16_t get_raw_Cap() const {
-        return be16toh_custom_s(raw.Cap);
+        return be16toh_custom(raw.Cap);
     }
 
     uint16_t get_raw_Cfg() const {
-        return be16toh_custom_s(raw.Cfg);
+        return be16toh_custom(raw.Cfg);
     }
 
     uint16_t get_raw_Typ() const {
-        return be16toh_custom_s(raw.Typ);
+        return be16toh_custom(raw.Typ);
     }
 
     uint16_t get_raw_Port() const {

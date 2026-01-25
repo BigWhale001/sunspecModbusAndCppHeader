@@ -78,7 +78,7 @@ public:
     }
 
     uint16_t get_raw_ModEna() const {
-        return be16toh_custom_s(raw.ModEna);
+        return be16toh_custom(raw.ModEna);
     }
 
     uint16_t get_raw_NSchd() const {

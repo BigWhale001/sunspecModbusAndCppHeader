@@ -47,23 +47,23 @@ public:
     }
 
     uint16_t get_raw_Pty() const {
-        return be16toh_custom_s(raw.Pty);
+        return be16toh_custom(raw.Pty);
     }
 
     uint16_t get_raw_Dup() const {
-        return be16toh_custom_s(raw.Dup);
+        return be16toh_custom(raw.Dup);
     }
 
     uint16_t get_raw_Flw() const {
-        return be16toh_custom_s(raw.Flw);
+        return be16toh_custom(raw.Flw);
     }
 
     uint16_t get_raw_Typ() const {
-        return be16toh_custom_s(raw.Typ);
+        return be16toh_custom(raw.Typ);
     }
 
     uint16_t get_raw_Pcol() const {
-        return be16toh_custom_s(raw.Pcol);
+        return be16toh_custom(raw.Pcol);
     }
 
 };

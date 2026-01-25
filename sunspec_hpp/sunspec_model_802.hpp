@@ -223,11 +223,11 @@ public:
     }
 
     uint16_t get_raw_ChaSt() const {
-        return be16toh_custom_s(raw.ChaSt);
+        return be16toh_custom(raw.ChaSt);
     }
 
     uint16_t get_raw_LocRemCtl() const {
-        return be16toh_custom_s(raw.LocRemCtl);
+        return be16toh_custom(raw.LocRemCtl);
     }
 
     uint16_t get_raw_Hb() const {
@@ -243,15 +243,15 @@ public:
     }
 
     uint16_t get_raw_Typ() const {
-        return be16toh_custom_s(raw.Typ);
+        return be16toh_custom(raw.Typ);
     }
 
     uint16_t get_raw_State() const {
-        return be16toh_custom_s(raw.State);
+        return be16toh_custom(raw.State);
     }
 
     uint16_t get_raw_StateVnd() const {
-        return be16toh_custom_s(raw.StateVnd);
+        return be16toh_custom(raw.StateVnd);
     }
 
     float get_V() const {
@@ -381,7 +381,7 @@ public:
     }
 
     uint16_t get_raw_ReqInvState() const {
-        return be16toh_custom_s(raw.ReqInvState);
+        return be16toh_custom(raw.ReqInvState);
     }
 
     float get_ReqW() const {
@@ -396,11 +396,59 @@ public:
     }
 
     uint16_t get_raw_SetOp() const {
-        return be16toh_custom_s(raw.SetOp);
+        return be16toh_custom(raw.SetOp);
     }
 
     uint16_t get_raw_SetInvState() const {
-        return be16toh_custom_s(raw.SetInvState);
+        return be16toh_custom(raw.SetInvState);
+    }
+
+    int16_t get_raw_AHRtg_SF() const {
+        return be16toh_custom_s(raw.AHRtg_SF);
+    }
+
+    int16_t get_raw_WHRtg_SF() const {
+        return be16toh_custom_s(raw.WHRtg_SF);
+    }
+
+    int16_t get_raw_WChaDisChaMax_SF() const {
+        return be16toh_custom_s(raw.WChaDisChaMax_SF);
+    }
+
+    int16_t get_raw_DisChaRte_SF() const {
+        return be16toh_custom_s(raw.DisChaRte_SF);
+    }
+
+    int16_t get_raw_SoC_SF() const {
+        return be16toh_custom_s(raw.SoC_SF);
+    }
+
+    int16_t get_raw_DoD_SF() const {
+        return be16toh_custom_s(raw.DoD_SF);
+    }
+
+    int16_t get_raw_SoH_SF() const {
+        return be16toh_custom_s(raw.SoH_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_CellV_SF() const {
+        return be16toh_custom_s(raw.CellV_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_AMax_SF() const {
+        return be16toh_custom_s(raw.AMax_SF);
+    }
+
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
     }
 
 };

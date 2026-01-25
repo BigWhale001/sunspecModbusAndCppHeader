@@ -67,7 +67,7 @@ public:
     }
 
     uint16_t get_raw_Conn() const {
-        return be16toh_custom_s(raw.Conn);
+        return be16toh_custom(raw.Conn);
     }
 
     float get_WMaxLimPct() const {
@@ -94,7 +94,7 @@ public:
     }
 
     uint16_t get_raw_WMaxLim_Ena() const {
-        return be16toh_custom_s(raw.WMaxLim_Ena);
+        return be16toh_custom(raw.WMaxLim_Ena);
     }
 
     float get_OutPFSet() const {
@@ -121,7 +121,7 @@ public:
     }
 
     uint16_t get_raw_OutPFSet_Ena() const {
-        return be16toh_custom_s(raw.OutPFSet_Ena);
+        return be16toh_custom(raw.OutPFSet_Ena);
     }
 
     float get_VArWMaxPct() const {
@@ -170,11 +170,23 @@ public:
     }
 
     uint16_t get_raw_VArPct_Mod() const {
-        return be16toh_custom_s(raw.VArPct_Mod);
+        return be16toh_custom(raw.VArPct_Mod);
     }
 
     uint16_t get_raw_VArPct_Ena() const {
-        return be16toh_custom_s(raw.VArPct_Ena);
+        return be16toh_custom(raw.VArPct_Ena);
+    }
+
+    int16_t get_raw_WMaxLimPct_SF() const {
+        return be16toh_custom_s(raw.WMaxLimPct_SF);
+    }
+
+    int16_t get_raw_OutPFSet_SF() const {
+        return be16toh_custom_s(raw.OutPFSet_SF);
+    }
+
+    int16_t get_raw_VArPct_SF() const {
+        return be16toh_custom_s(raw.VArPct_SF);
     }
 
 };

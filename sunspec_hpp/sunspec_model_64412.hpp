@@ -78,175 +78,175 @@ public:
     }
 
     uint16_t get_raw_DAManipulation() const {
-        return be16toh_custom_s(raw.DAManipulation);
+        return be16toh_custom(raw.DAManipulation);
     }
 
     uint16_t get_raw_FalsifyDeviceIdentity() const {
-        return be16toh_custom_s(raw.FalsifyDeviceIdentity);
+        return be16toh_custom(raw.FalsifyDeviceIdentity);
     }
 
     uint16_t get_raw_MeasPAlwaysNameplate() const {
-        return be16toh_custom_s(raw.MeasPAlwaysNameplate);
+        return be16toh_custom(raw.MeasPAlwaysNameplate);
     }
 
     uint16_t get_raw_MeasQAlwaysMinimum() const {
-        return be16toh_custom_s(raw.MeasQAlwaysMinimum);
+        return be16toh_custom(raw.MeasQAlwaysMinimum);
     }
 
     uint16_t get_raw_MeasQAlwaysMaximum() const {
-        return be16toh_custom_s(raw.MeasQAlwaysMaximum);
+        return be16toh_custom(raw.MeasQAlwaysMaximum);
     }
 
     uint16_t get_raw_MeasQAlwaysZero() const {
-        return be16toh_custom_s(raw.MeasQAlwaysZero);
+        return be16toh_custom(raw.MeasQAlwaysZero);
     }
 
     uint16_t get_raw_MeasZeroP() const {
-        return be16toh_custom_s(raw.MeasZeroP);
+        return be16toh_custom(raw.MeasZeroP);
     }
 
     uint16_t get_raw_MeasInvertQ() const {
-        return be16toh_custom_s(raw.MeasInvertQ);
+        return be16toh_custom(raw.MeasInvertQ);
     }
 
     uint16_t get_raw_MeasLowV() const {
-        return be16toh_custom_s(raw.MeasLowV);
+        return be16toh_custom(raw.MeasLowV);
     }
 
     uint16_t get_raw_MeasHighV() const {
-        return be16toh_custom_s(raw.MeasHighV);
+        return be16toh_custom(raw.MeasHighV);
     }
 
     uint16_t get_raw_MeasLowL1V() const {
-        return be16toh_custom_s(raw.MeasLowL1V);
+        return be16toh_custom(raw.MeasLowL1V);
     }
 
     uint16_t get_raw_MeasHighL1V() const {
-        return be16toh_custom_s(raw.MeasHighL1V);
+        return be16toh_custom(raw.MeasHighL1V);
     }
 
     uint16_t get_raw_MeasLowF() const {
-        return be16toh_custom_s(raw.MeasLowF);
+        return be16toh_custom(raw.MeasLowF);
     }
 
     uint16_t get_raw_MeasHighF() const {
-        return be16toh_custom_s(raw.MeasHighF);
+        return be16toh_custom(raw.MeasHighF);
     }
 
     uint16_t get_raw_MeasLowAmps() const {
-        return be16toh_custom_s(raw.MeasLowAmps);
+        return be16toh_custom(raw.MeasLowAmps);
     }
 
     uint16_t get_raw_MeasHighAmps() const {
-        return be16toh_custom_s(raw.MeasHighAmps);
+        return be16toh_custom(raw.MeasHighAmps);
     }
 
     uint16_t get_raw_MeasHighS() const {
-        return be16toh_custom_s(raw.MeasHighS);
+        return be16toh_custom(raw.MeasHighS);
     }
 
     uint16_t get_raw_MeasLowS() const {
-        return be16toh_custom_s(raw.MeasLowS);
+        return be16toh_custom(raw.MeasLowS);
     }
 
     uint16_t get_raw_MeasHighQ() const {
-        return be16toh_custom_s(raw.MeasHighQ);
+        return be16toh_custom(raw.MeasHighQ);
     }
 
     uint16_t get_raw_MeasLowQ() const {
-        return be16toh_custom_s(raw.MeasLowQ);
+        return be16toh_custom(raw.MeasLowQ);
     }
 
     uint16_t get_raw_MeasLowPF() const {
-        return be16toh_custom_s(raw.MeasLowPF);
+        return be16toh_custom(raw.MeasLowPF);
     }
 
     uint16_t get_raw_MeasLowReversedPF() const {
-        return be16toh_custom_s(raw.MeasLowReversedPF);
+        return be16toh_custom(raw.MeasLowReversedPF);
     }
 
     uint16_t get_raw_NameplateHighP() const {
-        return be16toh_custom_s(raw.NameplateHighP);
+        return be16toh_custom(raw.NameplateHighP);
     }
 
     uint16_t get_raw_NameplateLowP() const {
-        return be16toh_custom_s(raw.NameplateLowP);
+        return be16toh_custom(raw.NameplateLowP);
     }
 
     uint16_t get_raw_NameplateHighS() const {
-        return be16toh_custom_s(raw.NameplateHighS);
+        return be16toh_custom(raw.NameplateHighS);
     }
 
     uint16_t get_raw_NameplateLowS() const {
-        return be16toh_custom_s(raw.NameplateLowS);
+        return be16toh_custom(raw.NameplateLowS);
     }
 
     uint16_t get_raw_NameplateHighQ() const {
-        return be16toh_custom_s(raw.NameplateHighQ);
+        return be16toh_custom(raw.NameplateHighQ);
     }
 
     uint16_t get_raw_NameplateLowQ() const {
-        return be16toh_custom_s(raw.NameplateLowQ);
+        return be16toh_custom(raw.NameplateLowQ);
     }
 
     uint16_t get_raw_NameplateHighNomV() const {
-        return be16toh_custom_s(raw.NameplateHighNomV);
+        return be16toh_custom(raw.NameplateHighNomV);
     }
 
     uint16_t get_raw_NameplateLowNomV() const {
-        return be16toh_custom_s(raw.NameplateLowNomV);
+        return be16toh_custom(raw.NameplateLowNomV);
     }
 
     uint16_t get_raw_NameplateLowAmps() const {
-        return be16toh_custom_s(raw.NameplateLowAmps);
+        return be16toh_custom(raw.NameplateLowAmps);
     }
 
     uint16_t get_raw_NameplateLowVarmaxinj() const {
-        return be16toh_custom_s(raw.NameplateLowVarmaxinj);
+        return be16toh_custom(raw.NameplateLowVarmaxinj);
     }
 
     uint16_t get_raw_NameplateLowVarmaxabs() const {
-        return be16toh_custom_s(raw.NameplateLowVarmaxabs);
+        return be16toh_custom(raw.NameplateLowVarmaxabs);
     }
 
     uint16_t get_raw_NameplateLowPF() const {
-        return be16toh_custom_s(raw.NameplateLowPF);
+        return be16toh_custom(raw.NameplateLowPF);
     }
 
     uint16_t get_raw_SettingsHighNomV() const {
-        return be16toh_custom_s(raw.SettingsHighNomV);
+        return be16toh_custom(raw.SettingsHighNomV);
     }
 
     uint16_t get_raw_SettingsLowAmps() const {
-        return be16toh_custom_s(raw.SettingsLowAmps);
+        return be16toh_custom(raw.SettingsLowAmps);
     }
 
     uint16_t get_raw_SettingsHighP() const {
-        return be16toh_custom_s(raw.SettingsHighP);
+        return be16toh_custom(raw.SettingsHighP);
     }
 
     uint16_t get_raw_SettingsLowP() const {
-        return be16toh_custom_s(raw.SettingsLowP);
+        return be16toh_custom(raw.SettingsLowP);
     }
 
     uint16_t get_raw_SettingsHighVAMax() const {
-        return be16toh_custom_s(raw.SettingsHighVAMax);
+        return be16toh_custom(raw.SettingsHighVAMax);
     }
 
     uint16_t get_raw_SettingsHighVarmaxinj() const {
-        return be16toh_custom_s(raw.SettingsHighVarmaxinj);
+        return be16toh_custom(raw.SettingsHighVarmaxinj);
     }
 
     uint16_t get_raw_SettingsHighVarmaxabs() const {
-        return be16toh_custom_s(raw.SettingsHighVarmaxabs);
+        return be16toh_custom(raw.SettingsHighVarmaxabs);
     }
 
     uint16_t get_raw_ChangeCommonModelID() const {
-        return be16toh_custom_s(raw.ChangeCommonModelID);
+        return be16toh_custom(raw.ChangeCommonModelID);
     }
 
     uint16_t get_raw_ChangeCommonModelLength() const {
-        return be16toh_custom_s(raw.ChangeCommonModelLength);
+        return be16toh_custom(raw.ChangeCommonModelLength);
     }
 
 };

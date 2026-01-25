@@ -233,6 +233,26 @@ public:
         return be16toh_custom_s(raw.TmpAvg);
     }
 
+    int16_t get_raw_ModV_SF() const {
+        return be16toh_custom_s(raw.ModV_SF);
+    }
+
+    int16_t get_raw_CellV_SF() const {
+        return be16toh_custom_s(raw.CellV_SF);
+    }
+
+    int16_t get_raw_Tmp_SF() const {
+        return be16toh_custom_s(raw.Tmp_SF);
+    }
+
+    int16_t get_raw_SoC_SF() const {
+        return be16toh_custom_s(raw.SoC_SF);
+    }
+
+    int16_t get_raw_OCV_SF() const {
+        return be16toh_custom_s(raw.OCV_SF);
+    }
+
     // Accessor for repeating group: module
     static const Model807_module_Raw* get_module(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model807_module_Raw*>(base_buffer + offset_bytes + index * sizeof(Model807_module_Raw));

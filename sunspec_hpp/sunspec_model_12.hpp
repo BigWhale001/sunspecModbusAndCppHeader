@@ -51,23 +51,23 @@ public:
     }
 
     uint16_t get_raw_CfgSt() const {
-        return be16toh_custom_s(raw.CfgSt);
+        return be16toh_custom(raw.CfgSt);
     }
 
     uint16_t get_raw_ChgSt() const {
-        return be16toh_custom_s(raw.ChgSt);
+        return be16toh_custom(raw.ChgSt);
     }
 
     uint16_t get_raw_Cap() const {
-        return be16toh_custom_s(raw.Cap);
+        return be16toh_custom(raw.Cap);
     }
 
     uint16_t get_raw_Cfg() const {
-        return be16toh_custom_s(raw.Cfg);
+        return be16toh_custom(raw.Cfg);
     }
 
     uint16_t get_raw_Ctl() const {
-        return be16toh_custom_s(raw.Ctl);
+        return be16toh_custom(raw.Ctl);
     }
 
 };

@@ -157,15 +157,15 @@ public:
     }
 
     uint16_t get_raw_Output() const {
-        return be16toh_custom_s(raw.Output);
+        return be16toh_custom(raw.Output);
     }
 
     uint16_t get_raw_Relay() const {
-        return be16toh_custom_s(raw.Relay);
+        return be16toh_custom(raw.Relay);
     }
 
     uint16_t get_raw_Regen() const {
-        return be16toh_custom_s(raw.Regen);
+        return be16toh_custom(raw.Regen);
     }
 
     float get_VSet() const {
@@ -301,11 +301,11 @@ public:
     }
 
     uint16_t get_raw_EnaProf() const {
-        return be16toh_custom_s(raw.EnaProf);
+        return be16toh_custom(raw.EnaProf);
     }
 
     uint16_t get_raw_ProfRslt() const {
-        return be16toh_custom_s(raw.ProfRslt);
+        return be16toh_custom(raw.ProfRslt);
     }
 
     uint16_t get_raw_NProf() const {
@@ -314,6 +314,34 @@ public:
 
     uint16_t get_raw_NPt() const {
         return be16toh_custom(raw.NPt);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_Tms_SF() const {
+        return be16toh_custom_s(raw.Tms_SF);
+    }
+
+    int16_t get_raw_Hz_SF() const {
+        return be16toh_custom_s(raw.Hz_SF);
+    }
+
+    int16_t get_raw_HzSlew_SF() const {
+        return be16toh_custom_s(raw.HzSlew_SF);
+    }
+
+    int16_t get_raw_VSlew_SF() const {
+        return be16toh_custom_s(raw.VSlew_SF);
+    }
+
+    int16_t get_raw_THD_SF() const {
+        return be16toh_custom_s(raw.THD_SF);
     }
 
     // Accessor for repeating group: Prof

@@ -58,7 +58,7 @@ public:
     }
 
     uint16_t get_raw_Ena() const {
-        return be16toh_custom_s(raw.Ena);
+        return be16toh_custom(raw.Ena);
     }
 
     uint16_t get_raw_AdptCtlReq() const {
@@ -66,7 +66,7 @@ public:
     }
 
     uint16_t get_raw_AdptCtlRslt() const {
-        return be16toh_custom_s(raw.AdptCtlRslt);
+        return be16toh_custom(raw.AdptCtlRslt);
     }
 
     uint16_t get_raw_NCtl() const {
@@ -75,6 +75,18 @@ public:
 
     uint16_t get_raw_RvrtCtl() const {
         return be16toh_custom(raw.RvrtCtl);
+    }
+
+    int16_t get_raw_Db_SF() const {
+        return be16toh_custom_s(raw.Db_SF);
+    }
+
+    int16_t get_raw_K_SF() const {
+        return be16toh_custom_s(raw.K_SF);
+    }
+
+    int16_t get_raw_RspTms_SF() const {
+        return be16toh_custom_s(raw.RspTms_SF);
     }
 
     // Accessor for repeating group: Ctl

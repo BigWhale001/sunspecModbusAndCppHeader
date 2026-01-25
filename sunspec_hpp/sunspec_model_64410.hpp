@@ -121,15 +121,15 @@ public:
     }
 
     uint16_t get_raw_Mode() const {
-        return be16toh_custom_s(raw.Mode);
+        return be16toh_custom(raw.Mode);
     }
 
     uint16_t get_raw_Ena() const {
-        return be16toh_custom_s(raw.Ena);
+        return be16toh_custom(raw.Ena);
     }
 
     uint16_t get_raw_Reset() const {
-        return be16toh_custom_s(raw.Reset);
+        return be16toh_custom(raw.Reset);
     }
 
     float get_VSet() const {
@@ -166,7 +166,7 @@ public:
     }
 
     uint16_t get_raw_EN50530() const {
-        return be16toh_custom_s(raw.EN50530);
+        return be16toh_custom(raw.EN50530);
     }
 
     float get_Vmpp() const {
@@ -236,7 +236,7 @@ public:
     }
 
     uint16_t get_raw_EnaProf() const {
-        return be16toh_custom_s(raw.EnaProf);
+        return be16toh_custom(raw.EnaProf);
     }
 
     uint16_t get_raw_AdptProfReq() const {
@@ -244,7 +244,7 @@ public:
     }
 
     uint16_t get_raw_AdptProfRslt() const {
-        return be16toh_custom_s(raw.AdptProfRslt);
+        return be16toh_custom(raw.AdptProfRslt);
     }
 
     uint16_t get_raw_NPt() const {
@@ -253,6 +253,42 @@ public:
 
     uint16_t get_raw_NProf() const {
         return be16toh_custom(raw.NProf);
+    }
+
+    int16_t get_raw_W_SF() const {
+        return be16toh_custom_s(raw.W_SF);
+    }
+
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_A_SF() const {
+        return be16toh_custom_s(raw.A_SF);
+    }
+
+    int16_t get_raw_G_SF() const {
+        return be16toh_custom_s(raw.G_SF);
+    }
+
+    int16_t get_raw_Tms_SF() const {
+        return be16toh_custom_s(raw.Tms_SF);
+    }
+
+    int16_t get_raw_VSlew_SF() const {
+        return be16toh_custom_s(raw.VSlew_SF);
+    }
+
+    int16_t get_raw_PSlew_SF() const {
+        return be16toh_custom_s(raw.PSlew_SF);
+    }
+
+    int16_t get_raw_ISlew_SF() const {
+        return be16toh_custom_s(raw.ISlew_SF);
+    }
+
+    int16_t get_raw_Pct_SF() const {
+        return be16toh_custom_s(raw.Pct_SF);
     }
 
     // Accessor for repeating group: Prof

@@ -57,6 +57,22 @@ public:
         return be16toh_custom(raw.L);
     }
 
+    int16_t get_raw_DCA_SF() const {
+        return be16toh_custom_s(raw.DCA_SF);
+    }
+
+    int16_t get_raw_DCV_SF() const {
+        return be16toh_custom_s(raw.DCV_SF);
+    }
+
+    int16_t get_raw_DCW_SF() const {
+        return be16toh_custom_s(raw.DCW_SF);
+    }
+
+    int16_t get_raw_DCWH_SF() const {
+        return be16toh_custom_s(raw.DCWH_SF);
+    }
+
     uint16_t get_raw_TmsPer() const {
         return be16toh_custom(raw.TmsPer);
     }

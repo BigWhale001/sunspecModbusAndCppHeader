@@ -86,7 +86,15 @@ public:
     }
 
     uint16_t get_raw_Sta() const {
-        return be16toh_custom_s(raw.Sta);
+        return be16toh_custom(raw.Sta);
+    }
+
+    int16_t get_raw_WH_SF() const {
+        return be16toh_custom_s(raw.WH_SF);
+    }
+
+    int16_t get_raw_Pct_SF() const {
+        return be16toh_custom_s(raw.Pct_SF);
     }
 
 };

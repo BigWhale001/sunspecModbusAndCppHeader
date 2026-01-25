@@ -141,11 +141,11 @@ public:
     }
 
     uint16_t get_raw_Fmt() const {
-        return be16toh_custom_s(raw.Fmt);
+        return be16toh_custom(raw.Fmt);
     }
 
     uint16_t get_raw_Typ() const {
-        return be16toh_custom_s(raw.Typ);
+        return be16toh_custom(raw.Typ);
     }
 
     uint16_t get_raw_TotLn() const {
@@ -485,7 +485,7 @@ public:
     }
 
     uint16_t get_raw_Alg() const {
-        return be16toh_custom_s(raw.Alg);
+        return be16toh_custom(raw.Alg);
     }
 
     uint16_t get_raw_N() const {

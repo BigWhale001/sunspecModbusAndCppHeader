@@ -102,8 +102,32 @@ public:
         return be16toh_custom(raw.Port);
     }
 
+    int16_t get_raw_V_SF() const {
+        return be16toh_custom_s(raw.V_SF);
+    }
+
+    int16_t get_raw_C_SF() const {
+        return be16toh_custom_s(raw.C_SF);
+    }
+
+    int16_t get_raw_H_SF() const {
+        return be16toh_custom_s(raw.H_SF);
+    }
+
+    int16_t get_raw_P_SF() const {
+        return be16toh_custom_s(raw.P_SF);
+    }
+
+    int16_t get_raw_AH_SF() const {
+        return be16toh_custom_s(raw.AH_SF);
+    }
+
+    int16_t get_raw_KWH_SF() const {
+        return be16toh_custom_s(raw.KWH_SF);
+    }
+
     uint16_t get_raw_CC_Config_fault() const {
-        return be16toh_custom_s(raw.CC_Config_fault);
+        return be16toh_custom(raw.CC_Config_fault);
     }
 
     float get_CC_Config_absorb_V() const {
@@ -192,15 +216,15 @@ public:
     }
 
     uint16_t get_raw_CC_Config_MPPT_mode() const {
-        return be16toh_custom_s(raw.CC_Config_MPPT_mode);
+        return be16toh_custom(raw.CC_Config_MPPT_mode);
     }
 
     uint16_t get_raw_CC_Config_sweep_width() const {
-        return be16toh_custom_s(raw.CC_Config_sweep_width);
+        return be16toh_custom(raw.CC_Config_sweep_width);
     }
 
     uint16_t get_raw_CC_Config_sweep_max() const {
-        return be16toh_custom_s(raw.CC_Config_sweep_max);
+        return be16toh_custom(raw.CC_Config_sweep_max);
     }
 
     float get_CC_Config_U_Pick_Duty_cyc() const {
@@ -215,11 +239,11 @@ public:
     }
 
     uint16_t get_raw_CC_Config_grid_tie() const {
-        return be16toh_custom_s(raw.CC_Config_grid_tie);
+        return be16toh_custom(raw.CC_Config_grid_tie);
     }
 
     uint16_t get_raw_CC_Config_temp_comp() const {
-        return be16toh_custom_s(raw.CC_Config_temp_comp);
+        return be16toh_custom(raw.CC_Config_temp_comp);
     }
 
     float get_CC_Config_temp_comp_llimt() const {
@@ -245,7 +269,7 @@ public:
     }
 
     uint16_t get_raw_CC_Config_auto_restart() const {
-        return be16toh_custom_s(raw.CC_Config_auto_restart);
+        return be16toh_custom(raw.CC_Config_auto_restart);
     }
 
     float get_CC_Config_wakeup_VOC() const {
@@ -275,19 +299,19 @@ public:
     }
 
     uint16_t get_raw_CC_Config_AUX_mode() const {
-        return be16toh_custom_s(raw.CC_Config_AUX_mode);
+        return be16toh_custom(raw.CC_Config_AUX_mode);
     }
 
     uint16_t get_raw_CC_Config_AUX_control() const {
-        return be16toh_custom_s(raw.CC_Config_AUX_control);
+        return be16toh_custom(raw.CC_Config_AUX_control);
     }
 
     uint16_t get_raw_CC_Config_AUX_state() const {
-        return be16toh_custom_s(raw.CC_Config_AUX_state);
+        return be16toh_custom(raw.CC_Config_AUX_state);
     }
 
     uint16_t get_raw_CC_Config_AUX_polarity() const {
-        return be16toh_custom_s(raw.CC_Config_AUX_polarity);
+        return be16toh_custom(raw.CC_Config_AUX_polarity);
     }
 
     float get_CC_Config_AUX_L_Batt_disc() const {

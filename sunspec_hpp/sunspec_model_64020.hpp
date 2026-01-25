@@ -101,6 +101,18 @@ public:
         return be16toh_custom_s(raw.MainTmp);
     }
 
+    int16_t get_raw_SensorV_SF() const {
+        return be16toh_custom_s(raw.SensorV_SF);
+    }
+
+    int16_t get_raw_SensorA_SF() const {
+        return be16toh_custom_s(raw.SensorA_SF);
+    }
+
+    int16_t get_raw_SensorHz_SF() const {
+        return be16toh_custom_s(raw.SensorHz_SF);
+    }
+
     float get_Sensor1Voltage() const {
         int16_t sf_val = be16toh_custom_s(raw.SensorV_SF);
         if (sf_val == (int16_t)0x8000) return NAN;

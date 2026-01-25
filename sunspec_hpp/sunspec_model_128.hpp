@@ -49,7 +49,7 @@ public:
     }
 
     uint16_t get_raw_ArGraMod() const {
-        return be16toh_custom_s(raw.ArGraMod);
+        return be16toh_custom(raw.ArGraMod);
     }
 
     float get_ArGraSag() const {
@@ -75,7 +75,7 @@ public:
     }
 
     uint16_t get_raw_ModEna() const {
-        return be16toh_custom_s(raw.ModEna);
+        return be16toh_custom(raw.ModEna);
     }
 
     uint16_t get_raw_FilTms() const {
@@ -132,6 +132,14 @@ public:
 
     uint16_t get_raw_HoldTmms() const {
         return be16toh_custom(raw.HoldTmms);
+    }
+
+    int16_t get_raw_ArGra_SF() const {
+        return be16toh_custom_s(raw.ArGra_SF);
+    }
+
+    int16_t get_raw_VRefPct_SF() const {
+        return be16toh_custom_s(raw.VRefPct_SF);
     }
 
 };

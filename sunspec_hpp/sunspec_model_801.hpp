@@ -36,7 +36,7 @@ public:
     }
 
     uint16_t get_raw_DEPRECATED() const {
-        return be16toh_custom_s(raw.DEPRECATED);
+        return be16toh_custom(raw.DEPRECATED);
     }
 
 };
