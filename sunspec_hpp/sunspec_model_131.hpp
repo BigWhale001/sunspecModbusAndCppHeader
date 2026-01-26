@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -141,6 +142,21 @@ public:
     // Accessor for repeating group: curve
     static const Model131_curve_Raw* get_curve(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model131_curve_Raw*>(base_buffer + offset_bytes + index * sizeof(Model131_curve_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    ActCrv: " << be16toh_custom(raw.ActCrv) << std::endl;
+        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+        std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
+        std::cout << "    RvrtTms: " << be16toh_custom(raw.RvrtTms) << std::endl;
+        std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
+        std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
+        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+        std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
+        std::cout << "    RmpIncDec_SF: " << be16toh_custom_s(raw.RmpIncDec_SF) << std::endl;
     }
 
 };

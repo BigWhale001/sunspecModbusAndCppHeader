@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -300,6 +301,47 @@ public:
     // Accessor for repeating group: Prof_Pt
     static const Model64410_Prof_Pt_Raw* get_Prof_Pt(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model64410_Prof_Pt_Raw*>(base_buffer + offset_bytes + index * sizeof(Model64410_Prof_Pt_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    VMaxLim: " << be16toh_custom(raw.VMaxLim) << std::endl;
+        std::cout << "    PMaxLim: " << be16toh_custom(raw.PMaxLim) << std::endl;
+        std::cout << "    IMaxLim: " << be16toh_custom(raw.IMaxLim) << std::endl;
+        std::cout << "    Mode: " << be16toh_custom(raw.Mode) << std::endl;
+        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+        std::cout << "    Reset: " << be16toh_custom(raw.Reset) << std::endl;
+        std::cout << "    VSet: " << be16toh_custom(raw.VSet) << std::endl;
+        std::cout << "    PSet: " << be16toh_custom(raw.PSet) << std::endl;
+        std::cout << "    ISet: " << be16toh_custom(raw.ISet) << std::endl;
+        std::cout << "    EN50530: " << be16toh_custom(raw.EN50530) << std::endl;
+        std::cout << "    Vmpp: " << be16toh_custom(raw.Vmpp) << std::endl;
+        std::cout << "    Pmpp: " << be16toh_custom(raw.Pmpp) << std::endl;
+        std::cout << "    GSet: " << be16toh_custom(raw.GSet) << std::endl;
+        std::cout << "    VSlewRate: " << be16toh_custom(raw.VSlewRate) << std::endl;
+        std::cout << "    PSlewRate: " << be16toh_custom(raw.PSlewRate) << std::endl;
+        std::cout << "    ISlewRate: " << be16toh_custom(raw.ISlewRate) << std::endl;
+        std::cout << "    EnaProf: " << be16toh_custom(raw.EnaProf) << std::endl;
+        std::cout << "    AdptProfReq: " << be16toh_custom(raw.AdptProfReq) << std::endl;
+        std::cout << "    AdptProfRslt: " << be16toh_custom(raw.AdptProfRslt) << std::endl;
+        std::cout << "    V: " << be32toh_custom(raw.V) << std::endl;
+        std::cout << "    P: " << be32toh_custom(raw.P) << std::endl;
+        std::cout << "    I: " << be32toh_custom(raw.I) << std::endl;
+        std::cout << "    Errors: ";
+        for(size_t i=0; i<sizeof(raw.Errors) && raw.Errors[i] != 0; ++i) std::cout << raw.Errors[i];
+        std::cout << std::endl;
+        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+        std::cout << "    NProf: " << be16toh_custom(raw.NProf) << std::endl;
+        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+        std::cout << "    G_SF: " << be16toh_custom_s(raw.G_SF) << std::endl;
+        std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
+        std::cout << "    VSlew_SF: " << be16toh_custom_s(raw.VSlew_SF) << std::endl;
+        std::cout << "    PSlew_SF: " << be16toh_custom_s(raw.PSlew_SF) << std::endl;
+        std::cout << "    ISlew_SF: " << be16toh_custom_s(raw.ISlew_SF) << std::endl;
+        std::cout << "    Pct_SF: " << be16toh_custom_s(raw.Pct_SF) << std::endl;
     }
 
 };

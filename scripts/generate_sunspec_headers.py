@@ -118,6 +118,7 @@ def generate_cpp_header(json_path, output_dir):
         h.write("#include <cmath>\n")
         h.write("#include <cstring>\n")
         h.write("#include <algorithm>\n")
+        h.write("#include <iostream>\n") # Added for print_attributes
         h.write("#include \"sunspec_utils.hpp\"\n")
         h.write("#include \"sunspec_model_base.hpp\"\n\n") # 引用基类
 
@@ -186,6 +187,41 @@ def generate_cpp_header(json_path, output_dir):
             h.write(f"    static const {sname}* get_{gname}(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {{\n")
             h.write(f"        return reinterpret_cast<const {sname}*>(base_buffer + offset_bytes + index * sizeof({sname}));\n")
             h.write(f"    }}\n\n")
+
+        # 4. Implement print_attributes
+        h.write("    void print_attributes() const override {\n")
+        h.write('        std::cout << "    ID: " << get_raw_ID() << std::endl;\n')
+        h.write('        std::cout << "    L: " << get_raw_L() << std::endl;\n')
+        
+        for f in fields:
+            name = f['name']
+            ptype = f['type']
+            size = f['size']
+            
+            if name in ['ID', 'L'] or name.startswith('pad_') or ptype == 'pad':
+                continue
+                
+            # Determine conversion function
+            conv = 'be16toh_custom'
+            if '32' in ptype:
+                conv = 'be32toh_custom'
+            elif ptype in ['int16', 'sunssf']:
+                conv = 'be16toh_custom_s'
+                
+            if ptype == 'string':
+                h.write(f'        std::cout << "    {name}: ";\n')
+                h.write(f'        for(size_t i=0; i<sizeof(raw.{name}) && raw.{name}[i] != 0; ++i) std::cout << raw.{name}[i];\n')
+                h.write('        std::cout << std::endl;\n')
+            elif size > 1 and '32' not in ptype: # Array
+                h.write(f'        std::cout << "    {name}: [";\n')
+                h.write(f'        for(size_t i=0; i<{size}; ++i) {{\n')
+                h.write(f'            std::cout << {conv}(raw.{name}[i]) << (i < {size-1} ? ", " : "");\n')
+                h.write('        }\n')
+                h.write('        std::cout << "]" << std::endl;\n')
+            else: # Scalar
+                h.write(f'        std::cout << "    {name}: " << {conv}(raw.{name}) << std::endl;\n')
+                
+        h.write("    }\n\n")
 
         h.write(f"}};\n")
     

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -248,6 +249,54 @@ public:
 
     uint16_t get_raw_ChangeCommonModelLength() const {
         return be16toh_custom(raw.ChangeCommonModelLength);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    DAManipulation: " << be16toh_custom(raw.DAManipulation) << std::endl;
+        std::cout << "    FalsifyDeviceIdentity: " << be16toh_custom(raw.FalsifyDeviceIdentity) << std::endl;
+        std::cout << "    MeasPAlwaysNameplate: " << be16toh_custom(raw.MeasPAlwaysNameplate) << std::endl;
+        std::cout << "    MeasQAlwaysMinimum: " << be16toh_custom(raw.MeasQAlwaysMinimum) << std::endl;
+        std::cout << "    MeasQAlwaysMaximum: " << be16toh_custom(raw.MeasQAlwaysMaximum) << std::endl;
+        std::cout << "    MeasQAlwaysZero: " << be16toh_custom(raw.MeasQAlwaysZero) << std::endl;
+        std::cout << "    MeasZeroP: " << be16toh_custom(raw.MeasZeroP) << std::endl;
+        std::cout << "    MeasInvertQ: " << be16toh_custom(raw.MeasInvertQ) << std::endl;
+        std::cout << "    MeasLowV: " << be16toh_custom(raw.MeasLowV) << std::endl;
+        std::cout << "    MeasHighV: " << be16toh_custom(raw.MeasHighV) << std::endl;
+        std::cout << "    MeasLowL1V: " << be16toh_custom(raw.MeasLowL1V) << std::endl;
+        std::cout << "    MeasHighL1V: " << be16toh_custom(raw.MeasHighL1V) << std::endl;
+        std::cout << "    MeasLowF: " << be16toh_custom(raw.MeasLowF) << std::endl;
+        std::cout << "    MeasHighF: " << be16toh_custom(raw.MeasHighF) << std::endl;
+        std::cout << "    MeasLowAmps: " << be16toh_custom(raw.MeasLowAmps) << std::endl;
+        std::cout << "    MeasHighAmps: " << be16toh_custom(raw.MeasHighAmps) << std::endl;
+        std::cout << "    MeasHighS: " << be16toh_custom(raw.MeasHighS) << std::endl;
+        std::cout << "    MeasLowS: " << be16toh_custom(raw.MeasLowS) << std::endl;
+        std::cout << "    MeasHighQ: " << be16toh_custom(raw.MeasHighQ) << std::endl;
+        std::cout << "    MeasLowQ: " << be16toh_custom(raw.MeasLowQ) << std::endl;
+        std::cout << "    MeasLowPF: " << be16toh_custom(raw.MeasLowPF) << std::endl;
+        std::cout << "    MeasLowReversedPF: " << be16toh_custom(raw.MeasLowReversedPF) << std::endl;
+        std::cout << "    NameplateHighP: " << be16toh_custom(raw.NameplateHighP) << std::endl;
+        std::cout << "    NameplateLowP: " << be16toh_custom(raw.NameplateLowP) << std::endl;
+        std::cout << "    NameplateHighS: " << be16toh_custom(raw.NameplateHighS) << std::endl;
+        std::cout << "    NameplateLowS: " << be16toh_custom(raw.NameplateLowS) << std::endl;
+        std::cout << "    NameplateHighQ: " << be16toh_custom(raw.NameplateHighQ) << std::endl;
+        std::cout << "    NameplateLowQ: " << be16toh_custom(raw.NameplateLowQ) << std::endl;
+        std::cout << "    NameplateHighNomV: " << be16toh_custom(raw.NameplateHighNomV) << std::endl;
+        std::cout << "    NameplateLowNomV: " << be16toh_custom(raw.NameplateLowNomV) << std::endl;
+        std::cout << "    NameplateLowAmps: " << be16toh_custom(raw.NameplateLowAmps) << std::endl;
+        std::cout << "    NameplateLowVarmaxinj: " << be16toh_custom(raw.NameplateLowVarmaxinj) << std::endl;
+        std::cout << "    NameplateLowVarmaxabs: " << be16toh_custom(raw.NameplateLowVarmaxabs) << std::endl;
+        std::cout << "    NameplateLowPF: " << be16toh_custom(raw.NameplateLowPF) << std::endl;
+        std::cout << "    SettingsHighNomV: " << be16toh_custom(raw.SettingsHighNomV) << std::endl;
+        std::cout << "    SettingsLowAmps: " << be16toh_custom(raw.SettingsLowAmps) << std::endl;
+        std::cout << "    SettingsHighP: " << be16toh_custom(raw.SettingsHighP) << std::endl;
+        std::cout << "    SettingsLowP: " << be16toh_custom(raw.SettingsLowP) << std::endl;
+        std::cout << "    SettingsHighVAMax: " << be16toh_custom(raw.SettingsHighVAMax) << std::endl;
+        std::cout << "    SettingsHighVarmaxinj: " << be16toh_custom(raw.SettingsHighVarmaxinj) << std::endl;
+        std::cout << "    SettingsHighVarmaxabs: " << be16toh_custom(raw.SettingsHighVarmaxabs) << std::endl;
+        std::cout << "    ChangeCommonModelID: " << be16toh_custom(raw.ChangeCommonModelID) << std::endl;
+        std::cout << "    ChangeCommonModelLength: " << be16toh_custom(raw.ChangeCommonModelLength) << std::endl;
     }
 
 };

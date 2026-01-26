@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -302,6 +303,41 @@ public:
     // Accessor for repeating group: repeating
     static const Model64020_repeating_Raw* get_repeating(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model64020_repeating_Raw*>(base_buffer + offset_bytes + index * sizeof(Model64020_repeating_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Aux0Tmp: " << be16toh_custom_s(raw.Aux0Tmp) << std::endl;
+        std::cout << "    Aux1Tmp: " << be16toh_custom_s(raw.Aux1Tmp) << std::endl;
+        std::cout << "    Aux2Tmp: " << be16toh_custom_s(raw.Aux2Tmp) << std::endl;
+        std::cout << "    Aux3Tmp: " << be16toh_custom_s(raw.Aux3Tmp) << std::endl;
+        std::cout << "    Aux4Tmp: " << be16toh_custom_s(raw.Aux4Tmp) << std::endl;
+        std::cout << "    ProbeTmp: " << be16toh_custom_s(raw.ProbeTmp) << std::endl;
+        std::cout << "    MainTmp: " << be16toh_custom_s(raw.MainTmp) << std::endl;
+        std::cout << "    SensorV_SF: " << be16toh_custom_s(raw.SensorV_SF) << std::endl;
+        std::cout << "    SensorA_SF: " << be16toh_custom_s(raw.SensorA_SF) << std::endl;
+        std::cout << "    SensorHz_SF: " << be16toh_custom_s(raw.SensorHz_SF) << std::endl;
+        std::cout << "    Sensor1Voltage: " << be16toh_custom_s(raw.Sensor1Voltage) << std::endl;
+        std::cout << "    Sensor2Voltage: " << be16toh_custom_s(raw.Sensor2Voltage) << std::endl;
+        std::cout << "    Sensor3Voltage: " << be16toh_custom_s(raw.Sensor3Voltage) << std::endl;
+        std::cout << "    Sensor4Voltage: " << be16toh_custom_s(raw.Sensor4Voltage) << std::endl;
+        std::cout << "    Sensor5Voltage: " << be16toh_custom_s(raw.Sensor5Voltage) << std::endl;
+        std::cout << "    Sensor6Voltage: " << be16toh_custom_s(raw.Sensor6Voltage) << std::endl;
+        std::cout << "    Sensor7Voltage: " << be16toh_custom_s(raw.Sensor7Voltage) << std::endl;
+        std::cout << "    Sensor1Current: " << be16toh_custom_s(raw.Sensor1Current) << std::endl;
+        std::cout << "    Sensor2Current: " << be16toh_custom_s(raw.Sensor2Current) << std::endl;
+        std::cout << "    Sensor3Current: " << be16toh_custom_s(raw.Sensor3Current) << std::endl;
+        std::cout << "    Sensor4Current: " << be16toh_custom_s(raw.Sensor4Current) << std::endl;
+        std::cout << "    Sensor5Current: " << be16toh_custom_s(raw.Sensor5Current) << std::endl;
+        std::cout << "    Sensor6Current: " << be16toh_custom_s(raw.Sensor6Current) << std::endl;
+        std::cout << "    Sensor7Current: " << be16toh_custom_s(raw.Sensor7Current) << std::endl;
+        std::cout << "    Sensor8: " << be16toh_custom(raw.Sensor8) << std::endl;
+        std::cout << "    Relay1: " << be16toh_custom(raw.Relay1) << std::endl;
+        std::cout << "    Relay2: " << be16toh_custom(raw.Relay2) << std::endl;
+        std::cout << "    Relay3: " << be16toh_custom(raw.Relay3) << std::endl;
+        std::cout << "    ResetAccumulators: " << be16toh_custom(raw.ResetAccumulators) << std::endl;
+        std::cout << "    Reset: " << be16toh_custom(raw.Reset) << std::endl;
     }
 
 };

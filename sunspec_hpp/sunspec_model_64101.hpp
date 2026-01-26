@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -68,6 +69,18 @@ public:
 
     int16_t get_raw_Eltek_RPS_CosPhi_Ref() const {
         return be16toh_custom_s(raw.Eltek_RPS_CosPhi_Ref);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Eltek_Country_Code: " << be16toh_custom(raw.Eltek_Country_Code) << std::endl;
+        std::cout << "    Eltek_Feeding_Phase: " << be16toh_custom(raw.Eltek_Feeding_Phase) << std::endl;
+        std::cout << "    Eltek_APD_Method: " << be16toh_custom(raw.Eltek_APD_Method) << std::endl;
+        std::cout << "    Eltek_APD_Power_Ref: " << be16toh_custom(raw.Eltek_APD_Power_Ref) << std::endl;
+        std::cout << "    Eltek_RPS_Method: " << be16toh_custom(raw.Eltek_RPS_Method) << std::endl;
+        std::cout << "    Eltek_RPS_Q_Ref: " << be16toh_custom(raw.Eltek_RPS_Q_Ref) << std::endl;
+        std::cout << "    Eltek_RPS_CosPhi_Ref: " << be16toh_custom_s(raw.Eltek_RPS_CosPhi_Ref) << std::endl;
     }
 
 };

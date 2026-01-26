@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -112,6 +113,30 @@ public:
     // Accessor for repeating group: Prt
     static const Model714_Prt_Raw* get_Prt(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model714_Prt_Raw*>(base_buffer + offset_bytes + index * sizeof(Model714_Prt_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    PrtAlrms: " << be32toh_custom(raw.PrtAlrms) << std::endl;
+        std::cout << "    NPrt: " << be16toh_custom(raw.NPrt) << std::endl;
+        std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
+        std::cout << "    DCW: " << be16toh_custom_s(raw.DCW) << std::endl;
+        std::cout << "    DCWhInj: [";
+        for(size_t i=0; i<4; ++i) {
+            std::cout << be16toh_custom(raw.DCWhInj[i]) << (i < 3 ? ", " : "");
+        }
+        std::cout << "]" << std::endl;
+        std::cout << "    DCWhAbs: [";
+        for(size_t i=0; i<4; ++i) {
+            std::cout << be16toh_custom(raw.DCWhAbs[i]) << (i < 3 ? ", " : "");
+        }
+        std::cout << "]" << std::endl;
+        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+        std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
+        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
     }
 
 };

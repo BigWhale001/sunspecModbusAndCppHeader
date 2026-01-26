@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -263,6 +264,37 @@ public:
     // Accessor for repeating group: string
     static const Model803_string_Raw* get_string(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model803_string_Raw*>(base_buffer + offset_bytes + index * sizeof(Model803_string_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    NStr: " << be16toh_custom(raw.NStr) << std::endl;
+        std::cout << "    NStrCon: " << be16toh_custom(raw.NStrCon) << std::endl;
+        std::cout << "    ModTmpMax: " << be16toh_custom_s(raw.ModTmpMax) << std::endl;
+        std::cout << "    ModTmpMaxStr: " << be16toh_custom(raw.ModTmpMaxStr) << std::endl;
+        std::cout << "    ModTmpMaxMod: " << be16toh_custom(raw.ModTmpMaxMod) << std::endl;
+        std::cout << "    ModTmpMin: " << be16toh_custom_s(raw.ModTmpMin) << std::endl;
+        std::cout << "    ModTmpMinStr: " << be16toh_custom(raw.ModTmpMinStr) << std::endl;
+        std::cout << "    ModTmpMinMod: " << be16toh_custom(raw.ModTmpMinMod) << std::endl;
+        std::cout << "    ModTmpAvg: " << be16toh_custom_s(raw.ModTmpAvg) << std::endl;
+        std::cout << "    StrVMax: " << be16toh_custom(raw.StrVMax) << std::endl;
+        std::cout << "    StrVMaxStr: " << be16toh_custom(raw.StrVMaxStr) << std::endl;
+        std::cout << "    StrVMin: " << be16toh_custom(raw.StrVMin) << std::endl;
+        std::cout << "    StrVMinStr: " << be16toh_custom(raw.StrVMinStr) << std::endl;
+        std::cout << "    StrVAvg: " << be16toh_custom(raw.StrVAvg) << std::endl;
+        std::cout << "    StrAMax: " << be16toh_custom_s(raw.StrAMax) << std::endl;
+        std::cout << "    StrAMaxStr: " << be16toh_custom(raw.StrAMaxStr) << std::endl;
+        std::cout << "    StrAMin: " << be16toh_custom_s(raw.StrAMin) << std::endl;
+        std::cout << "    StrAMinStr: " << be16toh_custom(raw.StrAMinStr) << std::endl;
+        std::cout << "    StrAAvg: " << be16toh_custom_s(raw.StrAAvg) << std::endl;
+        std::cout << "    NCellBal: " << be16toh_custom(raw.NCellBal) << std::endl;
+        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+        std::cout << "    ModTmp_SF: " << be16toh_custom_s(raw.ModTmp_SF) << std::endl;
+        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+        std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
+        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
     }
 
 };

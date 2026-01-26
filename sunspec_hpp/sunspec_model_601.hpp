@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -88,6 +89,28 @@ public:
     // Accessor for repeating group: tracker
     static const Model601_tracker_Raw* get_tracker(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model601_tracker_Raw*>(base_buffer + offset_bytes + index * sizeof(Model601_tracker_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Nam: ";
+        for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
+        std::cout << std::endl;
+        std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+        std::cout << "    DtLoc: ";
+        for(size_t i=0; i<sizeof(raw.DtLoc) && raw.DtLoc[i] != 0; ++i) std::cout << raw.DtLoc[i];
+        std::cout << std::endl;
+        std::cout << "    TmLoc: ";
+        for(size_t i=0; i<sizeof(raw.TmLoc) && raw.TmLoc[i] != 0; ++i) std::cout << raw.TmLoc[i];
+        std::cout << std::endl;
+        std::cout << "    Day: " << be16toh_custom(raw.Day) << std::endl;
+        std::cout << "    GlblElCtl: " << be32toh_custom(raw.GlblElCtl) << std::endl;
+        std::cout << "    GlblAzCtl: " << be32toh_custom(raw.GlblAzCtl) << std::endl;
+        std::cout << "    GlblCtl: " << be16toh_custom(raw.GlblCtl) << std::endl;
+        std::cout << "    GlblAlm: " << be16toh_custom(raw.GlblAlm) << std::endl;
+        std::cout << "    Dgr_SF: " << be16toh_custom_s(raw.Dgr_SF) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
     }
 
 };

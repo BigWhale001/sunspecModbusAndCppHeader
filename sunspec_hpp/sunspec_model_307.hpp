@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -95,6 +96,22 @@ public:
 
     int16_t get_raw_SoilWet() const {
         return be16toh_custom_s(raw.SoilWet);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    TmpAmb: " << be16toh_custom_s(raw.TmpAmb) << std::endl;
+        std::cout << "    RH: " << be16toh_custom_s(raw.RH) << std::endl;
+        std::cout << "    Pres: " << be16toh_custom_s(raw.Pres) << std::endl;
+        std::cout << "    WndSpd: " << be16toh_custom_s(raw.WndSpd) << std::endl;
+        std::cout << "    WndDir: " << be16toh_custom_s(raw.WndDir) << std::endl;
+        std::cout << "    Rain: " << be16toh_custom_s(raw.Rain) << std::endl;
+        std::cout << "    Snw: " << be16toh_custom_s(raw.Snw) << std::endl;
+        std::cout << "    PPT: " << be16toh_custom_s(raw.PPT) << std::endl;
+        std::cout << "    ElecFld: " << be16toh_custom_s(raw.ElecFld) << std::endl;
+        std::cout << "    SurWet: " << be16toh_custom_s(raw.SurWet) << std::endl;
+        std::cout << "    SoilWet: " << be16toh_custom_s(raw.SoilWet) << std::endl;
     }
 
 };

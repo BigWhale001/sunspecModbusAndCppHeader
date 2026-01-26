@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -450,6 +451,67 @@ public:
 
     int16_t get_raw_W_SF() const {
         return be16toh_custom_s(raw.W_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    AHRtg: " << be16toh_custom(raw.AHRtg) << std::endl;
+        std::cout << "    WHRtg: " << be16toh_custom(raw.WHRtg) << std::endl;
+        std::cout << "    WChaRteMax: " << be16toh_custom(raw.WChaRteMax) << std::endl;
+        std::cout << "    WDisChaRteMax: " << be16toh_custom(raw.WDisChaRteMax) << std::endl;
+        std::cout << "    DisChaRte: " << be16toh_custom(raw.DisChaRte) << std::endl;
+        std::cout << "    SoCMax: " << be16toh_custom(raw.SoCMax) << std::endl;
+        std::cout << "    SoCMin: " << be16toh_custom(raw.SoCMin) << std::endl;
+        std::cout << "    SocRsvMax: " << be16toh_custom(raw.SocRsvMax) << std::endl;
+        std::cout << "    SoCRsvMin: " << be16toh_custom(raw.SoCRsvMin) << std::endl;
+        std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
+        std::cout << "    DoD: " << be16toh_custom(raw.DoD) << std::endl;
+        std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
+        std::cout << "    NCyc: " << be32toh_custom(raw.NCyc) << std::endl;
+        std::cout << "    ChaSt: " << be16toh_custom(raw.ChaSt) << std::endl;
+        std::cout << "    LocRemCtl: " << be16toh_custom(raw.LocRemCtl) << std::endl;
+        std::cout << "    Hb: " << be16toh_custom(raw.Hb) << std::endl;
+        std::cout << "    CtrlHb: " << be16toh_custom(raw.CtrlHb) << std::endl;
+        std::cout << "    AlmRst: " << be16toh_custom(raw.AlmRst) << std::endl;
+        std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+        std::cout << "    State: " << be16toh_custom(raw.State) << std::endl;
+        std::cout << "    StateVnd: " << be16toh_custom(raw.StateVnd) << std::endl;
+        std::cout << "    WarrDt: " << be32toh_custom(raw.WarrDt) << std::endl;
+        std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
+        std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
+        std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
+        std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
+        std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
+        std::cout << "    VMax: " << be16toh_custom(raw.VMax) << std::endl;
+        std::cout << "    VMin: " << be16toh_custom(raw.VMin) << std::endl;
+        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+        std::cout << "    CellVMaxStr: " << be16toh_custom(raw.CellVMaxStr) << std::endl;
+        std::cout << "    CellVMaxMod: " << be16toh_custom(raw.CellVMaxMod) << std::endl;
+        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+        std::cout << "    CellVMinStr: " << be16toh_custom(raw.CellVMinStr) << std::endl;
+        std::cout << "    CellVMinMod: " << be16toh_custom(raw.CellVMinMod) << std::endl;
+        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+        std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
+        std::cout << "    AChaMax: " << be16toh_custom(raw.AChaMax) << std::endl;
+        std::cout << "    ADisChaMax: " << be16toh_custom(raw.ADisChaMax) << std::endl;
+        std::cout << "    W: " << be16toh_custom_s(raw.W) << std::endl;
+        std::cout << "    ReqInvState: " << be16toh_custom(raw.ReqInvState) << std::endl;
+        std::cout << "    ReqW: " << be16toh_custom_s(raw.ReqW) << std::endl;
+        std::cout << "    SetOp: " << be16toh_custom(raw.SetOp) << std::endl;
+        std::cout << "    SetInvState: " << be16toh_custom(raw.SetInvState) << std::endl;
+        std::cout << "    AHRtg_SF: " << be16toh_custom_s(raw.AHRtg_SF) << std::endl;
+        std::cout << "    WHRtg_SF: " << be16toh_custom_s(raw.WHRtg_SF) << std::endl;
+        std::cout << "    WChaDisChaMax_SF: " << be16toh_custom_s(raw.WChaDisChaMax_SF) << std::endl;
+        std::cout << "    DisChaRte_SF: " << be16toh_custom_s(raw.DisChaRte_SF) << std::endl;
+        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+        std::cout << "    DoD_SF: " << be16toh_custom_s(raw.DoD_SF) << std::endl;
+        std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+        std::cout << "    AMax_SF: " << be16toh_custom_s(raw.AMax_SF) << std::endl;
+        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
     }
 
 };

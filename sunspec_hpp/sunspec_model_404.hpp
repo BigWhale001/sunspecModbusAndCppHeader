@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -167,6 +168,32 @@ public:
     // Accessor for repeating group: string
     static const Model404_string_Raw* get_string(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model404_string_Raw*>(base_buffer + offset_bytes + index * sizeof(Model404_string_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+        std::cout << "    DCAhr_SF: " << be16toh_custom_s(raw.DCAhr_SF) << std::endl;
+        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+        std::cout << "    DCWh_SF: " << be16toh_custom_s(raw.DCWh_SF) << std::endl;
+        std::cout << "    DCAMax: " << be16toh_custom(raw.DCAMax) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+        std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
+        std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
+        std::cout << "    DCAhr: " << be32toh_custom(raw.DCAhr) << std::endl;
+        std::cout << "    DCV: " << be16toh_custom_s(raw.DCV) << std::endl;
+        std::cout << "    Tmp: " << be16toh_custom_s(raw.Tmp) << std::endl;
+        std::cout << "    DCW: " << be16toh_custom_s(raw.DCW) << std::endl;
+        std::cout << "    DCPR: " << be16toh_custom_s(raw.DCPR) << std::endl;
+        std::cout << "    DCWh: " << be32toh_custom(raw.DCWh) << std::endl;
+        std::cout << "    InDCA_SF: " << be16toh_custom_s(raw.InDCA_SF) << std::endl;
+        std::cout << "    InDCAhr_SF: " << be16toh_custom_s(raw.InDCAhr_SF) << std::endl;
+        std::cout << "    InDCV_SF: " << be16toh_custom_s(raw.InDCV_SF) << std::endl;
+        std::cout << "    InDCW_SF: " << be16toh_custom_s(raw.InDCW_SF) << std::endl;
+        std::cout << "    InDCWh_SF: " << be16toh_custom_s(raw.InDCWh_SF) << std::endl;
     }
 
 };

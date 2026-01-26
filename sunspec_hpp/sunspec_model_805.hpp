@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -239,6 +240,39 @@ public:
     // Accessor for repeating group: lithium_ion_module_cell
     static const Model805_lithium_ion_module_cell_Raw* get_lithium_ion_module_cell(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model805_lithium_ion_module_cell_Raw*>(base_buffer + offset_bytes + index * sizeof(Model805_lithium_ion_module_cell_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    StrIdx: " << be16toh_custom(raw.StrIdx) << std::endl;
+        std::cout << "    ModIdx: " << be16toh_custom(raw.ModIdx) << std::endl;
+        std::cout << "    NCell: " << be16toh_custom(raw.NCell) << std::endl;
+        std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
+        std::cout << "    DoD: " << be16toh_custom(raw.DoD) << std::endl;
+        std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
+        std::cout << "    NCyc: " << be32toh_custom(raw.NCyc) << std::endl;
+        std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
+        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+        std::cout << "    CellVMaxCell: " << be16toh_custom(raw.CellVMaxCell) << std::endl;
+        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+        std::cout << "    CellVMinCell: " << be16toh_custom(raw.CellVMinCell) << std::endl;
+        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+        std::cout << "    CellTmpMax: " << be16toh_custom_s(raw.CellTmpMax) << std::endl;
+        std::cout << "    CellTmpMaxCell: " << be16toh_custom(raw.CellTmpMaxCell) << std::endl;
+        std::cout << "    CellTmpMin: " << be16toh_custom_s(raw.CellTmpMin) << std::endl;
+        std::cout << "    CellTmpMinCell: " << be16toh_custom(raw.CellTmpMinCell) << std::endl;
+        std::cout << "    CellTmpAvg: " << be16toh_custom_s(raw.CellTmpAvg) << std::endl;
+        std::cout << "    NCellBal: " << be16toh_custom(raw.NCellBal) << std::endl;
+        std::cout << "    SN: ";
+        for(size_t i=0; i<sizeof(raw.SN) && raw.SN[i] != 0; ++i) std::cout << raw.SN[i];
+        std::cout << std::endl;
+        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+        std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
+        std::cout << "    DoD_SF: " << be16toh_custom_s(raw.DoD_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
     }
 
 };

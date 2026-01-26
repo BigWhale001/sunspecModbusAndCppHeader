@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -223,6 +224,35 @@ public:
 
     int16_t get_raw_InOutWRte_SF() const {
         return be16toh_custom_s(raw.InOutWRte_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    WChaMax: " << be16toh_custom(raw.WChaMax) << std::endl;
+        std::cout << "    WChaGra: " << be16toh_custom(raw.WChaGra) << std::endl;
+        std::cout << "    WDisChaGra: " << be16toh_custom(raw.WDisChaGra) << std::endl;
+        std::cout << "    StorCtl_Mod: " << be16toh_custom(raw.StorCtl_Mod) << std::endl;
+        std::cout << "    VAChaMax: " << be16toh_custom(raw.VAChaMax) << std::endl;
+        std::cout << "    MinRsvPct: " << be16toh_custom(raw.MinRsvPct) << std::endl;
+        std::cout << "    ChaState: " << be16toh_custom(raw.ChaState) << std::endl;
+        std::cout << "    StorAval: " << be16toh_custom(raw.StorAval) << std::endl;
+        std::cout << "    InBatV: " << be16toh_custom(raw.InBatV) << std::endl;
+        std::cout << "    ChaSt: " << be16toh_custom(raw.ChaSt) << std::endl;
+        std::cout << "    OutWRte: " << be16toh_custom_s(raw.OutWRte) << std::endl;
+        std::cout << "    InWRte: " << be16toh_custom_s(raw.InWRte) << std::endl;
+        std::cout << "    InOutWRte_WinTms: " << be16toh_custom(raw.InOutWRte_WinTms) << std::endl;
+        std::cout << "    InOutWRte_RvrtTms: " << be16toh_custom(raw.InOutWRte_RvrtTms) << std::endl;
+        std::cout << "    InOutWRte_RmpTms: " << be16toh_custom(raw.InOutWRte_RmpTms) << std::endl;
+        std::cout << "    ChaGriSet: " << be16toh_custom(raw.ChaGriSet) << std::endl;
+        std::cout << "    WChaMax_SF: " << be16toh_custom_s(raw.WChaMax_SF) << std::endl;
+        std::cout << "    WChaDisChaGra_SF: " << be16toh_custom_s(raw.WChaDisChaGra_SF) << std::endl;
+        std::cout << "    VAChaMax_SF: " << be16toh_custom_s(raw.VAChaMax_SF) << std::endl;
+        std::cout << "    MinRsvPct_SF: " << be16toh_custom_s(raw.MinRsvPct_SF) << std::endl;
+        std::cout << "    ChaState_SF: " << be16toh_custom_s(raw.ChaState_SF) << std::endl;
+        std::cout << "    StorAval_SF: " << be16toh_custom_s(raw.StorAval_SF) << std::endl;
+        std::cout << "    InBatV_SF: " << be16toh_custom_s(raw.InBatV_SF) << std::endl;
+        std::cout << "    InOutWRte_SF: " << be16toh_custom_s(raw.InOutWRte_SF) << std::endl;
     }
 
 };

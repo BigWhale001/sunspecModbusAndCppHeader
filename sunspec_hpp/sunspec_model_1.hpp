@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -44,6 +45,27 @@ public:
 
     uint16_t get_raw_DA() const {
         return be16toh_custom(raw.DA);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Mn: ";
+        for(size_t i=0; i<sizeof(raw.Mn) && raw.Mn[i] != 0; ++i) std::cout << raw.Mn[i];
+        std::cout << std::endl;
+        std::cout << "    Md: ";
+        for(size_t i=0; i<sizeof(raw.Md) && raw.Md[i] != 0; ++i) std::cout << raw.Md[i];
+        std::cout << std::endl;
+        std::cout << "    Opt: ";
+        for(size_t i=0; i<sizeof(raw.Opt) && raw.Opt[i] != 0; ++i) std::cout << raw.Opt[i];
+        std::cout << std::endl;
+        std::cout << "    Vr: ";
+        for(size_t i=0; i<sizeof(raw.Vr) && raw.Vr[i] != 0; ++i) std::cout << raw.Vr[i];
+        std::cout << std::endl;
+        std::cout << "    SN: ";
+        for(size_t i=0; i<sizeof(raw.SN) && raw.SN[i] != 0; ++i) std::cout << raw.SN[i];
+        std::cout << std::endl;
+        std::cout << "    DA: " << be16toh_custom(raw.DA) << std::endl;
     }
 
 };

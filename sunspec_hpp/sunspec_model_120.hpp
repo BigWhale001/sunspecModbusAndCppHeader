@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -264,6 +265,36 @@ public:
 
     int16_t get_raw_MaxDisChaRte_SF() const {
         return be16toh_custom_s(raw.MaxDisChaRte_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    DERTyp: " << be16toh_custom(raw.DERTyp) << std::endl;
+        std::cout << "    WRtg: " << be16toh_custom(raw.WRtg) << std::endl;
+        std::cout << "    WRtg_SF: " << be16toh_custom_s(raw.WRtg_SF) << std::endl;
+        std::cout << "    VARtg: " << be16toh_custom(raw.VARtg) << std::endl;
+        std::cout << "    VARtg_SF: " << be16toh_custom_s(raw.VARtg_SF) << std::endl;
+        std::cout << "    VArRtgQ1: " << be16toh_custom_s(raw.VArRtgQ1) << std::endl;
+        std::cout << "    VArRtgQ2: " << be16toh_custom_s(raw.VArRtgQ2) << std::endl;
+        std::cout << "    VArRtgQ3: " << be16toh_custom_s(raw.VArRtgQ3) << std::endl;
+        std::cout << "    VArRtgQ4: " << be16toh_custom_s(raw.VArRtgQ4) << std::endl;
+        std::cout << "    VArRtg_SF: " << be16toh_custom_s(raw.VArRtg_SF) << std::endl;
+        std::cout << "    ARtg: " << be16toh_custom(raw.ARtg) << std::endl;
+        std::cout << "    ARtg_SF: " << be16toh_custom_s(raw.ARtg_SF) << std::endl;
+        std::cout << "    PFRtgQ1: " << be16toh_custom_s(raw.PFRtgQ1) << std::endl;
+        std::cout << "    PFRtgQ2: " << be16toh_custom_s(raw.PFRtgQ2) << std::endl;
+        std::cout << "    PFRtgQ3: " << be16toh_custom_s(raw.PFRtgQ3) << std::endl;
+        std::cout << "    PFRtgQ4: " << be16toh_custom_s(raw.PFRtgQ4) << std::endl;
+        std::cout << "    PFRtg_SF: " << be16toh_custom_s(raw.PFRtg_SF) << std::endl;
+        std::cout << "    WHRtg: " << be16toh_custom(raw.WHRtg) << std::endl;
+        std::cout << "    WHRtg_SF: " << be16toh_custom_s(raw.WHRtg_SF) << std::endl;
+        std::cout << "    AhrRtg: " << be16toh_custom(raw.AhrRtg) << std::endl;
+        std::cout << "    AhrRtg_SF: " << be16toh_custom_s(raw.AhrRtg_SF) << std::endl;
+        std::cout << "    MaxChaRte: " << be16toh_custom(raw.MaxChaRte) << std::endl;
+        std::cout << "    MaxChaRte_SF: " << be16toh_custom_s(raw.MaxChaRte_SF) << std::endl;
+        std::cout << "    MaxDisChaRte: " << be16toh_custom(raw.MaxDisChaRte) << std::endl;
+        std::cout << "    MaxDisChaRte_SF: " << be16toh_custom_s(raw.MaxDisChaRte_SF) << std::endl;
     }
 
 };

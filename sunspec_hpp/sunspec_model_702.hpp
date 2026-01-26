@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -533,6 +534,60 @@ public:
 
     int16_t get_raw_S_SF() const {
         return be16toh_custom_s(raw.S_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    WMaxRtg: " << be16toh_custom(raw.WMaxRtg) << std::endl;
+        std::cout << "    WOvrExtRtg: " << be16toh_custom(raw.WOvrExtRtg) << std::endl;
+        std::cout << "    WOvrExtRtgPF: " << be16toh_custom(raw.WOvrExtRtgPF) << std::endl;
+        std::cout << "    WUndExtRtg: " << be16toh_custom(raw.WUndExtRtg) << std::endl;
+        std::cout << "    WUndExtRtgPF: " << be16toh_custom(raw.WUndExtRtgPF) << std::endl;
+        std::cout << "    VAMaxRtg: " << be16toh_custom(raw.VAMaxRtg) << std::endl;
+        std::cout << "    VarMaxInjRtg: " << be16toh_custom(raw.VarMaxInjRtg) << std::endl;
+        std::cout << "    VarMaxAbsRtg: " << be16toh_custom(raw.VarMaxAbsRtg) << std::endl;
+        std::cout << "    WChaRteMaxRtg: " << be16toh_custom(raw.WChaRteMaxRtg) << std::endl;
+        std::cout << "    WDisChaRteMaxRtg: " << be16toh_custom(raw.WDisChaRteMaxRtg) << std::endl;
+        std::cout << "    VAChaRteMaxRtg: " << be16toh_custom(raw.VAChaRteMaxRtg) << std::endl;
+        std::cout << "    VADisChaRteMaxRtg: " << be16toh_custom(raw.VADisChaRteMaxRtg) << std::endl;
+        std::cout << "    VNomRtg: " << be16toh_custom(raw.VNomRtg) << std::endl;
+        std::cout << "    VMaxRtg: " << be16toh_custom(raw.VMaxRtg) << std::endl;
+        std::cout << "    VMinRtg: " << be16toh_custom(raw.VMinRtg) << std::endl;
+        std::cout << "    AMaxRtg: " << be16toh_custom(raw.AMaxRtg) << std::endl;
+        std::cout << "    PFOvrExtRtg: " << be16toh_custom(raw.PFOvrExtRtg) << std::endl;
+        std::cout << "    PFUndExtRtg: " << be16toh_custom(raw.PFUndExtRtg) << std::endl;
+        std::cout << "    ReactSusceptRtg: " << be16toh_custom(raw.ReactSusceptRtg) << std::endl;
+        std::cout << "    NorOpCatRtg: " << be16toh_custom(raw.NorOpCatRtg) << std::endl;
+        std::cout << "    AbnOpCatRtg: " << be16toh_custom(raw.AbnOpCatRtg) << std::endl;
+        std::cout << "    CtrlModes: " << be32toh_custom(raw.CtrlModes) << std::endl;
+        std::cout << "    IntIslandCatRtg: " << be16toh_custom(raw.IntIslandCatRtg) << std::endl;
+        std::cout << "    WMax: " << be16toh_custom(raw.WMax) << std::endl;
+        std::cout << "    WMaxOvrExt: " << be16toh_custom(raw.WMaxOvrExt) << std::endl;
+        std::cout << "    WOvrExtPF: " << be16toh_custom(raw.WOvrExtPF) << std::endl;
+        std::cout << "    WMaxUndExt: " << be16toh_custom(raw.WMaxUndExt) << std::endl;
+        std::cout << "    WUndExtPF: " << be16toh_custom(raw.WUndExtPF) << std::endl;
+        std::cout << "    VAMax: " << be16toh_custom(raw.VAMax) << std::endl;
+        std::cout << "    VarMaxInj: " << be16toh_custom(raw.VarMaxInj) << std::endl;
+        std::cout << "    VarMaxAbs: " << be16toh_custom(raw.VarMaxAbs) << std::endl;
+        std::cout << "    WChaRteMax: " << be16toh_custom(raw.WChaRteMax) << std::endl;
+        std::cout << "    WDisChaRteMax: " << be16toh_custom(raw.WDisChaRteMax) << std::endl;
+        std::cout << "    VAChaRteMax: " << be16toh_custom(raw.VAChaRteMax) << std::endl;
+        std::cout << "    VADisChaRteMax: " << be16toh_custom(raw.VADisChaRteMax) << std::endl;
+        std::cout << "    VNom: " << be16toh_custom(raw.VNom) << std::endl;
+        std::cout << "    VMax: " << be16toh_custom(raw.VMax) << std::endl;
+        std::cout << "    VMin: " << be16toh_custom(raw.VMin) << std::endl;
+        std::cout << "    AMax: " << be16toh_custom(raw.AMax) << std::endl;
+        std::cout << "    PFOvrExt: " << be16toh_custom(raw.PFOvrExt) << std::endl;
+        std::cout << "    PFUndExt: " << be16toh_custom(raw.PFUndExt) << std::endl;
+        std::cout << "    IntIslandCat: " << be16toh_custom(raw.IntIslandCat) << std::endl;
+        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+        std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
+        std::cout << "    VA_SF: " << be16toh_custom_s(raw.VA_SF) << std::endl;
+        std::cout << "    Var_SF: " << be16toh_custom_s(raw.Var_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+        std::cout << "    S_SF: " << be16toh_custom_s(raw.S_SF) << std::endl;
     }
 
 };

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -56,6 +57,37 @@ public:
 
     uint16_t get_raw_LnkCtl() const {
         return be16toh_custom(raw.LnkCtl);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Nam: ";
+        for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
+        std::cout << std::endl;
+        std::cout << "    Cfg: " << be16toh_custom(raw.Cfg) << std::endl;
+        std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
+        std::cout << "    Addr: ";
+        for(size_t i=0; i<sizeof(raw.Addr) && raw.Addr[i] != 0; ++i) std::cout << raw.Addr[i];
+        std::cout << std::endl;
+        std::cout << "    Msk: ";
+        for(size_t i=0; i<sizeof(raw.Msk) && raw.Msk[i] != 0; ++i) std::cout << raw.Msk[i];
+        std::cout << std::endl;
+        std::cout << "    Gw: ";
+        for(size_t i=0; i<sizeof(raw.Gw) && raw.Gw[i] != 0; ++i) std::cout << raw.Gw[i];
+        std::cout << std::endl;
+        std::cout << "    DNS1: ";
+        for(size_t i=0; i<sizeof(raw.DNS1) && raw.DNS1[i] != 0; ++i) std::cout << raw.DNS1[i];
+        std::cout << std::endl;
+        std::cout << "    DNS2: ";
+        for(size_t i=0; i<sizeof(raw.DNS2) && raw.DNS2[i] != 0; ++i) std::cout << raw.DNS2[i];
+        std::cout << std::endl;
+        std::cout << "    MAC: [";
+        for(size_t i=0; i<4; ++i) {
+            std::cout << be16toh_custom(raw.MAC[i]) << (i < 3 ? ", " : "");
+        }
+        std::cout << "]" << std::endl;
+        std::cout << "    LnkCtl: " << be16toh_custom(raw.LnkCtl) << std::endl;
     }
 
 };

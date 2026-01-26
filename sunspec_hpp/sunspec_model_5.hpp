@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -476,6 +477,98 @@ public:
     // Accessor for repeating group: repeating
     static const Model5_repeating_Raw* get_repeating(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model5_repeating_Raw*>(base_buffer + offset_bytes + index * sizeof(Model5_repeating_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    X: " << be16toh_custom(raw.X) << std::endl;
+        std::cout << "    Off1: " << be16toh_custom(raw.Off1) << std::endl;
+        std::cout << "    Val1: " << be16toh_custom(raw.Val1) << std::endl;
+        std::cout << "    Off2: " << be16toh_custom(raw.Off2) << std::endl;
+        std::cout << "    Val2: " << be16toh_custom(raw.Val2) << std::endl;
+        std::cout << "    Off3: " << be16toh_custom(raw.Off3) << std::endl;
+        std::cout << "    Val3: " << be16toh_custom(raw.Val3) << std::endl;
+        std::cout << "    Off4: " << be16toh_custom(raw.Off4) << std::endl;
+        std::cout << "    Val4: " << be16toh_custom(raw.Val4) << std::endl;
+        std::cout << "    Off5: " << be16toh_custom(raw.Off5) << std::endl;
+        std::cout << "    Val5: " << be16toh_custom(raw.Val5) << std::endl;
+        std::cout << "    Off6: " << be16toh_custom(raw.Off6) << std::endl;
+        std::cout << "    Val6: " << be16toh_custom(raw.Val6) << std::endl;
+        std::cout << "    Off7: " << be16toh_custom(raw.Off7) << std::endl;
+        std::cout << "    Val7: " << be16toh_custom(raw.Val7) << std::endl;
+        std::cout << "    Off8: " << be16toh_custom(raw.Off8) << std::endl;
+        std::cout << "    Val8: " << be16toh_custom(raw.Val8) << std::endl;
+        std::cout << "    Off9: " << be16toh_custom(raw.Off9) << std::endl;
+        std::cout << "    Val9: " << be16toh_custom(raw.Val9) << std::endl;
+        std::cout << "    Off10: " << be16toh_custom(raw.Off10) << std::endl;
+        std::cout << "    Val10: " << be16toh_custom(raw.Val10) << std::endl;
+        std::cout << "    Off11: " << be16toh_custom(raw.Off11) << std::endl;
+        std::cout << "    Val11: " << be16toh_custom(raw.Val11) << std::endl;
+        std::cout << "    Off12: " << be16toh_custom(raw.Off12) << std::endl;
+        std::cout << "    Val12: " << be16toh_custom(raw.Val12) << std::endl;
+        std::cout << "    Off13: " << be16toh_custom(raw.Off13) << std::endl;
+        std::cout << "    Val13: " << be16toh_custom(raw.Val13) << std::endl;
+        std::cout << "    Off14: " << be16toh_custom(raw.Off14) << std::endl;
+        std::cout << "    Val14: " << be16toh_custom(raw.Val14) << std::endl;
+        std::cout << "    Off15: " << be16toh_custom(raw.Off15) << std::endl;
+        std::cout << "    Val15: " << be16toh_custom(raw.Val15) << std::endl;
+        std::cout << "    Off16: " << be16toh_custom(raw.Off16) << std::endl;
+        std::cout << "    Val16: " << be16toh_custom(raw.Val16) << std::endl;
+        std::cout << "    Off17: " << be16toh_custom(raw.Off17) << std::endl;
+        std::cout << "    Val17: " << be16toh_custom(raw.Val17) << std::endl;
+        std::cout << "    Off18: " << be16toh_custom(raw.Off18) << std::endl;
+        std::cout << "    Val18: " << be16toh_custom(raw.Val18) << std::endl;
+        std::cout << "    Off19: " << be16toh_custom(raw.Off19) << std::endl;
+        std::cout << "    Val19: " << be16toh_custom(raw.Val19) << std::endl;
+        std::cout << "    Off20: " << be16toh_custom(raw.Off20) << std::endl;
+        std::cout << "    Val20: " << be16toh_custom(raw.Val20) << std::endl;
+        std::cout << "    Off21: " << be16toh_custom(raw.Off21) << std::endl;
+        std::cout << "    Val21: " << be16toh_custom(raw.Val21) << std::endl;
+        std::cout << "    Off22: " << be16toh_custom(raw.Off22) << std::endl;
+        std::cout << "    Val22: " << be16toh_custom(raw.Val22) << std::endl;
+        std::cout << "    Off23: " << be16toh_custom(raw.Off23) << std::endl;
+        std::cout << "    Val23: " << be16toh_custom(raw.Val23) << std::endl;
+        std::cout << "    Off24: " << be16toh_custom(raw.Off24) << std::endl;
+        std::cout << "    Val24: " << be16toh_custom(raw.Val24) << std::endl;
+        std::cout << "    Off25: " << be16toh_custom(raw.Off25) << std::endl;
+        std::cout << "    Val25: " << be16toh_custom(raw.Val25) << std::endl;
+        std::cout << "    Off26: " << be16toh_custom(raw.Off26) << std::endl;
+        std::cout << "    Val26: " << be16toh_custom(raw.Val26) << std::endl;
+        std::cout << "    Off27: " << be16toh_custom(raw.Off27) << std::endl;
+        std::cout << "    Val27: " << be16toh_custom(raw.Val27) << std::endl;
+        std::cout << "    Off28: " << be16toh_custom(raw.Off28) << std::endl;
+        std::cout << "    Val28: " << be16toh_custom(raw.Val28) << std::endl;
+        std::cout << "    Off29: " << be16toh_custom(raw.Off29) << std::endl;
+        std::cout << "    Val29: " << be16toh_custom(raw.Val29) << std::endl;
+        std::cout << "    Off30: " << be16toh_custom(raw.Off30) << std::endl;
+        std::cout << "    Val30: " << be16toh_custom(raw.Val30) << std::endl;
+        std::cout << "    Off31: " << be16toh_custom(raw.Off31) << std::endl;
+        std::cout << "    Val31: " << be16toh_custom(raw.Val31) << std::endl;
+        std::cout << "    Off32: " << be16toh_custom(raw.Off32) << std::endl;
+        std::cout << "    Val32: " << be16toh_custom(raw.Val32) << std::endl;
+        std::cout << "    Off33: " << be16toh_custom(raw.Off33) << std::endl;
+        std::cout << "    Val33: " << be16toh_custom(raw.Val33) << std::endl;
+        std::cout << "    Off34: " << be16toh_custom(raw.Off34) << std::endl;
+        std::cout << "    Val34: " << be16toh_custom(raw.Val34) << std::endl;
+        std::cout << "    Off35: " << be16toh_custom(raw.Off35) << std::endl;
+        std::cout << "    Val35: " << be16toh_custom(raw.Val35) << std::endl;
+        std::cout << "    Off36: " << be16toh_custom(raw.Off36) << std::endl;
+        std::cout << "    Val36: " << be16toh_custom(raw.Val36) << std::endl;
+        std::cout << "    Off37: " << be16toh_custom(raw.Off37) << std::endl;
+        std::cout << "    Val37: " << be16toh_custom(raw.Val37) << std::endl;
+        std::cout << "    Off38: " << be16toh_custom(raw.Off38) << std::endl;
+        std::cout << "    Val38: " << be16toh_custom(raw.Val38) << std::endl;
+        std::cout << "    Off39: " << be16toh_custom(raw.Off39) << std::endl;
+        std::cout << "    Val39: " << be16toh_custom(raw.Val39) << std::endl;
+        std::cout << "    Off40: " << be16toh_custom(raw.Off40) << std::endl;
+        std::cout << "    Val40: " << be16toh_custom(raw.Val40) << std::endl;
+        std::cout << "    Ts: " << be32toh_custom(raw.Ts) << std::endl;
+        std::cout << "    Ms: " << be16toh_custom(raw.Ms) << std::endl;
+        std::cout << "    Seq: " << be16toh_custom(raw.Seq) << std::endl;
+        std::cout << "    Role: " << be16toh_custom(raw.Role) << std::endl;
+        std::cout << "    Alg: " << be16toh_custom(raw.Alg) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
     }
 
 };

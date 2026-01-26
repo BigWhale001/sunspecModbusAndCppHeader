@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -141,6 +142,24 @@ public:
 
     int16_t get_raw_VRefPct_SF() const {
         return be16toh_custom_s(raw.VRefPct_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    ArGraMod: " << be16toh_custom(raw.ArGraMod) << std::endl;
+        std::cout << "    ArGraSag: " << be16toh_custom(raw.ArGraSag) << std::endl;
+        std::cout << "    ArGraSwell: " << be16toh_custom(raw.ArGraSwell) << std::endl;
+        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+        std::cout << "    FilTms: " << be16toh_custom(raw.FilTms) << std::endl;
+        std::cout << "    DbVMin: " << be16toh_custom(raw.DbVMin) << std::endl;
+        std::cout << "    DbVMax: " << be16toh_custom(raw.DbVMax) << std::endl;
+        std::cout << "    BlkZnV: " << be16toh_custom(raw.BlkZnV) << std::endl;
+        std::cout << "    HysBlkZnV: " << be16toh_custom(raw.HysBlkZnV) << std::endl;
+        std::cout << "    BlkZnTmms: " << be16toh_custom(raw.BlkZnTmms) << std::endl;
+        std::cout << "    HoldTmms: " << be16toh_custom(raw.HoldTmms) << std::endl;
+        std::cout << "    ArGra_SF: " << be16toh_custom_s(raw.ArGra_SF) << std::endl;
+        std::cout << "    VRefPct_SF: " << be16toh_custom_s(raw.VRefPct_SF) << std::endl;
     }
 
 };

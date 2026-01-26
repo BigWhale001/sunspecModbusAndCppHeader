@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -188,6 +189,35 @@ public:
 
     int16_t get_raw_VArPct_SF() const {
         return be16toh_custom_s(raw.VArPct_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Conn_WinTms: " << be16toh_custom(raw.Conn_WinTms) << std::endl;
+        std::cout << "    Conn_RvrtTms: " << be16toh_custom(raw.Conn_RvrtTms) << std::endl;
+        std::cout << "    Conn: " << be16toh_custom(raw.Conn) << std::endl;
+        std::cout << "    WMaxLimPct: " << be16toh_custom(raw.WMaxLimPct) << std::endl;
+        std::cout << "    WMaxLimPct_WinTms: " << be16toh_custom(raw.WMaxLimPct_WinTms) << std::endl;
+        std::cout << "    WMaxLimPct_RvrtTms: " << be16toh_custom(raw.WMaxLimPct_RvrtTms) << std::endl;
+        std::cout << "    WMaxLimPct_RmpTms: " << be16toh_custom(raw.WMaxLimPct_RmpTms) << std::endl;
+        std::cout << "    WMaxLim_Ena: " << be16toh_custom(raw.WMaxLim_Ena) << std::endl;
+        std::cout << "    OutPFSet: " << be16toh_custom_s(raw.OutPFSet) << std::endl;
+        std::cout << "    OutPFSet_WinTms: " << be16toh_custom(raw.OutPFSet_WinTms) << std::endl;
+        std::cout << "    OutPFSet_RvrtTms: " << be16toh_custom(raw.OutPFSet_RvrtTms) << std::endl;
+        std::cout << "    OutPFSet_RmpTms: " << be16toh_custom(raw.OutPFSet_RmpTms) << std::endl;
+        std::cout << "    OutPFSet_Ena: " << be16toh_custom(raw.OutPFSet_Ena) << std::endl;
+        std::cout << "    VArWMaxPct: " << be16toh_custom_s(raw.VArWMaxPct) << std::endl;
+        std::cout << "    VArMaxPct: " << be16toh_custom_s(raw.VArMaxPct) << std::endl;
+        std::cout << "    VArAvalPct: " << be16toh_custom_s(raw.VArAvalPct) << std::endl;
+        std::cout << "    VArPct_WinTms: " << be16toh_custom(raw.VArPct_WinTms) << std::endl;
+        std::cout << "    VArPct_RvrtTms: " << be16toh_custom(raw.VArPct_RvrtTms) << std::endl;
+        std::cout << "    VArPct_RmpTms: " << be16toh_custom(raw.VArPct_RmpTms) << std::endl;
+        std::cout << "    VArPct_Mod: " << be16toh_custom(raw.VArPct_Mod) << std::endl;
+        std::cout << "    VArPct_Ena: " << be16toh_custom(raw.VArPct_Ena) << std::endl;
+        std::cout << "    WMaxLimPct_SF: " << be16toh_custom_s(raw.WMaxLimPct_SF) << std::endl;
+        std::cout << "    OutPFSet_SF: " << be16toh_custom_s(raw.OutPFSet_SF) << std::endl;
+        std::cout << "    VArPct_SF: " << be16toh_custom_s(raw.VArPct_SF) << std::endl;
     }
 
 };

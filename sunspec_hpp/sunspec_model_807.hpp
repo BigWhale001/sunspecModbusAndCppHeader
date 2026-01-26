@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -257,6 +258,40 @@ public:
     // Accessor for repeating group: module
     static const Model807_module_Raw* get_module(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model807_module_Raw*>(base_buffer + offset_bytes + index * sizeof(Model807_module_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Idx: " << be16toh_custom(raw.Idx) << std::endl;
+        std::cout << "    NMod: " << be16toh_custom(raw.NMod) << std::endl;
+        std::cout << "    NModCon: " << be16toh_custom(raw.NModCon) << std::endl;
+        std::cout << "    ModVMax: " << be16toh_custom(raw.ModVMax) << std::endl;
+        std::cout << "    ModVMaxMod: " << be16toh_custom(raw.ModVMaxMod) << std::endl;
+        std::cout << "    ModVMin: " << be16toh_custom(raw.ModVMin) << std::endl;
+        std::cout << "    ModVMinMod: " << be16toh_custom(raw.ModVMinMod) << std::endl;
+        std::cout << "    ModVAvg: " << be16toh_custom(raw.ModVAvg) << std::endl;
+        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+        std::cout << "    CellVMaxMod: " << be16toh_custom(raw.CellVMaxMod) << std::endl;
+        std::cout << "    CellVMaxStk: " << be16toh_custom(raw.CellVMaxStk) << std::endl;
+        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+        std::cout << "    CellVMinMod: " << be16toh_custom(raw.CellVMinMod) << std::endl;
+        std::cout << "    CellVMinStk: " << be16toh_custom(raw.CellVMinStk) << std::endl;
+        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+        std::cout << "    TmpMax: " << be16toh_custom_s(raw.TmpMax) << std::endl;
+        std::cout << "    TmpMaxMod: " << be16toh_custom(raw.TmpMaxMod) << std::endl;
+        std::cout << "    TmpMin: " << be16toh_custom_s(raw.TmpMin) << std::endl;
+        std::cout << "    TmpMinMod: " << be16toh_custom(raw.TmpMinMod) << std::endl;
+        std::cout << "    TmpAvg: " << be16toh_custom_s(raw.TmpAvg) << std::endl;
+        std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
+        std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
+        std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
+        std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
+        std::cout << "    ModV_SF: " << be16toh_custom_s(raw.ModV_SF) << std::endl;
+        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+        std::cout << "    OCV_SF: " << be16toh_custom_s(raw.OCV_SF) << std::endl;
     }
 
 };

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -39,6 +40,23 @@ public:
 
     uint16_t get_raw_L() const {
         return be16toh_custom(raw.L);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Tm: ";
+        for(size_t i=0; i<sizeof(raw.Tm) && raw.Tm[i] != 0; ++i) std::cout << raw.Tm[i];
+        std::cout << std::endl;
+        std::cout << "    Date: ";
+        for(size_t i=0; i<sizeof(raw.Date) && raw.Date[i] != 0; ++i) std::cout << raw.Date[i];
+        std::cout << std::endl;
+        std::cout << "    Loc: ";
+        for(size_t i=0; i<sizeof(raw.Loc) && raw.Loc[i] != 0; ++i) std::cout << raw.Loc[i];
+        std::cout << std::endl;
+        std::cout << "    Lat: " << be32toh_custom(raw.Lat) << std::endl;
+        std::cout << "    Long: " << be32toh_custom(raw.Long) << std::endl;
+        std::cout << "    Alt: " << be32toh_custom(raw.Alt) << std::endl;
     }
 
 };

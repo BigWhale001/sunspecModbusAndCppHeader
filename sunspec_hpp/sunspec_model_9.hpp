@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -496,6 +497,102 @@ public:
     // Accessor for repeating group: repeating
     static const Model9_repeating_Raw* get_repeating(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model9_repeating_Raw*>(base_buffer + offset_bytes + index * sizeof(Model9_repeating_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    CertUID: " << be16toh_custom(raw.CertUID) << std::endl;
+        std::cout << "    CertRole: " << be16toh_custom(raw.CertRole) << std::endl;
+        std::cout << "    Fmt: " << be16toh_custom(raw.Fmt) << std::endl;
+        std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+        std::cout << "    TotLn: " << be16toh_custom(raw.TotLn) << std::endl;
+        std::cout << "    FrgLn: " << be16toh_custom(raw.FrgLn) << std::endl;
+        std::cout << "    Frg1: " << be16toh_custom(raw.Frg1) << std::endl;
+        std::cout << "    Frg2: " << be16toh_custom(raw.Frg2) << std::endl;
+        std::cout << "    Frg3: " << be16toh_custom(raw.Frg3) << std::endl;
+        std::cout << "    Frg4: " << be16toh_custom(raw.Frg4) << std::endl;
+        std::cout << "    Frg5: " << be16toh_custom(raw.Frg5) << std::endl;
+        std::cout << "    Frg6: " << be16toh_custom(raw.Frg6) << std::endl;
+        std::cout << "    Frg7: " << be16toh_custom(raw.Frg7) << std::endl;
+        std::cout << "    Frg8: " << be16toh_custom(raw.Frg8) << std::endl;
+        std::cout << "    Frg9: " << be16toh_custom(raw.Frg9) << std::endl;
+        std::cout << "    Frg10: " << be16toh_custom(raw.Frg10) << std::endl;
+        std::cout << "    Frg11: " << be16toh_custom(raw.Frg11) << std::endl;
+        std::cout << "    Frg12: " << be16toh_custom(raw.Frg12) << std::endl;
+        std::cout << "    Frg13: " << be16toh_custom(raw.Frg13) << std::endl;
+        std::cout << "    Frg14: " << be16toh_custom(raw.Frg14) << std::endl;
+        std::cout << "    Frg15: " << be16toh_custom(raw.Frg15) << std::endl;
+        std::cout << "    Frg16: " << be16toh_custom(raw.Frg16) << std::endl;
+        std::cout << "    Frg17: " << be16toh_custom(raw.Frg17) << std::endl;
+        std::cout << "    Frg18: " << be16toh_custom(raw.Frg18) << std::endl;
+        std::cout << "    Frg19: " << be16toh_custom(raw.Frg19) << std::endl;
+        std::cout << "    Frg20: " << be16toh_custom(raw.Frg20) << std::endl;
+        std::cout << "    Frg21: " << be16toh_custom(raw.Frg21) << std::endl;
+        std::cout << "    Frg22: " << be16toh_custom(raw.Frg22) << std::endl;
+        std::cout << "    Frg23: " << be16toh_custom(raw.Frg23) << std::endl;
+        std::cout << "    Frg24: " << be16toh_custom(raw.Frg24) << std::endl;
+        std::cout << "    Frg25: " << be16toh_custom(raw.Frg25) << std::endl;
+        std::cout << "    Frg26: " << be16toh_custom(raw.Frg26) << std::endl;
+        std::cout << "    Frg27: " << be16toh_custom(raw.Frg27) << std::endl;
+        std::cout << "    Frg28: " << be16toh_custom(raw.Frg28) << std::endl;
+        std::cout << "    Frg29: " << be16toh_custom(raw.Frg29) << std::endl;
+        std::cout << "    Frg30: " << be16toh_custom(raw.Frg30) << std::endl;
+        std::cout << "    Frg31: " << be16toh_custom(raw.Frg31) << std::endl;
+        std::cout << "    Frg32: " << be16toh_custom(raw.Frg32) << std::endl;
+        std::cout << "    Frg33: " << be16toh_custom(raw.Frg33) << std::endl;
+        std::cout << "    Frg34: " << be16toh_custom(raw.Frg34) << std::endl;
+        std::cout << "    Frg35: " << be16toh_custom(raw.Frg35) << std::endl;
+        std::cout << "    Frg36: " << be16toh_custom(raw.Frg36) << std::endl;
+        std::cout << "    Frg37: " << be16toh_custom(raw.Frg37) << std::endl;
+        std::cout << "    Frg38: " << be16toh_custom(raw.Frg38) << std::endl;
+        std::cout << "    Frg39: " << be16toh_custom(raw.Frg39) << std::endl;
+        std::cout << "    Frg40: " << be16toh_custom(raw.Frg40) << std::endl;
+        std::cout << "    Frg41: " << be16toh_custom(raw.Frg41) << std::endl;
+        std::cout << "    Frg42: " << be16toh_custom(raw.Frg42) << std::endl;
+        std::cout << "    Frg43: " << be16toh_custom(raw.Frg43) << std::endl;
+        std::cout << "    Frg44: " << be16toh_custom(raw.Frg44) << std::endl;
+        std::cout << "    Frg45: " << be16toh_custom(raw.Frg45) << std::endl;
+        std::cout << "    Frg46: " << be16toh_custom(raw.Frg46) << std::endl;
+        std::cout << "    Frg47: " << be16toh_custom(raw.Frg47) << std::endl;
+        std::cout << "    Frg48: " << be16toh_custom(raw.Frg48) << std::endl;
+        std::cout << "    Frg49: " << be16toh_custom(raw.Frg49) << std::endl;
+        std::cout << "    Frg50: " << be16toh_custom(raw.Frg50) << std::endl;
+        std::cout << "    Frg51: " << be16toh_custom(raw.Frg51) << std::endl;
+        std::cout << "    Frg52: " << be16toh_custom(raw.Frg52) << std::endl;
+        std::cout << "    Frg53: " << be16toh_custom(raw.Frg53) << std::endl;
+        std::cout << "    Frg54: " << be16toh_custom(raw.Frg54) << std::endl;
+        std::cout << "    Frg55: " << be16toh_custom(raw.Frg55) << std::endl;
+        std::cout << "    Frg56: " << be16toh_custom(raw.Frg56) << std::endl;
+        std::cout << "    Frg57: " << be16toh_custom(raw.Frg57) << std::endl;
+        std::cout << "    Frg58: " << be16toh_custom(raw.Frg58) << std::endl;
+        std::cout << "    Frg59: " << be16toh_custom(raw.Frg59) << std::endl;
+        std::cout << "    Frg60: " << be16toh_custom(raw.Frg60) << std::endl;
+        std::cout << "    Frg61: " << be16toh_custom(raw.Frg61) << std::endl;
+        std::cout << "    Frg62: " << be16toh_custom(raw.Frg62) << std::endl;
+        std::cout << "    Frg63: " << be16toh_custom(raw.Frg63) << std::endl;
+        std::cout << "    Frg64: " << be16toh_custom(raw.Frg64) << std::endl;
+        std::cout << "    Frg65: " << be16toh_custom(raw.Frg65) << std::endl;
+        std::cout << "    Frg66: " << be16toh_custom(raw.Frg66) << std::endl;
+        std::cout << "    Frg67: " << be16toh_custom(raw.Frg67) << std::endl;
+        std::cout << "    Frg68: " << be16toh_custom(raw.Frg68) << std::endl;
+        std::cout << "    Frg69: " << be16toh_custom(raw.Frg69) << std::endl;
+        std::cout << "    Frg70: " << be16toh_custom(raw.Frg70) << std::endl;
+        std::cout << "    Frg71: " << be16toh_custom(raw.Frg71) << std::endl;
+        std::cout << "    Frg72: " << be16toh_custom(raw.Frg72) << std::endl;
+        std::cout << "    Frg73: " << be16toh_custom(raw.Frg73) << std::endl;
+        std::cout << "    Frg74: " << be16toh_custom(raw.Frg74) << std::endl;
+        std::cout << "    Frg75: " << be16toh_custom(raw.Frg75) << std::endl;
+        std::cout << "    Frg78: " << be16toh_custom(raw.Frg78) << std::endl;
+        std::cout << "    Frg79: " << be16toh_custom(raw.Frg79) << std::endl;
+        std::cout << "    Frg80: " << be16toh_custom(raw.Frg80) << std::endl;
+        std::cout << "    Ts: " << be32toh_custom(raw.Ts) << std::endl;
+        std::cout << "    Ms: " << be16toh_custom(raw.Ms) << std::endl;
+        std::cout << "    Seq: " << be16toh_custom(raw.Seq) << std::endl;
+        std::cout << "    UID: " << be16toh_custom(raw.UID) << std::endl;
+        std::cout << "    Role: " << be16toh_custom(raw.Role) << std::endl;
+        std::cout << "    Alg: " << be16toh_custom(raw.Alg) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
     }
 
 };

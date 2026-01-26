@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -93,6 +94,21 @@ public:
     // Accessor for repeating group: Ctl
     static const Model711_Ctl_Raw* get_Ctl(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model711_Ctl_Raw*>(base_buffer + offset_bytes + index * sizeof(Model711_Ctl_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+        std::cout << "    AdptCtlReq: " << be16toh_custom(raw.AdptCtlReq) << std::endl;
+        std::cout << "    AdptCtlRslt: " << be16toh_custom(raw.AdptCtlRslt) << std::endl;
+        std::cout << "    NCtl: " << be16toh_custom(raw.NCtl) << std::endl;
+        std::cout << "    RvrtTms: " << be32toh_custom(raw.RvrtTms) << std::endl;
+        std::cout << "    RvrtRem: " << be32toh_custom(raw.RvrtRem) << std::endl;
+        std::cout << "    RvrtCtl: " << be16toh_custom(raw.RvrtCtl) << std::endl;
+        std::cout << "    Db_SF: " << be16toh_custom_s(raw.Db_SF) << std::endl;
+        std::cout << "    K_SF: " << be16toh_custom_s(raw.K_SF) << std::endl;
+        std::cout << "    RspTms_SF: " << be16toh_custom_s(raw.RspTms_SF) << std::endl;
     }
 
 };

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -135,6 +136,27 @@ public:
     // Accessor for repeating group: string
     static const Model402_string_Raw* get_string(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model402_string_Raw*>(base_buffer + offset_bytes + index * sizeof(Model402_string_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+        std::cout << "    DCAhr_SF: " << be16toh_custom_s(raw.DCAhr_SF) << std::endl;
+        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+        std::cout << "    DCWh_SF: " << be16toh_custom_s(raw.DCWh_SF) << std::endl;
+        std::cout << "    DCAMax: " << be16toh_custom(raw.DCAMax) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+        std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
+        std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
+        std::cout << "    DCAhr: " << be32toh_custom(raw.DCAhr) << std::endl;
+        std::cout << "    DCV: " << be16toh_custom(raw.DCV) << std::endl;
+        std::cout << "    Tmp: " << be16toh_custom_s(raw.Tmp) << std::endl;
+        std::cout << "    DCW: " << be16toh_custom_s(raw.DCW) << std::endl;
+        std::cout << "    DCPR: " << be16toh_custom(raw.DCPR) << std::endl;
+        std::cout << "    DCWh: " << be32toh_custom(raw.DCWh) << std::endl;
     }
 
 };

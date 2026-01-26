@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -78,6 +79,22 @@ public:
 
     int16_t get_raw_Hz_SF() const {
         return be16toh_custom_s(raw.Hz_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    ES: " << be16toh_custom(raw.ES) << std::endl;
+        std::cout << "    ESVHi: " << be16toh_custom(raw.ESVHi) << std::endl;
+        std::cout << "    ESVLo: " << be16toh_custom(raw.ESVLo) << std::endl;
+        std::cout << "    ESHzHi: " << be32toh_custom(raw.ESHzHi) << std::endl;
+        std::cout << "    ESHzLo: " << be32toh_custom(raw.ESHzLo) << std::endl;
+        std::cout << "    ESDlyTms: " << be32toh_custom(raw.ESDlyTms) << std::endl;
+        std::cout << "    ESRndTms: " << be32toh_custom(raw.ESRndTms) << std::endl;
+        std::cout << "    ESRmpTms: " << be32toh_custom(raw.ESRmpTms) << std::endl;
+        std::cout << "    ESDlyRemTms: " << be32toh_custom(raw.ESDlyRemTms) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
     }
 
 };

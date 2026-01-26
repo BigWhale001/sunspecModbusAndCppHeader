@@ -96,76 +96,21 @@ int main() {
     // --- 开始解码 ---
     SunSpecDecoder decoder;
     // stream.data() 是 uint16_t*, 但 decoder 需要 uint16_t* (兼容). 
-    // 注意: SunSpec 协议中长度是按寄存器(uint16)计，但 memcpy 按字节计。
-    // decoder.decode 接收的是 uint16_t* buffer 和 length (寄存器数? No, check impl)
-    // Impl: decode(const uint16_t* buffer, size_t length)
-    // 并且里面 buffer[cursor] 是按 uint16 访问。
     decoder.decode(stream.data(), stream.size());
 
-    // --- 验证结果 ---
-    std::cout << "\n--- Verification ---" << std::endl;
-    
-    auto m1 = decoder.get_model<Model1>(1);
-    if (m1) std::cout << "[PASS] Model 1 found." << std::endl;
-
-    auto m103 = decoder.get_model<Model103>(103);
-    if (m103) {
-        std::cout << "[PASS] Model 103 found. Amps: " << m103->get_A() << " A" << std::endl;
-    }
-
-    auto m708 = decoder.get_model<Model708>(708);
-    if (m708) {
-        std::cout << "[PASS] Model 708 found." << std::endl;
+    std::cout << "\n--- Decoded Models Attributes ---\n";
+    for (const auto& pair : decoder.models) {
+        uint16_t model_id = pair.first;
+        const auto& instances = pair.second;
         
-        // 验证 Root
-        uint16_t n_crv = m708->get_raw_NCrvSet();
-        uint16_t n_pt = m708->get_raw_NPt();
-        std::cout << "  NCrvSet: " << n_crv << ", NPt: " << n_pt << std::endl;
-
-        // 手动遍历嵌套组 (Manual Traversal of Nested Groups)
-        size_t offset = sizeof(Model708_Raw); // 跳过 Root
-        
-        for (int i = 0; i < n_crv; i++) {
-            std::cout << "  [Curve Set " << i << "]" << std::endl;
-            
-            // 1. Crv Struct
-            auto crv = SunSpecDecoder::get_group_at<Model708_Crv_Raw>(m708, offset);
-            offset += sizeof(Model708_Crv_Raw);
-            std::cout << "    ReadOnly: " << be16toh_custom(crv->ReadOnly) << std::endl;
-            
-            // 2. MustTrip Group
-            auto must = SunSpecDecoder::get_group_at<Model708_Crv_MustTrip_Raw>(m708, offset);
-            offset += sizeof(Model708_Crv_MustTrip_Raw);
-            uint16_t act_pt = be16toh_custom(must->ActPt);
-            std::cout << "    MustTrip (ActPt=" << act_pt << "):" << std::endl;
-            
-            // MustTrip Points
-            for (int j = 0; j < n_pt; j++) {
-                auto pt = SunSpecDecoder::get_group_at<Model708_Crv_MustTrip_Pt_Raw>(m708, offset);
-                offset += sizeof(Model708_Crv_MustTrip_Pt_Raw);
-                
-                // 只打印有效的点
-                if (j < act_pt) {
-                    uint16_t v = be16toh_custom(pt->V);
-                    std::cout << "      Pt[" << j << "]: V=" << v << std::endl;
-                }
-            }
-            
-            // 3. MayTrip Group
-            // Skip MayTrip struct
-            offset += sizeof(Model708_Crv_MayTrip_Raw);
-            // Skip MayTrip Points
-            offset += n_pt * sizeof(Model708_Crv_MayTrip_Pt_Raw);
-            
-            // 4. MomCess Group
-            // Skip MomCess struct
-            offset += sizeof(Model708_Crv_MomCess_Raw);
-            // Skip MomCess Points
-            offset += n_pt * sizeof(Model708_Crv_MomCess_Pt_Raw);
+        std::cout << "Model " << model_id << " (" << instances.size() << " instance(s)):" << std::endl;
+        for (size_t i = 0; i < instances.size(); ++i) {
+            std::cout << "  Instance " << i + 1 << ":" << std::endl;
+            instances[i]->print_attributes();
+            std::cout << std::endl;
         }
-    } else {
-        std::cout << "[FAIL] Model 708 missing." << std::endl;
     }
 
     return 0;
 }
+

@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -155,6 +156,18 @@ public:
     // Accessor for repeating group: Crv_MomCess_Pt
     static const Model708_Crv_MomCess_Pt_Raw* get_Crv_MomCess_Pt(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model708_Crv_MomCess_Pt_Raw*>(base_buffer + offset_bytes + index * sizeof(Model708_Crv_MomCess_Pt_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+        std::cout << "    AdptCrvReq: " << be16toh_custom(raw.AdptCrvReq) << std::endl;
+        std::cout << "    AdptCrvRslt: " << be16toh_custom(raw.AdptCrvRslt) << std::endl;
+        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+        std::cout << "    NCrvSet: " << be16toh_custom(raw.NCrvSet) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
     }
 
 };

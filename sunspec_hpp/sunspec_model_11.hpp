@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -60,6 +61,24 @@ public:
 
     uint16_t get_raw_FrcSpd() const {
         return be16toh_custom(raw.FrcSpd);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Spd: " << be16toh_custom(raw.Spd) << std::endl;
+        std::cout << "    CfgSt: " << be16toh_custom(raw.CfgSt) << std::endl;
+        std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
+        std::cout << "    MAC: [";
+        for(size_t i=0; i<4; ++i) {
+            std::cout << be16toh_custom(raw.MAC[i]) << (i < 3 ? ", " : "");
+        }
+        std::cout << "]" << std::endl;
+        std::cout << "    Nam: ";
+        for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
+        std::cout << std::endl;
+        std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
+        std::cout << "    FrcSpd: " << be16toh_custom(raw.FrcSpd) << std::endl;
     }
 
 };

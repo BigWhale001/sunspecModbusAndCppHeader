@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -50,6 +51,23 @@ public:
 
     uint16_t get_raw_Clr() const {
         return be16toh_custom(raw.Clr);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Clr: " << be16toh_custom(raw.Clr) << std::endl;
+        std::cout << "    InCnt: " << be32toh_custom(raw.InCnt) << std::endl;
+        std::cout << "    InUcCnt: " << be32toh_custom(raw.InUcCnt) << std::endl;
+        std::cout << "    InNUcCnt: " << be32toh_custom(raw.InNUcCnt) << std::endl;
+        std::cout << "    InDscCnt: " << be32toh_custom(raw.InDscCnt) << std::endl;
+        std::cout << "    InErrCnt: " << be32toh_custom(raw.InErrCnt) << std::endl;
+        std::cout << "    InUnkCnt: " << be32toh_custom(raw.InUnkCnt) << std::endl;
+        std::cout << "    OutCnt: " << be32toh_custom(raw.OutCnt) << std::endl;
+        std::cout << "    OutUcCnt: " << be32toh_custom(raw.OutUcCnt) << std::endl;
+        std::cout << "    OutNUcCnt: " << be32toh_custom(raw.OutNUcCnt) << std::endl;
+        std::cout << "    OutDscCnt: " << be32toh_custom(raw.OutDscCnt) << std::endl;
+        std::cout << "    OutErrCnt: " << be32toh_custom(raw.OutErrCnt) << std::endl;
     }
 
 };

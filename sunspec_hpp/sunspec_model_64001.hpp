@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -168,6 +169,66 @@ public:
 
     uint16_t get_raw_S4OSVer() const {
         return be16toh_custom(raw.S4OSVer);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Cmd: " << be16toh_custom(raw.Cmd) << std::endl;
+        std::cout << "    HWRev: " << be16toh_custom(raw.HWRev) << std::endl;
+        std::cout << "    RSFWRev: " << be16toh_custom(raw.RSFWRev) << std::endl;
+        std::cout << "    OSFWRev: " << be16toh_custom(raw.OSFWRev) << std::endl;
+        std::cout << "    ProdRev: ";
+        for(size_t i=0; i<sizeof(raw.ProdRev) && raw.ProdRev[i] != 0; ++i) std::cout << raw.ProdRev[i];
+        std::cout << std::endl;
+        std::cout << "    Boots: " << be16toh_custom(raw.Boots) << std::endl;
+        std::cout << "    Switch: " << be16toh_custom(raw.Switch) << std::endl;
+        std::cout << "    Sensors: " << be16toh_custom(raw.Sensors) << std::endl;
+        std::cout << "    Talking: " << be16toh_custom(raw.Talking) << std::endl;
+        std::cout << "    Status: " << be16toh_custom(raw.Status) << std::endl;
+        std::cout << "    Config: " << be16toh_custom(raw.Config) << std::endl;
+        std::cout << "    LEDblink: " << be16toh_custom(raw.LEDblink) << std::endl;
+        std::cout << "    LEDon: " << be16toh_custom(raw.LEDon) << std::endl;
+        std::cout << "    Reserved: " << be16toh_custom(raw.Reserved) << std::endl;
+        std::cout << "    Loc: ";
+        for(size_t i=0; i<sizeof(raw.Loc) && raw.Loc[i] != 0; ++i) std::cout << raw.Loc[i];
+        std::cout << std::endl;
+        std::cout << "    S1ID: " << be16toh_custom(raw.S1ID) << std::endl;
+        std::cout << "    S1Addr: " << be16toh_custom(raw.S1Addr) << std::endl;
+        std::cout << "    S1OSVer: " << be16toh_custom(raw.S1OSVer) << std::endl;
+        std::cout << "    S1Ver: ";
+        for(size_t i=0; i<sizeof(raw.S1Ver) && raw.S1Ver[i] != 0; ++i) std::cout << raw.S1Ver[i];
+        std::cout << std::endl;
+        std::cout << "    S1Serial: ";
+        for(size_t i=0; i<sizeof(raw.S1Serial) && raw.S1Serial[i] != 0; ++i) std::cout << raw.S1Serial[i];
+        std::cout << std::endl;
+        std::cout << "    S2ID: " << be16toh_custom(raw.S2ID) << std::endl;
+        std::cout << "    S2Addr: " << be16toh_custom(raw.S2Addr) << std::endl;
+        std::cout << "    S2OSVer: " << be16toh_custom(raw.S2OSVer) << std::endl;
+        std::cout << "    S2Ver: ";
+        for(size_t i=0; i<sizeof(raw.S2Ver) && raw.S2Ver[i] != 0; ++i) std::cout << raw.S2Ver[i];
+        std::cout << std::endl;
+        std::cout << "    S2Serial: ";
+        for(size_t i=0; i<sizeof(raw.S2Serial) && raw.S2Serial[i] != 0; ++i) std::cout << raw.S2Serial[i];
+        std::cout << std::endl;
+        std::cout << "    S3ID: " << be16toh_custom(raw.S3ID) << std::endl;
+        std::cout << "    S3Addr: " << be16toh_custom(raw.S3Addr) << std::endl;
+        std::cout << "    S3OSVer: " << be16toh_custom(raw.S3OSVer) << std::endl;
+        std::cout << "    S3Ver: ";
+        for(size_t i=0; i<sizeof(raw.S3Ver) && raw.S3Ver[i] != 0; ++i) std::cout << raw.S3Ver[i];
+        std::cout << std::endl;
+        std::cout << "    S3Serial: ";
+        for(size_t i=0; i<sizeof(raw.S3Serial) && raw.S3Serial[i] != 0; ++i) std::cout << raw.S3Serial[i];
+        std::cout << std::endl;
+        std::cout << "    S4ID: " << be16toh_custom(raw.S4ID) << std::endl;
+        std::cout << "    S4Addr: " << be16toh_custom(raw.S4Addr) << std::endl;
+        std::cout << "    S4OSVer: " << be16toh_custom(raw.S4OSVer) << std::endl;
+        std::cout << "    S4Ver: ";
+        for(size_t i=0; i<sizeof(raw.S4Ver) && raw.S4Ver[i] != 0; ++i) std::cout << raw.S4Ver[i];
+        std::cout << std::endl;
+        std::cout << "    S4Serial: ";
+        for(size_t i=0; i<sizeof(raw.S4Serial) && raw.S4Serial[i] != 0; ++i) std::cout << raw.S4Serial[i];
+        std::cout << std::endl;
     }
 
 };

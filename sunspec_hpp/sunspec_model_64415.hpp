@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -48,6 +49,14 @@ public:
 
     uint16_t get_raw_COMM004Cert() const {
         return be16toh_custom(raw.COMM004Cert);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    LogEventEna: " << be16toh_custom(raw.LogEventEna) << std::endl;
+        std::cout << "    HTTPMsg: " << be16toh_custom(raw.HTTPMsg) << std::endl;
+        std::cout << "    COMM004Cert: " << be16toh_custom(raw.COMM004Cert) << std::endl;
     }
 
 };

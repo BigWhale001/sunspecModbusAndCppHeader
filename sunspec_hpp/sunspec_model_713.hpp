@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -96,6 +97,18 @@ public:
 
     int16_t get_raw_Pct_SF() const {
         return be16toh_custom_s(raw.Pct_SF);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    WHRtg: " << be16toh_custom(raw.WHRtg) << std::endl;
+        std::cout << "    WHAvail: " << be16toh_custom(raw.WHAvail) << std::endl;
+        std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
+        std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
+        std::cout << "    Sta: " << be16toh_custom(raw.Sta) << std::endl;
+        std::cout << "    WH_SF: " << be16toh_custom_s(raw.WH_SF) << std::endl;
+        std::cout << "    Pct_SF: " << be16toh_custom_s(raw.Pct_SF) << std::endl;
     }
 
 };

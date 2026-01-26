@@ -1,6 +1,0 @@
--std=c++11
--I.
--Iinclude
--Igenerated
--pthread
--IThirdParty/x86_64/libmodbus/include

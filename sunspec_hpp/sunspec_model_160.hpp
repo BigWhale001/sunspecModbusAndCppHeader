@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -81,6 +82,18 @@ public:
     // Accessor for repeating group: module
     static const Model160_module_Raw* get_module(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model160_module_Raw*>(base_buffer + offset_bytes + index * sizeof(Model160_module_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+        std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
+        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+        std::cout << "    TmsPer: " << be16toh_custom(raw.TmsPer) << std::endl;
     }
 
 };

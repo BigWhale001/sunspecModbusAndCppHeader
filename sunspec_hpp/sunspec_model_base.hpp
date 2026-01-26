@@ -14,4 +14,7 @@ public:
     virtual void from_buffer(const uint8_t* buffer) {
         base_addr = buffer;
     }
+
+    // Print all attributes (generated implementation)
+    virtual void print_attributes() const {}
 };

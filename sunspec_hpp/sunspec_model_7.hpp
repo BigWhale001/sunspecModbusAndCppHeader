@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -82,6 +83,19 @@ public:
     // Accessor for repeating group: repeating
     static const Model7_repeating_Raw* get_repeating(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model7_repeating_Raw*>(base_buffer + offset_bytes + index * sizeof(Model7_repeating_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    RqSeq: " << be16toh_custom(raw.RqSeq) << std::endl;
+        std::cout << "    Sts: " << be16toh_custom(raw.Sts) << std::endl;
+        std::cout << "    Ts: " << be32toh_custom(raw.Ts) << std::endl;
+        std::cout << "    Ms: " << be16toh_custom(raw.Ms) << std::endl;
+        std::cout << "    Seq: " << be16toh_custom(raw.Seq) << std::endl;
+        std::cout << "    Alm: " << be16toh_custom(raw.Alm) << std::endl;
+        std::cout << "    Alg: " << be16toh_custom(raw.Alg) << std::endl;
+        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
     }
 
 };

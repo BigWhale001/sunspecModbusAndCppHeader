@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -288,6 +289,46 @@ public:
     // Accessor for repeating group: lithium_ion_string_module
     static const Model804_lithium_ion_string_module_Raw* get_lithium_ion_string_module(const uint8_t* base_buffer, size_t index, size_t offset_bytes) {
         return reinterpret_cast<const Model804_lithium_ion_string_module_Raw*>(base_buffer + offset_bytes + index * sizeof(Model804_lithium_ion_string_module_Raw));
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    Idx: " << be16toh_custom(raw.Idx) << std::endl;
+        std::cout << "    NMod: " << be16toh_custom(raw.NMod) << std::endl;
+        std::cout << "    St: " << be32toh_custom(raw.St) << std::endl;
+        std::cout << "    ConFail: " << be16toh_custom(raw.ConFail) << std::endl;
+        std::cout << "    NCellBal: " << be16toh_custom(raw.NCellBal) << std::endl;
+        std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
+        std::cout << "    DoD: " << be16toh_custom(raw.DoD) << std::endl;
+        std::cout << "    NCyc: " << be32toh_custom(raw.NCyc) << std::endl;
+        std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
+        std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
+        std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
+        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+        std::cout << "    CellVMaxMod: " << be16toh_custom(raw.CellVMaxMod) << std::endl;
+        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+        std::cout << "    CellVMinMod: " << be16toh_custom(raw.CellVMinMod) << std::endl;
+        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+        std::cout << "    ModTmpMax: " << be16toh_custom_s(raw.ModTmpMax) << std::endl;
+        std::cout << "    ModTmpMaxMod: " << be16toh_custom(raw.ModTmpMaxMod) << std::endl;
+        std::cout << "    ModTmpMin: " << be16toh_custom_s(raw.ModTmpMin) << std::endl;
+        std::cout << "    ModTmpMinMod: " << be16toh_custom(raw.ModTmpMinMod) << std::endl;
+        std::cout << "    ModTmpAvg: " << be16toh_custom_s(raw.ModTmpAvg) << std::endl;
+        std::cout << "    ConSt: " << be32toh_custom(raw.ConSt) << std::endl;
+        std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
+        std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
+        std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
+        std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
+        std::cout << "    SetEna: " << be16toh_custom(raw.SetEna) << std::endl;
+        std::cout << "    SetCon: " << be16toh_custom(raw.SetCon) << std::endl;
+        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+        std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
+        std::cout << "    DoD_SF: " << be16toh_custom_s(raw.DoD_SF) << std::endl;
+        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+        std::cout << "    ModTmp_SF: " << be16toh_custom_s(raw.ModTmp_SF) << std::endl;
     }
 
 };

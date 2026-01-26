@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstring>
 #include <algorithm>
+#include <iostream>
 #include "sunspec_utils.hpp"
 #include "sunspec_model_base.hpp"
 
@@ -72,6 +73,42 @@ public:
 
     uint16_t get_raw_StVnd() const {
         return be16toh_custom(raw.StVnd);
+    }
+
+    void print_attributes() const override {
+        std::cout << "    ID: " << get_raw_ID() << std::endl;
+        std::cout << "    L: " << get_raw_L() << std::endl;
+        std::cout << "    A: " << be32toh_custom(raw.A) << std::endl;
+        std::cout << "    AphA: " << be32toh_custom(raw.AphA) << std::endl;
+        std::cout << "    AphB: " << be32toh_custom(raw.AphB) << std::endl;
+        std::cout << "    AphC: " << be32toh_custom(raw.AphC) << std::endl;
+        std::cout << "    PPVphAB: " << be32toh_custom(raw.PPVphAB) << std::endl;
+        std::cout << "    PPVphBC: " << be32toh_custom(raw.PPVphBC) << std::endl;
+        std::cout << "    PPVphCA: " << be32toh_custom(raw.PPVphCA) << std::endl;
+        std::cout << "    PhVphA: " << be32toh_custom(raw.PhVphA) << std::endl;
+        std::cout << "    PhVphB: " << be32toh_custom(raw.PhVphB) << std::endl;
+        std::cout << "    PhVphC: " << be32toh_custom(raw.PhVphC) << std::endl;
+        std::cout << "    W: " << be32toh_custom(raw.W) << std::endl;
+        std::cout << "    Hz: " << be32toh_custom(raw.Hz) << std::endl;
+        std::cout << "    VA: " << be32toh_custom(raw.VA) << std::endl;
+        std::cout << "    VAr: " << be32toh_custom(raw.VAr) << std::endl;
+        std::cout << "    PF: " << be32toh_custom(raw.PF) << std::endl;
+        std::cout << "    WH: " << be32toh_custom(raw.WH) << std::endl;
+        std::cout << "    DCA: " << be32toh_custom(raw.DCA) << std::endl;
+        std::cout << "    DCV: " << be32toh_custom(raw.DCV) << std::endl;
+        std::cout << "    DCW: " << be32toh_custom(raw.DCW) << std::endl;
+        std::cout << "    TmpCab: " << be32toh_custom(raw.TmpCab) << std::endl;
+        std::cout << "    TmpSnk: " << be32toh_custom(raw.TmpSnk) << std::endl;
+        std::cout << "    TmpTrns: " << be32toh_custom(raw.TmpTrns) << std::endl;
+        std::cout << "    TmpOt: " << be32toh_custom(raw.TmpOt) << std::endl;
+        std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
+        std::cout << "    StVnd: " << be16toh_custom(raw.StVnd) << std::endl;
+        std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
+        std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
+        std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
+        std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
+        std::cout << "    EvtVnd3: " << be32toh_custom(raw.EvtVnd3) << std::endl;
+        std::cout << "    EvtVnd4: " << be32toh_custom(raw.EvtVnd4) << std::endl;
     }
 
 };
