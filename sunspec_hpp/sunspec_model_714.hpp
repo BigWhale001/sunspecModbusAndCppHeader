@@ -27,7 +27,7 @@ struct Model714_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Prt
+// Group: Prt
 #pragma pack(push, 1)
 struct Model714_Prt_Raw {
     uint16_t PrtTyp;
@@ -118,25 +118,53 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    PrtAlrms: " << be32toh_custom(raw.PrtAlrms) << std::endl;
-        std::cout << "    NPrt: " << be16toh_custom(raw.NPrt) << std::endl;
-        std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
-        std::cout << "    DCW: " << be16toh_custom_s(raw.DCW) << std::endl;
-        std::cout << "    DCWhInj: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.DCWhInj[i]) << (i < 3 ? ", " : "");
+            std::cout << "    PrtAlrms: " << be32toh_custom(raw.PrtAlrms) << std::endl;
+            std::cout << "    NPrt: " << be16toh_custom(raw.NPrt) << std::endl;
+            std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
+            std::cout << "    DCW: " << be16toh_custom_s(raw.DCW) << std::endl;
+            std::cout << "    DCWhInj: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.DCWhInj[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    DCWhAbs: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.DCWhAbs[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+            std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+            std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+            std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
+            std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model714_Raw);
+        // Loop for group: Prt
+        for (size_t i = 0; i < be16toh_custom(raw.NPrt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model714_Prt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model714_Prt_Raw*>(cur_ptr);
+            std::cout << "    Group Prt[" << i << "]:" << std::endl;
+            std::cout << "    PrtTyp: " << be16toh_custom(grp->PrtTyp) << std::endl;
+            std::cout << "    IDStr: ";
+            for(size_t i=0; i<sizeof(grp->IDStr) && grp->IDStr[i] != 0; ++i) std::cout << grp->IDStr[i];
+            std::cout << std::endl;
+            std::cout << "    DCA: " << be16toh_custom_s(grp->DCA) << std::endl;
+            std::cout << "    DCV: " << be16toh_custom(grp->DCV) << std::endl;
+            std::cout << "    DCW: " << be16toh_custom_s(grp->DCW) << std::endl;
+            std::cout << "    DCWhInj: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(grp->DCWhInj[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    DCWhAbs: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(grp->DCWhAbs[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    Tmp: " << be16toh_custom_s(grp->Tmp) << std::endl;
+            std::cout << "    DCSta: " << be16toh_custom(grp->DCSta) << std::endl;
+            std::cout << "    DCAlrm: " << be32toh_custom(grp->DCAlrm) << std::endl;
+            cur_ptr += sizeof(Model714_Prt_Raw);
         }
-        std::cout << "]" << std::endl;
-        std::cout << "    DCWhAbs: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.DCWhAbs[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
-        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
-        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
-        std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
-        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
     }
 
 };

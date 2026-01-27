@@ -18,7 +18,7 @@ struct Model8_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: repeating
+// Group: repeating
 #pragma pack(push, 1)
 struct Model8_repeating_Raw {
     uint16_t Cert;
@@ -61,8 +61,21 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Fmt: " << be16toh_custom(raw.Fmt) << std::endl;
-        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+            std::cout << "    Fmt: " << be16toh_custom(raw.Fmt) << std::endl;
+            std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model8_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model8_repeating_Raw);
+        // Loop for group: repeating
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model8_repeating_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model8_repeating_Raw*>(cur_ptr);
+            std::cout << "    Group repeating[" << i << "]:" << std::endl;
+            std::cout << "    Cert: " << be16toh_custom(grp->Cert) << std::endl;
+            cur_ptr += sizeof(Model8_repeating_Raw);
+        }
+        }
     }
 
 };

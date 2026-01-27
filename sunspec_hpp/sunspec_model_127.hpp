@@ -113,15 +113,16 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    WGra: " << be16toh_custom(raw.WGra) << std::endl;
-        std::cout << "    HzStr: " << be16toh_custom_s(raw.HzStr) << std::endl;
-        std::cout << "    HzStop: " << be16toh_custom_s(raw.HzStop) << std::endl;
-        std::cout << "    HysEna: " << be16toh_custom(raw.HysEna) << std::endl;
-        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
-        std::cout << "    HzStopWGra: " << be16toh_custom(raw.HzStopWGra) << std::endl;
-        std::cout << "    WGra_SF: " << be16toh_custom_s(raw.WGra_SF) << std::endl;
-        std::cout << "    HzStrStop_SF: " << be16toh_custom_s(raw.HzStrStop_SF) << std::endl;
-        std::cout << "    RmpIncDec_SF: " << be16toh_custom_s(raw.RmpIncDec_SF) << std::endl;
+            std::cout << "    WGra: " << be16toh_custom(raw.WGra) << std::endl;
+            std::cout << "    HzStr: " << be16toh_custom_s(raw.HzStr) << std::endl;
+            std::cout << "    HzStop: " << be16toh_custom_s(raw.HzStop) << std::endl;
+            std::cout << "    HysEna: " << be16toh_custom(raw.HysEna) << std::endl;
+            std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+            std::cout << "    HzStopWGra: " << be16toh_custom(raw.HzStopWGra) << std::endl;
+            std::cout << "    WGra_SF: " << be16toh_custom_s(raw.WGra_SF) << std::endl;
+            std::cout << "    HzStrStop_SF: " << be16toh_custom_s(raw.HzStrStop_SF) << std::endl;
+            std::cout << "    RmpIncDec_SF: " << be16toh_custom_s(raw.RmpIncDec_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model127_Raw);
     }
 
 };

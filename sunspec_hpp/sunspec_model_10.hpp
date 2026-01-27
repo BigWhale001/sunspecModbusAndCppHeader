@@ -55,9 +55,10 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
-        std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
-        std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+            std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
+            std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
+            std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model10_Raw);
     }
 
 };

@@ -63,22 +63,23 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Nam: ";
-        for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
-        std::cout << std::endl;
-        std::cout << "    Cap: " << be16toh_custom(raw.Cap) << std::endl;
-        std::cout << "    Cfg: " << be16toh_custom(raw.Cfg) << std::endl;
-        std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
-        std::cout << "    Addr: ";
-        for(size_t i=0; i<sizeof(raw.Addr) && raw.Addr[i] != 0; ++i) std::cout << raw.Addr[i];
-        std::cout << std::endl;
-        std::cout << "    Port: " << be16toh_custom(raw.Port) << std::endl;
-        std::cout << "    User: ";
-        for(size_t i=0; i<sizeof(raw.User) && raw.User[i] != 0; ++i) std::cout << raw.User[i];
-        std::cout << std::endl;
-        std::cout << "    Pw: ";
-        for(size_t i=0; i<sizeof(raw.Pw) && raw.Pw[i] != 0; ++i) std::cout << raw.Pw[i];
-        std::cout << std::endl;
+            std::cout << "    Nam: ";
+            for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
+            std::cout << std::endl;
+            std::cout << "    Cap: " << be16toh_custom(raw.Cap) << std::endl;
+            std::cout << "    Cfg: " << be16toh_custom(raw.Cfg) << std::endl;
+            std::cout << "    Typ: " << be16toh_custom(raw.Typ) << std::endl;
+            std::cout << "    Addr: ";
+            for(size_t i=0; i<sizeof(raw.Addr) && raw.Addr[i] != 0; ++i) std::cout << raw.Addr[i];
+            std::cout << std::endl;
+            std::cout << "    Port: " << be16toh_custom(raw.Port) << std::endl;
+            std::cout << "    User: ";
+            for(size_t i=0; i<sizeof(raw.User) && raw.User[i] != 0; ++i) std::cout << raw.User[i];
+            std::cout << std::endl;
+            std::cout << "    Pw: ";
+            for(size_t i=0; i<sizeof(raw.Pw) && raw.Pw[i] != 0; ++i) std::cout << raw.Pw[i];
+            std::cout << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model14_Raw);
     }
 
 };

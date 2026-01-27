@@ -19,7 +19,7 @@ struct Model64413_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: IV
+// Group: IV
 #pragma pack(push, 1)
 struct Model64413_IV_Raw {
     uint16_t P;
@@ -71,9 +71,20 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    IVLen: " << be16toh_custom(raw.IVLen) << std::endl;
-        std::cout << "    Irr: " << be16toh_custom(raw.Irr) << std::endl;
-        std::cout << "    Irr_SF: " << be16toh_custom_s(raw.Irr_SF) << std::endl;
+            std::cout << "    IVLen: " << be16toh_custom(raw.IVLen) << std::endl;
+            std::cout << "    Irr: " << be16toh_custom(raw.Irr) << std::endl;
+            std::cout << "    Irr_SF: " << be16toh_custom_s(raw.Irr_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model64413_Raw);
+        // Loop for group: IV
+        for (size_t i = 0; i < be16toh_custom(raw.IVLen); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model64413_IV_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model64413_IV_Raw*>(cur_ptr);
+            std::cout << "    Group IV[" << i << "]:" << std::endl;
+            std::cout << "    P: " << be32toh_custom(grp->P) << std::endl;
+            std::cout << "    I: " << be32toh_custom(grp->I) << std::endl;
+            std::cout << "    V: " << be32toh_custom(grp->V) << std::endl;
+            cur_ptr += sizeof(Model64413_IV_Raw);
+        }
     }
 
 };

@@ -543,142 +543,143 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    ACType: " << be16toh_custom(raw.ACType) << std::endl;
-        std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
-        std::cout << "    InvSt: " << be16toh_custom(raw.InvSt) << std::endl;
-        std::cout << "    ConnSt: " << be16toh_custom(raw.ConnSt) << std::endl;
-        std::cout << "    Alrm: " << be32toh_custom(raw.Alrm) << std::endl;
-        std::cout << "    DERMode: " << be32toh_custom(raw.DERMode) << std::endl;
-        std::cout << "    W: " << be16toh_custom_s(raw.W) << std::endl;
-        std::cout << "    VA: " << be16toh_custom_s(raw.VA) << std::endl;
-        std::cout << "    Var: " << be16toh_custom_s(raw.Var) << std::endl;
-        std::cout << "    PF: " << be16toh_custom_s(raw.PF) << std::endl;
-        std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
-        std::cout << "    LLV: " << be16toh_custom(raw.LLV) << std::endl;
-        std::cout << "    LNV: " << be16toh_custom(raw.LNV) << std::endl;
-        std::cout << "    Hz: " << be32toh_custom(raw.Hz) << std::endl;
-        std::cout << "    TotWhInj: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhInj[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotWhAbs: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhAbs[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhInj: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhInj[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhAbs: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhAbs[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TmpAmb: " << be16toh_custom_s(raw.TmpAmb) << std::endl;
-        std::cout << "    TmpCab: " << be16toh_custom_s(raw.TmpCab) << std::endl;
-        std::cout << "    TmpSnk: " << be16toh_custom_s(raw.TmpSnk) << std::endl;
-        std::cout << "    TmpTrns: " << be16toh_custom_s(raw.TmpTrns) << std::endl;
-        std::cout << "    TmpSw: " << be16toh_custom_s(raw.TmpSw) << std::endl;
-        std::cout << "    TmpOt: " << be16toh_custom_s(raw.TmpOt) << std::endl;
-        std::cout << "    WL1: " << be16toh_custom_s(raw.WL1) << std::endl;
-        std::cout << "    VAL1: " << be16toh_custom_s(raw.VAL1) << std::endl;
-        std::cout << "    VarL1: " << be16toh_custom_s(raw.VarL1) << std::endl;
-        std::cout << "    PFL1: " << be16toh_custom_s(raw.PFL1) << std::endl;
-        std::cout << "    AL1: " << be16toh_custom_s(raw.AL1) << std::endl;
-        std::cout << "    VL1L2: " << be16toh_custom(raw.VL1L2) << std::endl;
-        std::cout << "    VL1: " << be16toh_custom(raw.VL1) << std::endl;
-        std::cout << "    TotWhInjL1: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhInjL1[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotWhAbsL1: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhAbsL1[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhInjL1: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhInjL1[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhAbsL1: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhAbsL1[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    WL2: " << be16toh_custom_s(raw.WL2) << std::endl;
-        std::cout << "    VAL2: " << be16toh_custom_s(raw.VAL2) << std::endl;
-        std::cout << "    VarL2: " << be16toh_custom_s(raw.VarL2) << std::endl;
-        std::cout << "    PFL2: " << be16toh_custom_s(raw.PFL2) << std::endl;
-        std::cout << "    AL2: " << be16toh_custom_s(raw.AL2) << std::endl;
-        std::cout << "    VL2L3: " << be16toh_custom(raw.VL2L3) << std::endl;
-        std::cout << "    VL2: " << be16toh_custom(raw.VL2) << std::endl;
-        std::cout << "    TotWhInjL2: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhInjL2[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotWhAbsL2: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhAbsL2[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhInjL2: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhInjL2[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhAbsL2: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhAbsL2[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    WL3: " << be16toh_custom_s(raw.WL3) << std::endl;
-        std::cout << "    VAL3: " << be16toh_custom_s(raw.VAL3) << std::endl;
-        std::cout << "    VarL3: " << be16toh_custom_s(raw.VarL3) << std::endl;
-        std::cout << "    PFL3: " << be16toh_custom_s(raw.PFL3) << std::endl;
-        std::cout << "    AL3: " << be16toh_custom_s(raw.AL3) << std::endl;
-        std::cout << "    VL3L1: " << be16toh_custom(raw.VL3L1) << std::endl;
-        std::cout << "    VL3: " << be16toh_custom(raw.VL3) << std::endl;
-        std::cout << "    TotWhInjL3: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhInjL3[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotWhAbsL3: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotWhAbsL3[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhInjL3: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhInjL3[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    TotVarhAbsL3: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.TotVarhAbsL3[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ThrotPct: " << be16toh_custom(raw.ThrotPct) << std::endl;
-        std::cout << "    ThrotSrc: " << be32toh_custom(raw.ThrotSrc) << std::endl;
-        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
-        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
-        std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
-        std::cout << "    VA_SF: " << be16toh_custom_s(raw.VA_SF) << std::endl;
-        std::cout << "    Var_SF: " << be16toh_custom_s(raw.Var_SF) << std::endl;
-        std::cout << "    TotWh_SF: " << be16toh_custom_s(raw.TotWh_SF) << std::endl;
-        std::cout << "    TotVarh_SF: " << be16toh_custom_s(raw.TotVarh_SF) << std::endl;
-        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
-        std::cout << "    MnAlrmInfo: ";
-        for(size_t i=0; i<sizeof(raw.MnAlrmInfo) && raw.MnAlrmInfo[i] != 0; ++i) std::cout << raw.MnAlrmInfo[i];
-        std::cout << std::endl;
+            std::cout << "    ACType: " << be16toh_custom(raw.ACType) << std::endl;
+            std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
+            std::cout << "    InvSt: " << be16toh_custom(raw.InvSt) << std::endl;
+            std::cout << "    ConnSt: " << be16toh_custom(raw.ConnSt) << std::endl;
+            std::cout << "    Alrm: " << be32toh_custom(raw.Alrm) << std::endl;
+            std::cout << "    DERMode: " << be32toh_custom(raw.DERMode) << std::endl;
+            std::cout << "    W: " << be16toh_custom_s(raw.W) << std::endl;
+            std::cout << "    VA: " << be16toh_custom_s(raw.VA) << std::endl;
+            std::cout << "    Var: " << be16toh_custom_s(raw.Var) << std::endl;
+            std::cout << "    PF: " << be16toh_custom_s(raw.PF) << std::endl;
+            std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
+            std::cout << "    LLV: " << be16toh_custom(raw.LLV) << std::endl;
+            std::cout << "    LNV: " << be16toh_custom(raw.LNV) << std::endl;
+            std::cout << "    Hz: " << be32toh_custom(raw.Hz) << std::endl;
+            std::cout << "    TotWhInj: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhInj[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotWhAbs: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhAbs[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhInj: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhInj[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhAbs: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhAbs[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TmpAmb: " << be16toh_custom_s(raw.TmpAmb) << std::endl;
+            std::cout << "    TmpCab: " << be16toh_custom_s(raw.TmpCab) << std::endl;
+            std::cout << "    TmpSnk: " << be16toh_custom_s(raw.TmpSnk) << std::endl;
+            std::cout << "    TmpTrns: " << be16toh_custom_s(raw.TmpTrns) << std::endl;
+            std::cout << "    TmpSw: " << be16toh_custom_s(raw.TmpSw) << std::endl;
+            std::cout << "    TmpOt: " << be16toh_custom_s(raw.TmpOt) << std::endl;
+            std::cout << "    WL1: " << be16toh_custom_s(raw.WL1) << std::endl;
+            std::cout << "    VAL1: " << be16toh_custom_s(raw.VAL1) << std::endl;
+            std::cout << "    VarL1: " << be16toh_custom_s(raw.VarL1) << std::endl;
+            std::cout << "    PFL1: " << be16toh_custom_s(raw.PFL1) << std::endl;
+            std::cout << "    AL1: " << be16toh_custom_s(raw.AL1) << std::endl;
+            std::cout << "    VL1L2: " << be16toh_custom(raw.VL1L2) << std::endl;
+            std::cout << "    VL1: " << be16toh_custom(raw.VL1) << std::endl;
+            std::cout << "    TotWhInjL1: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhInjL1[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotWhAbsL1: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhAbsL1[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhInjL1: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhInjL1[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhAbsL1: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhAbsL1[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    WL2: " << be16toh_custom_s(raw.WL2) << std::endl;
+            std::cout << "    VAL2: " << be16toh_custom_s(raw.VAL2) << std::endl;
+            std::cout << "    VarL2: " << be16toh_custom_s(raw.VarL2) << std::endl;
+            std::cout << "    PFL2: " << be16toh_custom_s(raw.PFL2) << std::endl;
+            std::cout << "    AL2: " << be16toh_custom_s(raw.AL2) << std::endl;
+            std::cout << "    VL2L3: " << be16toh_custom(raw.VL2L3) << std::endl;
+            std::cout << "    VL2: " << be16toh_custom(raw.VL2) << std::endl;
+            std::cout << "    TotWhInjL2: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhInjL2[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotWhAbsL2: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhAbsL2[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhInjL2: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhInjL2[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhAbsL2: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhAbsL2[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    WL3: " << be16toh_custom_s(raw.WL3) << std::endl;
+            std::cout << "    VAL3: " << be16toh_custom_s(raw.VAL3) << std::endl;
+            std::cout << "    VarL3: " << be16toh_custom_s(raw.VarL3) << std::endl;
+            std::cout << "    PFL3: " << be16toh_custom_s(raw.PFL3) << std::endl;
+            std::cout << "    AL3: " << be16toh_custom_s(raw.AL3) << std::endl;
+            std::cout << "    VL3L1: " << be16toh_custom(raw.VL3L1) << std::endl;
+            std::cout << "    VL3: " << be16toh_custom(raw.VL3) << std::endl;
+            std::cout << "    TotWhInjL3: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhInjL3[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotWhAbsL3: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotWhAbsL3[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhInjL3: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhInjL3[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    TotVarhAbsL3: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.TotVarhAbsL3[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ThrotPct: " << be16toh_custom(raw.ThrotPct) << std::endl;
+            std::cout << "    ThrotSrc: " << be32toh_custom(raw.ThrotSrc) << std::endl;
+            std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
+            std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+            std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
+            std::cout << "    VA_SF: " << be16toh_custom_s(raw.VA_SF) << std::endl;
+            std::cout << "    Var_SF: " << be16toh_custom_s(raw.Var_SF) << std::endl;
+            std::cout << "    TotWh_SF: " << be16toh_custom_s(raw.TotWh_SF) << std::endl;
+            std::cout << "    TotVarh_SF: " << be16toh_custom_s(raw.TotVarh_SF) << std::endl;
+            std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+            std::cout << "    MnAlrmInfo: ";
+            for(size_t i=0; i<sizeof(raw.MnAlrmInfo) && raw.MnAlrmInfo[i] != 0; ++i) std::cout << raw.MnAlrmInfo[i];
+            std::cout << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model701_Raw);
     }
 
 };

@@ -82,13 +82,14 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
-        std::cout << "    SigType: " << be16toh_custom(raw.SigType) << std::endl;
-        std::cout << "    Sig: " << be16toh_custom_s(raw.Sig) << std::endl;
-        std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
-        std::cout << "    RvtTms: " << be16toh_custom(raw.RvtTms) << std::endl;
-        std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
-        std::cout << "    Sig_SF: " << be16toh_custom_s(raw.Sig_SF) << std::endl;
+            std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+            std::cout << "    SigType: " << be16toh_custom(raw.SigType) << std::endl;
+            std::cout << "    Sig: " << be16toh_custom_s(raw.Sig) << std::endl;
+            std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
+            std::cout << "    RvtTms: " << be16toh_custom(raw.RvtTms) << std::endl;
+            std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
+            std::cout << "    Sig_SF: " << be16toh_custom_s(raw.Sig_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model125_Raw);
     }
 
 };

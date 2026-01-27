@@ -44,7 +44,8 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    DEPRECATED: " << be16toh_custom(raw.DEPRECATED) << std::endl;
+            std::cout << "    DEPRECATED: " << be16toh_custom(raw.DEPRECATED) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model801_Raw);
     }
 
 };

@@ -48,7 +48,7 @@ struct Model220_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: repeating
+// Group: repeating
 #pragma pack(push, 1)
 struct Model220_repeating_Raw {
     uint16_t DS;
@@ -216,37 +216,50 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
-        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
-        std::cout << "    PhV: " << be16toh_custom_s(raw.PhV) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    Hz: " << be16toh_custom_s(raw.Hz) << std::endl;
-        std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
-        std::cout << "    W: " << be16toh_custom_s(raw.W) << std::endl;
-        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
-        std::cout << "    VA: " << be16toh_custom_s(raw.VA) << std::endl;
-        std::cout << "    VA_SF: " << be16toh_custom_s(raw.VA_SF) << std::endl;
-        std::cout << "    VAR: " << be16toh_custom_s(raw.VAR) << std::endl;
-        std::cout << "    VAR_SF: " << be16toh_custom_s(raw.VAR_SF) << std::endl;
-        std::cout << "    PF: " << be16toh_custom_s(raw.PF) << std::endl;
-        std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
-        std::cout << "    TotWhExp: " << be32toh_custom(raw.TotWhExp) << std::endl;
-        std::cout << "    TotWhImp: " << be32toh_custom(raw.TotWhImp) << std::endl;
-        std::cout << "    TotWh_SF: " << be16toh_custom_s(raw.TotWh_SF) << std::endl;
-        std::cout << "    TotVAhExp: " << be32toh_custom(raw.TotVAhExp) << std::endl;
-        std::cout << "    TotVAhImp: " << be32toh_custom(raw.TotVAhImp) << std::endl;
-        std::cout << "    TotVAh_SF: " << be16toh_custom_s(raw.TotVAh_SF) << std::endl;
-        std::cout << "    TotVArhImpQ1: " << be32toh_custom(raw.TotVArhImpQ1) << std::endl;
-        std::cout << "    TotVArhImpQ2: " << be32toh_custom(raw.TotVArhImpQ2) << std::endl;
-        std::cout << "    TotVArhExpQ3: " << be32toh_custom(raw.TotVArhExpQ3) << std::endl;
-        std::cout << "    TotVArhExpQ4: " << be32toh_custom(raw.TotVArhExpQ4) << std::endl;
-        std::cout << "    TotVArh_SF: " << be16toh_custom_s(raw.TotVArh_SF) << std::endl;
-        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
-        std::cout << "    Ts: " << be32toh_custom(raw.Ts) << std::endl;
-        std::cout << "    Ms: " << be16toh_custom(raw.Ms) << std::endl;
-        std::cout << "    Seq: " << be16toh_custom(raw.Seq) << std::endl;
-        std::cout << "    Alg: " << be16toh_custom(raw.Alg) << std::endl;
-        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+            std::cout << "    A: " << be16toh_custom_s(raw.A) << std::endl;
+            std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+            std::cout << "    PhV: " << be16toh_custom_s(raw.PhV) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    Hz: " << be16toh_custom_s(raw.Hz) << std::endl;
+            std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
+            std::cout << "    W: " << be16toh_custom_s(raw.W) << std::endl;
+            std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+            std::cout << "    VA: " << be16toh_custom_s(raw.VA) << std::endl;
+            std::cout << "    VA_SF: " << be16toh_custom_s(raw.VA_SF) << std::endl;
+            std::cout << "    VAR: " << be16toh_custom_s(raw.VAR) << std::endl;
+            std::cout << "    VAR_SF: " << be16toh_custom_s(raw.VAR_SF) << std::endl;
+            std::cout << "    PF: " << be16toh_custom_s(raw.PF) << std::endl;
+            std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
+            std::cout << "    TotWhExp: " << be32toh_custom(raw.TotWhExp) << std::endl;
+            std::cout << "    TotWhImp: " << be32toh_custom(raw.TotWhImp) << std::endl;
+            std::cout << "    TotWh_SF: " << be16toh_custom_s(raw.TotWh_SF) << std::endl;
+            std::cout << "    TotVAhExp: " << be32toh_custom(raw.TotVAhExp) << std::endl;
+            std::cout << "    TotVAhImp: " << be32toh_custom(raw.TotVAhImp) << std::endl;
+            std::cout << "    TotVAh_SF: " << be16toh_custom_s(raw.TotVAh_SF) << std::endl;
+            std::cout << "    TotVArhImpQ1: " << be32toh_custom(raw.TotVArhImpQ1) << std::endl;
+            std::cout << "    TotVArhImpQ2: " << be32toh_custom(raw.TotVArhImpQ2) << std::endl;
+            std::cout << "    TotVArhExpQ3: " << be32toh_custom(raw.TotVArhExpQ3) << std::endl;
+            std::cout << "    TotVArhExpQ4: " << be32toh_custom(raw.TotVArhExpQ4) << std::endl;
+            std::cout << "    TotVArh_SF: " << be16toh_custom_s(raw.TotVArh_SF) << std::endl;
+            std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+            std::cout << "    Ts: " << be32toh_custom(raw.Ts) << std::endl;
+            std::cout << "    Ms: " << be16toh_custom(raw.Ms) << std::endl;
+            std::cout << "    Seq: " << be16toh_custom(raw.Seq) << std::endl;
+            std::cout << "    Alg: " << be16toh_custom(raw.Alg) << std::endl;
+            std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model220_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model220_repeating_Raw);
+        // Loop for group: repeating
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model220_repeating_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model220_repeating_Raw*>(cur_ptr);
+            std::cout << "    Group repeating[" << i << "]:" << std::endl;
+            std::cout << "    DS: " << be16toh_custom(grp->DS) << std::endl;
+            cur_ptr += sizeof(Model220_repeating_Raw);
+        }
+        }
     }
 
 };

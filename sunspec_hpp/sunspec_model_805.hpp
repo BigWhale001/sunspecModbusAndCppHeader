@@ -42,7 +42,7 @@ struct Model805_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: lithium_ion_module_cell
+// Group: lithium_ion_module_cell
 #pragma pack(push, 1)
 struct Model805_lithium_ion_module_cell_Raw {
     uint16_t CellV;
@@ -245,34 +245,49 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    StrIdx: " << be16toh_custom(raw.StrIdx) << std::endl;
-        std::cout << "    ModIdx: " << be16toh_custom(raw.ModIdx) << std::endl;
-        std::cout << "    NCell: " << be16toh_custom(raw.NCell) << std::endl;
-        std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
-        std::cout << "    DoD: " << be16toh_custom(raw.DoD) << std::endl;
-        std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
-        std::cout << "    NCyc: " << be32toh_custom(raw.NCyc) << std::endl;
-        std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
-        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
-        std::cout << "    CellVMaxCell: " << be16toh_custom(raw.CellVMaxCell) << std::endl;
-        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
-        std::cout << "    CellVMinCell: " << be16toh_custom(raw.CellVMinCell) << std::endl;
-        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
-        std::cout << "    CellTmpMax: " << be16toh_custom_s(raw.CellTmpMax) << std::endl;
-        std::cout << "    CellTmpMaxCell: " << be16toh_custom(raw.CellTmpMaxCell) << std::endl;
-        std::cout << "    CellTmpMin: " << be16toh_custom_s(raw.CellTmpMin) << std::endl;
-        std::cout << "    CellTmpMinCell: " << be16toh_custom(raw.CellTmpMinCell) << std::endl;
-        std::cout << "    CellTmpAvg: " << be16toh_custom_s(raw.CellTmpAvg) << std::endl;
-        std::cout << "    NCellBal: " << be16toh_custom(raw.NCellBal) << std::endl;
-        std::cout << "    SN: ";
-        for(size_t i=0; i<sizeof(raw.SN) && raw.SN[i] != 0; ++i) std::cout << raw.SN[i];
-        std::cout << std::endl;
-        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
-        std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
-        std::cout << "    DoD_SF: " << be16toh_custom_s(raw.DoD_SF) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
-        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+            std::cout << "    StrIdx: " << be16toh_custom(raw.StrIdx) << std::endl;
+            std::cout << "    ModIdx: " << be16toh_custom(raw.ModIdx) << std::endl;
+            std::cout << "    NCell: " << be16toh_custom(raw.NCell) << std::endl;
+            std::cout << "    SoC: " << be16toh_custom(raw.SoC) << std::endl;
+            std::cout << "    DoD: " << be16toh_custom(raw.DoD) << std::endl;
+            std::cout << "    SoH: " << be16toh_custom(raw.SoH) << std::endl;
+            std::cout << "    NCyc: " << be32toh_custom(raw.NCyc) << std::endl;
+            std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
+            std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+            std::cout << "    CellVMaxCell: " << be16toh_custom(raw.CellVMaxCell) << std::endl;
+            std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+            std::cout << "    CellVMinCell: " << be16toh_custom(raw.CellVMinCell) << std::endl;
+            std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+            std::cout << "    CellTmpMax: " << be16toh_custom_s(raw.CellTmpMax) << std::endl;
+            std::cout << "    CellTmpMaxCell: " << be16toh_custom(raw.CellTmpMaxCell) << std::endl;
+            std::cout << "    CellTmpMin: " << be16toh_custom_s(raw.CellTmpMin) << std::endl;
+            std::cout << "    CellTmpMinCell: " << be16toh_custom(raw.CellTmpMinCell) << std::endl;
+            std::cout << "    CellTmpAvg: " << be16toh_custom_s(raw.CellTmpAvg) << std::endl;
+            std::cout << "    NCellBal: " << be16toh_custom(raw.NCellBal) << std::endl;
+            std::cout << "    SN: ";
+            for(size_t i=0; i<sizeof(raw.SN) && raw.SN[i] != 0; ++i) std::cout << raw.SN[i];
+            std::cout << std::endl;
+            std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+            std::cout << "    SoH_SF: " << be16toh_custom_s(raw.SoH_SF) << std::endl;
+            std::cout << "    DoD_SF: " << be16toh_custom_s(raw.DoD_SF) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+            std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model805_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model805_lithium_ion_module_cell_Raw);
+        // Loop for group: lithium-ion-module-cell
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model805_lithium_ion_module_cell_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model805_lithium_ion_module_cell_Raw*>(cur_ptr);
+            std::cout << "    Group lithium-ion-module-cell[" << i << "]:" << std::endl;
+            std::cout << "    CellV: " << be16toh_custom(grp->CellV) << std::endl;
+            std::cout << "    CellTmp: " << be16toh_custom_s(grp->CellTmp) << std::endl;
+            std::cout << "    CellSt: " << be32toh_custom(grp->CellSt) << std::endl;
+            cur_ptr += sizeof(Model805_lithium_ion_module_cell_Raw);
+        }
+        }
     }
 
 };

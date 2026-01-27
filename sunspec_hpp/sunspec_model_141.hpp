@@ -26,7 +26,7 @@ struct Model141_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: curve
+// Group: curve
 #pragma pack(push, 1)
 struct Model141_curve_Raw {
     uint16_t ActPt;
@@ -139,15 +139,72 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    ActCrv: " << be16toh_custom(raw.ActCrv) << std::endl;
-        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
-        std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
-        std::cout << "    RvrtTms: " << be16toh_custom(raw.RvrtTms) << std::endl;
-        std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
-        std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
-        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
-        std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
-        std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
+            std::cout << "    ActCrv: " << be16toh_custom(raw.ActCrv) << std::endl;
+            std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+            std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
+            std::cout << "    RvrtTms: " << be16toh_custom(raw.RvrtTms) << std::endl;
+            std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
+            std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
+            std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+            std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
+            std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model141_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model141_curve_Raw);
+        // Loop for group: curve
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model141_curve_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model141_curve_Raw*>(cur_ptr);
+            std::cout << "    Group curve[" << i << "]:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            std::cout << "    Tms1: " << be16toh_custom(grp->Tms1) << std::endl;
+            std::cout << "    Hz1: " << be16toh_custom(grp->Hz1) << std::endl;
+            std::cout << "    Tms2: " << be16toh_custom(grp->Tms2) << std::endl;
+            std::cout << "    Hz2: " << be16toh_custom(grp->Hz2) << std::endl;
+            std::cout << "    Tms3: " << be16toh_custom(grp->Tms3) << std::endl;
+            std::cout << "    Hz3: " << be16toh_custom(grp->Hz3) << std::endl;
+            std::cout << "    Tms4: " << be16toh_custom(grp->Tms4) << std::endl;
+            std::cout << "    Hz4: " << be16toh_custom(grp->Hz4) << std::endl;
+            std::cout << "    Tms5: " << be16toh_custom(grp->Tms5) << std::endl;
+            std::cout << "    Hz5: " << be16toh_custom(grp->Hz5) << std::endl;
+            std::cout << "    Tms6: " << be16toh_custom(grp->Tms6) << std::endl;
+            std::cout << "    Hz6: " << be16toh_custom(grp->Hz6) << std::endl;
+            std::cout << "    Tms7: " << be16toh_custom(grp->Tms7) << std::endl;
+            std::cout << "    Hz7: " << be16toh_custom(grp->Hz7) << std::endl;
+            std::cout << "    Tms8: " << be16toh_custom(grp->Tms8) << std::endl;
+            std::cout << "    Hz8: " << be16toh_custom(grp->Hz8) << std::endl;
+            std::cout << "    Tms9: " << be16toh_custom(grp->Tms9) << std::endl;
+            std::cout << "    Hz9: " << be16toh_custom(grp->Hz9) << std::endl;
+            std::cout << "    Tms10: " << be16toh_custom(grp->Tms10) << std::endl;
+            std::cout << "    Hz10: " << be16toh_custom(grp->Hz10) << std::endl;
+            std::cout << "    Tms11: " << be16toh_custom(grp->Tms11) << std::endl;
+            std::cout << "    Hz11: " << be16toh_custom(grp->Hz11) << std::endl;
+            std::cout << "    Tms12: " << be16toh_custom(grp->Tms12) << std::endl;
+            std::cout << "    Hz12: " << be16toh_custom(grp->Hz12) << std::endl;
+            std::cout << "    Tms13: " << be16toh_custom(grp->Tms13) << std::endl;
+            std::cout << "    Hz13: " << be16toh_custom(grp->Hz13) << std::endl;
+            std::cout << "    Tms14: " << be16toh_custom(grp->Tms14) << std::endl;
+            std::cout << "    Hz14: " << be16toh_custom(grp->Hz14) << std::endl;
+            std::cout << "    Tms15: " << be16toh_custom(grp->Tms15) << std::endl;
+            std::cout << "    Hz15: " << be16toh_custom(grp->Hz15) << std::endl;
+            std::cout << "    Tms16: " << be16toh_custom(grp->Tms16) << std::endl;
+            std::cout << "    Hz16: " << be16toh_custom(grp->Hz16) << std::endl;
+            std::cout << "    Tms17: " << be16toh_custom(grp->Tms17) << std::endl;
+            std::cout << "    Hz17: " << be16toh_custom(grp->Hz17) << std::endl;
+            std::cout << "    Tms18: " << be16toh_custom(grp->Tms18) << std::endl;
+            std::cout << "    Hz18: " << be16toh_custom(grp->Hz18) << std::endl;
+            std::cout << "    Tms19: " << be16toh_custom(grp->Tms19) << std::endl;
+            std::cout << "    Hz19: " << be16toh_custom(grp->Hz19) << std::endl;
+            std::cout << "    Tms20: " << be16toh_custom(grp->Tms20) << std::endl;
+            std::cout << "    Hz20: " << be16toh_custom(grp->Hz20) << std::endl;
+            std::cout << "    CrvNam: ";
+            for(size_t i=0; i<sizeof(grp->CrvNam) && grp->CrvNam[i] != 0; ++i) std::cout << grp->CrvNam[i];
+            std::cout << std::endl;
+            std::cout << "    ReadOnly: " << be16toh_custom(grp->ReadOnly) << std::endl;
+            cur_ptr += sizeof(Model141_curve_Raw);
+        }
+        }
     }
 
 };

@@ -26,7 +26,7 @@ struct Model711_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Ctl
+// Group: Ctl
 #pragma pack(push, 1)
 struct Model711_Ctl_Raw {
     uint32_t DbOf;
@@ -99,16 +99,31 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
-        std::cout << "    AdptCtlReq: " << be16toh_custom(raw.AdptCtlReq) << std::endl;
-        std::cout << "    AdptCtlRslt: " << be16toh_custom(raw.AdptCtlRslt) << std::endl;
-        std::cout << "    NCtl: " << be16toh_custom(raw.NCtl) << std::endl;
-        std::cout << "    RvrtTms: " << be32toh_custom(raw.RvrtTms) << std::endl;
-        std::cout << "    RvrtRem: " << be32toh_custom(raw.RvrtRem) << std::endl;
-        std::cout << "    RvrtCtl: " << be16toh_custom(raw.RvrtCtl) << std::endl;
-        std::cout << "    Db_SF: " << be16toh_custom_s(raw.Db_SF) << std::endl;
-        std::cout << "    K_SF: " << be16toh_custom_s(raw.K_SF) << std::endl;
-        std::cout << "    RspTms_SF: " << be16toh_custom_s(raw.RspTms_SF) << std::endl;
+            std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+            std::cout << "    AdptCtlReq: " << be16toh_custom(raw.AdptCtlReq) << std::endl;
+            std::cout << "    AdptCtlRslt: " << be16toh_custom(raw.AdptCtlRslt) << std::endl;
+            std::cout << "    NCtl: " << be16toh_custom(raw.NCtl) << std::endl;
+            std::cout << "    RvrtTms: " << be32toh_custom(raw.RvrtTms) << std::endl;
+            std::cout << "    RvrtRem: " << be32toh_custom(raw.RvrtRem) << std::endl;
+            std::cout << "    RvrtCtl: " << be16toh_custom(raw.RvrtCtl) << std::endl;
+            std::cout << "    Db_SF: " << be16toh_custom_s(raw.Db_SF) << std::endl;
+            std::cout << "    K_SF: " << be16toh_custom_s(raw.K_SF) << std::endl;
+            std::cout << "    RspTms_SF: " << be16toh_custom_s(raw.RspTms_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model711_Raw);
+        // Loop for group: Ctl
+        for (size_t i = 0; i < be16toh_custom(raw.NCtl); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model711_Ctl_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model711_Ctl_Raw*>(cur_ptr);
+            std::cout << "    Group Ctl[" << i << "]:" << std::endl;
+            std::cout << "    DbOf: " << be32toh_custom(grp->DbOf) << std::endl;
+            std::cout << "    DbUf: " << be32toh_custom(grp->DbUf) << std::endl;
+            std::cout << "    KOf: " << be16toh_custom(grp->KOf) << std::endl;
+            std::cout << "    KUf: " << be16toh_custom(grp->KUf) << std::endl;
+            std::cout << "    RspTms: " << be32toh_custom(grp->RspTms) << std::endl;
+            std::cout << "    PMin: " << be16toh_custom_s(grp->PMin) << std::endl;
+            std::cout << "    ReadOnly: " << be16toh_custom(grp->ReadOnly) << std::endl;
+            cur_ptr += sizeof(Model711_Ctl_Raw);
+        }
     }
 
 };

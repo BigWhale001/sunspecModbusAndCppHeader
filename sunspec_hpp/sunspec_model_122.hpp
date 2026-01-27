@@ -120,52 +120,53 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    PVConn: " << be16toh_custom(raw.PVConn) << std::endl;
-        std::cout << "    StorConn: " << be16toh_custom(raw.StorConn) << std::endl;
-        std::cout << "    ECPConn: " << be16toh_custom(raw.ECPConn) << std::endl;
-        std::cout << "    ActWh: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActWh[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ActVAh: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActVAh[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ActVArhQ1: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActVArhQ1[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ActVArhQ2: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActVArhQ2[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ActVArhQ3: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActVArhQ3[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    ActVArhQ4: [";
-        for(size_t i=0; i<4; ++i) {
-            std::cout << be16toh_custom(raw.ActVArhQ4[i]) << (i < 3 ? ", " : "");
-        }
-        std::cout << "]" << std::endl;
-        std::cout << "    VArAval: " << be16toh_custom_s(raw.VArAval) << std::endl;
-        std::cout << "    VArAval_SF: " << be16toh_custom_s(raw.VArAval_SF) << std::endl;
-        std::cout << "    WAval: " << be16toh_custom(raw.WAval) << std::endl;
-        std::cout << "    WAval_SF: " << be16toh_custom_s(raw.WAval_SF) << std::endl;
-        std::cout << "    StSetLimMsk: " << be32toh_custom(raw.StSetLimMsk) << std::endl;
-        std::cout << "    StActCtl: " << be32toh_custom(raw.StActCtl) << std::endl;
-        std::cout << "    TmSrc: ";
-        for(size_t i=0; i<sizeof(raw.TmSrc) && raw.TmSrc[i] != 0; ++i) std::cout << raw.TmSrc[i];
-        std::cout << std::endl;
-        std::cout << "    Tms: " << be32toh_custom(raw.Tms) << std::endl;
-        std::cout << "    RtSt: " << be16toh_custom(raw.RtSt) << std::endl;
-        std::cout << "    Ris: " << be16toh_custom(raw.Ris) << std::endl;
-        std::cout << "    Ris_SF: " << be16toh_custom_s(raw.Ris_SF) << std::endl;
+            std::cout << "    PVConn: " << be16toh_custom(raw.PVConn) << std::endl;
+            std::cout << "    StorConn: " << be16toh_custom(raw.StorConn) << std::endl;
+            std::cout << "    ECPConn: " << be16toh_custom(raw.ECPConn) << std::endl;
+            std::cout << "    ActWh: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActWh[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ActVAh: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActVAh[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ActVArhQ1: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActVArhQ1[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ActVArhQ2: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActVArhQ2[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ActVArhQ3: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActVArhQ3[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    ActVArhQ4: [";
+            for(size_t i=0; i<4; ++i) {
+                std::cout << be16toh_custom(raw.ActVArhQ4[i]) << (i < 3 ? ", " : "");
+            }
+            std::cout << "]" << std::endl;
+            std::cout << "    VArAval: " << be16toh_custom_s(raw.VArAval) << std::endl;
+            std::cout << "    VArAval_SF: " << be16toh_custom_s(raw.VArAval_SF) << std::endl;
+            std::cout << "    WAval: " << be16toh_custom(raw.WAval) << std::endl;
+            std::cout << "    WAval_SF: " << be16toh_custom_s(raw.WAval_SF) << std::endl;
+            std::cout << "    StSetLimMsk: " << be32toh_custom(raw.StSetLimMsk) << std::endl;
+            std::cout << "    StActCtl: " << be32toh_custom(raw.StActCtl) << std::endl;
+            std::cout << "    TmSrc: ";
+            for(size_t i=0; i<sizeof(raw.TmSrc) && raw.TmSrc[i] != 0; ++i) std::cout << raw.TmSrc[i];
+            std::cout << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(raw.Tms) << std::endl;
+            std::cout << "    RtSt: " << be16toh_custom(raw.RtSt) << std::endl;
+            std::cout << "    Ris: " << be16toh_custom(raw.Ris) << std::endl;
+            std::cout << "    Ris_SF: " << be16toh_custom_s(raw.Ris_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model122_Raw);
     }
 
 };

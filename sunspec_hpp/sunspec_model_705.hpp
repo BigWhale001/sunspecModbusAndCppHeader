@@ -27,7 +27,7 @@ struct Model705_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Crv
+// Group: Crv
 #pragma pack(push, 1)
 struct Model705_Crv_Raw {
     uint16_t ActPt;
@@ -42,7 +42,7 @@ struct Model705_Crv_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_Pt
+// Group: Crv_Pt
 #pragma pack(push, 1)
 struct Model705_Crv_Pt_Raw {
     uint16_t V;
@@ -119,17 +119,43 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
-        std::cout << "    AdptCrvReq: " << be16toh_custom(raw.AdptCrvReq) << std::endl;
-        std::cout << "    AdptCrvRslt: " << be16toh_custom(raw.AdptCrvRslt) << std::endl;
-        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
-        std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
-        std::cout << "    RvrtTms: " << be32toh_custom(raw.RvrtTms) << std::endl;
-        std::cout << "    RvrtRem: " << be32toh_custom(raw.RvrtRem) << std::endl;
-        std::cout << "    RvrtCrv: " << be16toh_custom(raw.RvrtCrv) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    DeptRef_SF: " << be16toh_custom_s(raw.DeptRef_SF) << std::endl;
-        std::cout << "    RspTms_SF: " << be16toh_custom_s(raw.RspTms_SF) << std::endl;
+            std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+            std::cout << "    AdptCrvReq: " << be16toh_custom(raw.AdptCrvReq) << std::endl;
+            std::cout << "    AdptCrvRslt: " << be16toh_custom(raw.AdptCrvRslt) << std::endl;
+            std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+            std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
+            std::cout << "    RvrtTms: " << be32toh_custom(raw.RvrtTms) << std::endl;
+            std::cout << "    RvrtRem: " << be32toh_custom(raw.RvrtRem) << std::endl;
+            std::cout << "    RvrtCrv: " << be16toh_custom(raw.RvrtCrv) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    DeptRef_SF: " << be16toh_custom_s(raw.DeptRef_SF) << std::endl;
+            std::cout << "    RspTms_SF: " << be16toh_custom_s(raw.RspTms_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model705_Raw);
+        // Loop for group: Crv
+        for (size_t i = 0; i < be16toh_custom(raw.NCrv); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model705_Crv_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model705_Crv_Raw*>(cur_ptr);
+            std::cout << "    Group Crv[" << i << "]:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            std::cout << "    DeptRef: " << be16toh_custom(grp->DeptRef) << std::endl;
+            std::cout << "    Pri: " << be16toh_custom(grp->Pri) << std::endl;
+            std::cout << "    VRef: " << be16toh_custom(grp->VRef) << std::endl;
+            std::cout << "    VRefAuto: " << be16toh_custom(grp->VRefAuto) << std::endl;
+            std::cout << "    VRefAutoEna: " << be16toh_custom(grp->VRefAutoEna) << std::endl;
+            std::cout << "    VRefAutoTms: " << be16toh_custom(grp->VRefAutoTms) << std::endl;
+            std::cout << "    RspTms: " << be32toh_custom(grp->RspTms) << std::endl;
+            std::cout << "    ReadOnly: " << be16toh_custom(grp->ReadOnly) << std::endl;
+            cur_ptr += sizeof(Model705_Crv_Raw);
+        // Loop for group: Pt
+        for (size_t i = 0; i < be16toh_custom(raw.NPt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model705_Crv_Pt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model705_Crv_Pt_Raw*>(cur_ptr);
+            std::cout << "    Group Pt[" << i << "]:" << std::endl;
+            std::cout << "    V: " << be16toh_custom(grp->V) << std::endl;
+            std::cout << "    Var: " << be16toh_custom_s(grp->Var) << std::endl;
+            cur_ptr += sizeof(Model705_Crv_Pt_Raw);
+        }
+        }
     }
 
 };

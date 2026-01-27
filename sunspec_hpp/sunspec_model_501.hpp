@@ -68,23 +68,24 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Stat: " << be16toh_custom(raw.Stat) << std::endl;
-        std::cout << "    StatVend: " << be16toh_custom(raw.StatVend) << std::endl;
-        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
-        std::cout << "    EvtVend: " << be32toh_custom(raw.EvtVend) << std::endl;
-        std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
-        std::cout << "    CtlVend: " << be32toh_custom(raw.CtlVend) << std::endl;
-        std::cout << "    CtlVal: " << be32toh_custom(raw.CtlVal) << std::endl;
-        std::cout << "    Tms: " << be32toh_custom(raw.Tms) << std::endl;
-        std::cout << "    OutA: " << be32toh_custom(raw.OutA) << std::endl;
-        std::cout << "    OutV: " << be32toh_custom(raw.OutV) << std::endl;
-        std::cout << "    OutWh: " << be32toh_custom(raw.OutWh) << std::endl;
-        std::cout << "    OutW: " << be32toh_custom(raw.OutW) << std::endl;
-        std::cout << "    Tmp: " << be32toh_custom(raw.Tmp) << std::endl;
-        std::cout << "    InA: " << be32toh_custom(raw.InA) << std::endl;
-        std::cout << "    InV: " << be32toh_custom(raw.InV) << std::endl;
-        std::cout << "    InWh: " << be32toh_custom(raw.InWh) << std::endl;
-        std::cout << "    InW: " << be32toh_custom(raw.InW) << std::endl;
+            std::cout << "    Stat: " << be16toh_custom(raw.Stat) << std::endl;
+            std::cout << "    StatVend: " << be16toh_custom(raw.StatVend) << std::endl;
+            std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+            std::cout << "    EvtVend: " << be32toh_custom(raw.EvtVend) << std::endl;
+            std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
+            std::cout << "    CtlVend: " << be32toh_custom(raw.CtlVend) << std::endl;
+            std::cout << "    CtlVal: " << be32toh_custom(raw.CtlVal) << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(raw.Tms) << std::endl;
+            std::cout << "    OutA: " << be32toh_custom(raw.OutA) << std::endl;
+            std::cout << "    OutV: " << be32toh_custom(raw.OutV) << std::endl;
+            std::cout << "    OutWh: " << be32toh_custom(raw.OutWh) << std::endl;
+            std::cout << "    OutW: " << be32toh_custom(raw.OutW) << std::endl;
+            std::cout << "    Tmp: " << be32toh_custom(raw.Tmp) << std::endl;
+            std::cout << "    InA: " << be32toh_custom(raw.InA) << std::endl;
+            std::cout << "    InV: " << be32toh_custom(raw.InV) << std::endl;
+            std::cout << "    InWh: " << be32toh_custom(raw.InWh) << std::endl;
+            std::cout << "    InW: " << be32toh_custom(raw.InW) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model501_Raw);
     }
 
 };

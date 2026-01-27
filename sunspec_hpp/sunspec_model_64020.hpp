@@ -46,7 +46,7 @@ struct Model64020_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: repeating
+// Group: repeating
 #pragma pack(push, 1)
 struct Model64020_repeating_Raw {
     char SerialNumber[18];
@@ -308,36 +308,55 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Aux0Tmp: " << be16toh_custom_s(raw.Aux0Tmp) << std::endl;
-        std::cout << "    Aux1Tmp: " << be16toh_custom_s(raw.Aux1Tmp) << std::endl;
-        std::cout << "    Aux2Tmp: " << be16toh_custom_s(raw.Aux2Tmp) << std::endl;
-        std::cout << "    Aux3Tmp: " << be16toh_custom_s(raw.Aux3Tmp) << std::endl;
-        std::cout << "    Aux4Tmp: " << be16toh_custom_s(raw.Aux4Tmp) << std::endl;
-        std::cout << "    ProbeTmp: " << be16toh_custom_s(raw.ProbeTmp) << std::endl;
-        std::cout << "    MainTmp: " << be16toh_custom_s(raw.MainTmp) << std::endl;
-        std::cout << "    SensorV_SF: " << be16toh_custom_s(raw.SensorV_SF) << std::endl;
-        std::cout << "    SensorA_SF: " << be16toh_custom_s(raw.SensorA_SF) << std::endl;
-        std::cout << "    SensorHz_SF: " << be16toh_custom_s(raw.SensorHz_SF) << std::endl;
-        std::cout << "    Sensor1Voltage: " << be16toh_custom_s(raw.Sensor1Voltage) << std::endl;
-        std::cout << "    Sensor2Voltage: " << be16toh_custom_s(raw.Sensor2Voltage) << std::endl;
-        std::cout << "    Sensor3Voltage: " << be16toh_custom_s(raw.Sensor3Voltage) << std::endl;
-        std::cout << "    Sensor4Voltage: " << be16toh_custom_s(raw.Sensor4Voltage) << std::endl;
-        std::cout << "    Sensor5Voltage: " << be16toh_custom_s(raw.Sensor5Voltage) << std::endl;
-        std::cout << "    Sensor6Voltage: " << be16toh_custom_s(raw.Sensor6Voltage) << std::endl;
-        std::cout << "    Sensor7Voltage: " << be16toh_custom_s(raw.Sensor7Voltage) << std::endl;
-        std::cout << "    Sensor1Current: " << be16toh_custom_s(raw.Sensor1Current) << std::endl;
-        std::cout << "    Sensor2Current: " << be16toh_custom_s(raw.Sensor2Current) << std::endl;
-        std::cout << "    Sensor3Current: " << be16toh_custom_s(raw.Sensor3Current) << std::endl;
-        std::cout << "    Sensor4Current: " << be16toh_custom_s(raw.Sensor4Current) << std::endl;
-        std::cout << "    Sensor5Current: " << be16toh_custom_s(raw.Sensor5Current) << std::endl;
-        std::cout << "    Sensor6Current: " << be16toh_custom_s(raw.Sensor6Current) << std::endl;
-        std::cout << "    Sensor7Current: " << be16toh_custom_s(raw.Sensor7Current) << std::endl;
-        std::cout << "    Sensor8: " << be16toh_custom(raw.Sensor8) << std::endl;
-        std::cout << "    Relay1: " << be16toh_custom(raw.Relay1) << std::endl;
-        std::cout << "    Relay2: " << be16toh_custom(raw.Relay2) << std::endl;
-        std::cout << "    Relay3: " << be16toh_custom(raw.Relay3) << std::endl;
-        std::cout << "    ResetAccumulators: " << be16toh_custom(raw.ResetAccumulators) << std::endl;
-        std::cout << "    Reset: " << be16toh_custom(raw.Reset) << std::endl;
+            std::cout << "    Aux0Tmp: " << be16toh_custom_s(raw.Aux0Tmp) << std::endl;
+            std::cout << "    Aux1Tmp: " << be16toh_custom_s(raw.Aux1Tmp) << std::endl;
+            std::cout << "    Aux2Tmp: " << be16toh_custom_s(raw.Aux2Tmp) << std::endl;
+            std::cout << "    Aux3Tmp: " << be16toh_custom_s(raw.Aux3Tmp) << std::endl;
+            std::cout << "    Aux4Tmp: " << be16toh_custom_s(raw.Aux4Tmp) << std::endl;
+            std::cout << "    ProbeTmp: " << be16toh_custom_s(raw.ProbeTmp) << std::endl;
+            std::cout << "    MainTmp: " << be16toh_custom_s(raw.MainTmp) << std::endl;
+            std::cout << "    SensorV_SF: " << be16toh_custom_s(raw.SensorV_SF) << std::endl;
+            std::cout << "    SensorA_SF: " << be16toh_custom_s(raw.SensorA_SF) << std::endl;
+            std::cout << "    SensorHz_SF: " << be16toh_custom_s(raw.SensorHz_SF) << std::endl;
+            std::cout << "    Sensor1Voltage: " << be16toh_custom_s(raw.Sensor1Voltage) << std::endl;
+            std::cout << "    Sensor2Voltage: " << be16toh_custom_s(raw.Sensor2Voltage) << std::endl;
+            std::cout << "    Sensor3Voltage: " << be16toh_custom_s(raw.Sensor3Voltage) << std::endl;
+            std::cout << "    Sensor4Voltage: " << be16toh_custom_s(raw.Sensor4Voltage) << std::endl;
+            std::cout << "    Sensor5Voltage: " << be16toh_custom_s(raw.Sensor5Voltage) << std::endl;
+            std::cout << "    Sensor6Voltage: " << be16toh_custom_s(raw.Sensor6Voltage) << std::endl;
+            std::cout << "    Sensor7Voltage: " << be16toh_custom_s(raw.Sensor7Voltage) << std::endl;
+            std::cout << "    Sensor1Current: " << be16toh_custom_s(raw.Sensor1Current) << std::endl;
+            std::cout << "    Sensor2Current: " << be16toh_custom_s(raw.Sensor2Current) << std::endl;
+            std::cout << "    Sensor3Current: " << be16toh_custom_s(raw.Sensor3Current) << std::endl;
+            std::cout << "    Sensor4Current: " << be16toh_custom_s(raw.Sensor4Current) << std::endl;
+            std::cout << "    Sensor5Current: " << be16toh_custom_s(raw.Sensor5Current) << std::endl;
+            std::cout << "    Sensor6Current: " << be16toh_custom_s(raw.Sensor6Current) << std::endl;
+            std::cout << "    Sensor7Current: " << be16toh_custom_s(raw.Sensor7Current) << std::endl;
+            std::cout << "    Sensor8: " << be16toh_custom(raw.Sensor8) << std::endl;
+            std::cout << "    Relay1: " << be16toh_custom(raw.Relay1) << std::endl;
+            std::cout << "    Relay2: " << be16toh_custom(raw.Relay2) << std::endl;
+            std::cout << "    Relay3: " << be16toh_custom(raw.Relay3) << std::endl;
+            std::cout << "    ResetAccumulators: " << be16toh_custom(raw.ResetAccumulators) << std::endl;
+            std::cout << "    Reset: " << be16toh_custom(raw.Reset) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model64020_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model64020_repeating_Raw);
+        // Loop for group: repeating
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model64020_repeating_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model64020_repeating_Raw*>(cur_ptr);
+            std::cout << "    Group repeating[" << i << "]:" << std::endl;
+            std::cout << "    SerialNumber: ";
+            for(size_t i=0; i<sizeof(grp->SerialNumber) && grp->SerialNumber[i] != 0; ++i) std::cout << grp->SerialNumber[i];
+            std::cout << std::endl;
+            std::cout << "    Firmware: ";
+            for(size_t i=0; i<sizeof(grp->Firmware) && grp->Firmware[i] != 0; ++i) std::cout << grp->Firmware[i];
+            std::cout << std::endl;
+            std::cout << "    Hardware: " << be16toh_custom(grp->Hardware) << std::endl;
+            cur_ptr += sizeof(Model64020_repeating_Raw);
+        }
+        }
     }
 
 };

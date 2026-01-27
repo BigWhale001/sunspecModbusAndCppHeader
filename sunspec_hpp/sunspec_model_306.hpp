@@ -59,10 +59,11 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    GHI: " << be16toh_custom(raw.GHI) << std::endl;
-        std::cout << "    A: " << be16toh_custom(raw.A) << std::endl;
-        std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
-        std::cout << "    Tmp: " << be16toh_custom(raw.Tmp) << std::endl;
+            std::cout << "    GHI: " << be16toh_custom(raw.GHI) << std::endl;
+            std::cout << "    A: " << be16toh_custom(raw.A) << std::endl;
+            std::cout << "    V: " << be16toh_custom(raw.V) << std::endl;
+            std::cout << "    Tmp: " << be16toh_custom(raw.Tmp) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model306_Raw);
     }
 
 };

@@ -128,14 +128,15 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    NomRmpUpRte: " << be16toh_custom(raw.NomRmpUpRte) << std::endl;
-        std::cout << "    NomRmpDnRte: " << be16toh_custom(raw.NomRmpDnRte) << std::endl;
-        std::cout << "    EmgRmpUpRte: " << be16toh_custom(raw.EmgRmpUpRte) << std::endl;
-        std::cout << "    EmgRmpDnRte: " << be16toh_custom(raw.EmgRmpDnRte) << std::endl;
-        std::cout << "    ConnRmpUpRte: " << be16toh_custom(raw.ConnRmpUpRte) << std::endl;
-        std::cout << "    ConnRmpDnRte: " << be16toh_custom(raw.ConnRmpDnRte) << std::endl;
-        std::cout << "    AGra: " << be16toh_custom(raw.AGra) << std::endl;
-        std::cout << "    Rmp_SF: " << be16toh_custom_s(raw.Rmp_SF) << std::endl;
+            std::cout << "    NomRmpUpRte: " << be16toh_custom(raw.NomRmpUpRte) << std::endl;
+            std::cout << "    NomRmpDnRte: " << be16toh_custom(raw.NomRmpDnRte) << std::endl;
+            std::cout << "    EmgRmpUpRte: " << be16toh_custom(raw.EmgRmpUpRte) << std::endl;
+            std::cout << "    EmgRmpDnRte: " << be16toh_custom(raw.EmgRmpDnRte) << std::endl;
+            std::cout << "    ConnRmpUpRte: " << be16toh_custom(raw.ConnRmpUpRte) << std::endl;
+            std::cout << "    ConnRmpDnRte: " << be16toh_custom(raw.ConnRmpDnRte) << std::endl;
+            std::cout << "    AGra: " << be16toh_custom(raw.AGra) << std::endl;
+            std::cout << "    Rmp_SF: " << be16toh_custom_s(raw.Rmp_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model145_Raw);
     }
 
 };

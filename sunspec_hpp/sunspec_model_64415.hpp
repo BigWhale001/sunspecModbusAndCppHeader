@@ -54,9 +54,10 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    LogEventEna: " << be16toh_custom(raw.LogEventEna) << std::endl;
-        std::cout << "    HTTPMsg: " << be16toh_custom(raw.HTTPMsg) << std::endl;
-        std::cout << "    COMM004Cert: " << be16toh_custom(raw.COMM004Cert) << std::endl;
+            std::cout << "    LogEventEna: " << be16toh_custom(raw.LogEventEna) << std::endl;
+            std::cout << "    HTTPMsg: " << be16toh_custom(raw.HTTPMsg) << std::endl;
+            std::cout << "    COMM004Cert: " << be16toh_custom(raw.COMM004Cert) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model64415_Raw);
     }
 
 };

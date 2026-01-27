@@ -16,7 +16,7 @@ struct Model304_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: incl
+// Group: incl
 #pragma pack(push, 1)
 struct Model304_incl_Raw {
     int32_t Inclx;
@@ -53,6 +53,21 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model304_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model304_incl_Raw);
+        // Loop for group: incl
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model304_incl_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model304_incl_Raw*>(cur_ptr);
+            std::cout << "    Group incl[" << i << "]:" << std::endl;
+            std::cout << "    Inclx: " << be32toh_custom(grp->Inclx) << std::endl;
+            std::cout << "    Incly: " << be32toh_custom(grp->Incly) << std::endl;
+            std::cout << "    Inclz: " << be32toh_custom(grp->Inclz) << std::endl;
+            cur_ptr += sizeof(Model304_incl_Raw);
+        }
+        }
     }
 
 };

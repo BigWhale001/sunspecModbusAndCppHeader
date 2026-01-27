@@ -16,7 +16,7 @@ struct Model63002_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: repeating
+// Group: repeating
 #pragma pack(push, 1)
 struct Model63002_repeating_Raw {
     int16_t sunssf_1;
@@ -54,6 +54,22 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model63002_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model63002_repeating_Raw);
+        // Loop for group: repeating
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model63002_repeating_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model63002_repeating_Raw*>(cur_ptr);
+            std::cout << "    Group repeating[" << i << "]:" << std::endl;
+            std::cout << "    sunssf_1: " << be16toh_custom_s(grp->sunssf_1) << std::endl;
+            std::cout << "    int16_1: " << be16toh_custom_s(grp->int16_1) << std::endl;
+            std::cout << "    int16_2: " << be16toh_custom_s(grp->int16_2) << std::endl;
+            std::cout << "    sunssf_2: " << be16toh_custom_s(grp->sunssf_2) << std::endl;
+            cur_ptr += sizeof(Model63002_repeating_Raw);
+        }
+        }
     }
 
 };

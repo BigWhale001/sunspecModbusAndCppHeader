@@ -23,7 +23,7 @@ struct Model160_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: module
+// Group: module
 #pragma pack(push, 1)
 struct Model160_module_Raw {
     uint16_t ID;
@@ -87,13 +87,36 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
-        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
-        std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
-        std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
-        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
-        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
-        std::cout << "    TmsPer: " << be16toh_custom(raw.TmsPer) << std::endl;
+            std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+            std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+            std::cout << "    DCW_SF: " << be16toh_custom_s(raw.DCW_SF) << std::endl;
+            std::cout << "    DCWH_SF: " << be16toh_custom_s(raw.DCWH_SF) << std::endl;
+            std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+            std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+            std::cout << "    TmsPer: " << be16toh_custom(raw.TmsPer) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model160_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model160_module_Raw);
+        // Loop for group: module
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model160_module_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model160_module_Raw*>(cur_ptr);
+            std::cout << "    Group module[" << i << "]:" << std::endl;
+            std::cout << "    IDStr: ";
+            for(size_t i=0; i<sizeof(grp->IDStr) && grp->IDStr[i] != 0; ++i) std::cout << grp->IDStr[i];
+            std::cout << std::endl;
+            std::cout << "    DCA: " << be16toh_custom(grp->DCA) << std::endl;
+            std::cout << "    DCV: " << be16toh_custom(grp->DCV) << std::endl;
+            std::cout << "    DCW: " << be16toh_custom(grp->DCW) << std::endl;
+            std::cout << "    DCWH: " << be32toh_custom(grp->DCWH) << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(grp->Tms) << std::endl;
+            std::cout << "    Tmp: " << be16toh_custom_s(grp->Tmp) << std::endl;
+            std::cout << "    DCSt: " << be16toh_custom(grp->DCSt) << std::endl;
+            std::cout << "    DCEvt: " << be32toh_custom(grp->DCEvt) << std::endl;
+            cur_ptr += sizeof(Model160_module_Raw);
+        }
+        }
     }
 
 };

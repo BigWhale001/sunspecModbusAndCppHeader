@@ -44,19 +44,20 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Nam: ";
-        for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
-        std::cout << std::endl;
-        std::cout << "    IMEI: " << be32toh_custom(raw.IMEI) << std::endl;
-        std::cout << "    APN: ";
-        for(size_t i=0; i<sizeof(raw.APN) && raw.APN[i] != 0; ++i) std::cout << raw.APN[i];
-        std::cout << std::endl;
-        std::cout << "    Num: ";
-        for(size_t i=0; i<sizeof(raw.Num) && raw.Num[i] != 0; ++i) std::cout << raw.Num[i];
-        std::cout << std::endl;
-        std::cout << "    Pin: ";
-        for(size_t i=0; i<sizeof(raw.Pin) && raw.Pin[i] != 0; ++i) std::cout << raw.Pin[i];
-        std::cout << std::endl;
+            std::cout << "    Nam: ";
+            for(size_t i=0; i<sizeof(raw.Nam) && raw.Nam[i] != 0; ++i) std::cout << raw.Nam[i];
+            std::cout << std::endl;
+            std::cout << "    IMEI: " << be32toh_custom(raw.IMEI) << std::endl;
+            std::cout << "    APN: ";
+            for(size_t i=0; i<sizeof(raw.APN) && raw.APN[i] != 0; ++i) std::cout << raw.APN[i];
+            std::cout << std::endl;
+            std::cout << "    Num: ";
+            for(size_t i=0; i<sizeof(raw.Num) && raw.Num[i] != 0; ++i) std::cout << raw.Num[i];
+            std::cout << std::endl;
+            std::cout << "    Pin: ";
+            for(size_t i=0; i<sizeof(raw.Pin) && raw.Pin[i] != 0; ++i) std::cout << raw.Pin[i];
+            std::cout << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model18_Raw);
     }
 
 };

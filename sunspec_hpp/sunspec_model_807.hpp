@@ -46,7 +46,7 @@ struct Model807_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: module
+// Group: module
 #pragma pack(push, 1)
 struct Model807_module_Raw {
     uint16_t ModIdx;
@@ -263,35 +263,67 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Idx: " << be16toh_custom(raw.Idx) << std::endl;
-        std::cout << "    NMod: " << be16toh_custom(raw.NMod) << std::endl;
-        std::cout << "    NModCon: " << be16toh_custom(raw.NModCon) << std::endl;
-        std::cout << "    ModVMax: " << be16toh_custom(raw.ModVMax) << std::endl;
-        std::cout << "    ModVMaxMod: " << be16toh_custom(raw.ModVMaxMod) << std::endl;
-        std::cout << "    ModVMin: " << be16toh_custom(raw.ModVMin) << std::endl;
-        std::cout << "    ModVMinMod: " << be16toh_custom(raw.ModVMinMod) << std::endl;
-        std::cout << "    ModVAvg: " << be16toh_custom(raw.ModVAvg) << std::endl;
-        std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
-        std::cout << "    CellVMaxMod: " << be16toh_custom(raw.CellVMaxMod) << std::endl;
-        std::cout << "    CellVMaxStk: " << be16toh_custom(raw.CellVMaxStk) << std::endl;
-        std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
-        std::cout << "    CellVMinMod: " << be16toh_custom(raw.CellVMinMod) << std::endl;
-        std::cout << "    CellVMinStk: " << be16toh_custom(raw.CellVMinStk) << std::endl;
-        std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
-        std::cout << "    TmpMax: " << be16toh_custom_s(raw.TmpMax) << std::endl;
-        std::cout << "    TmpMaxMod: " << be16toh_custom(raw.TmpMaxMod) << std::endl;
-        std::cout << "    TmpMin: " << be16toh_custom_s(raw.TmpMin) << std::endl;
-        std::cout << "    TmpMinMod: " << be16toh_custom(raw.TmpMinMod) << std::endl;
-        std::cout << "    TmpAvg: " << be16toh_custom_s(raw.TmpAvg) << std::endl;
-        std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
-        std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
-        std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
-        std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
-        std::cout << "    ModV_SF: " << be16toh_custom_s(raw.ModV_SF) << std::endl;
-        std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
-        std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
-        std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
-        std::cout << "    OCV_SF: " << be16toh_custom_s(raw.OCV_SF) << std::endl;
+            std::cout << "    Idx: " << be16toh_custom(raw.Idx) << std::endl;
+            std::cout << "    NMod: " << be16toh_custom(raw.NMod) << std::endl;
+            std::cout << "    NModCon: " << be16toh_custom(raw.NModCon) << std::endl;
+            std::cout << "    ModVMax: " << be16toh_custom(raw.ModVMax) << std::endl;
+            std::cout << "    ModVMaxMod: " << be16toh_custom(raw.ModVMaxMod) << std::endl;
+            std::cout << "    ModVMin: " << be16toh_custom(raw.ModVMin) << std::endl;
+            std::cout << "    ModVMinMod: " << be16toh_custom(raw.ModVMinMod) << std::endl;
+            std::cout << "    ModVAvg: " << be16toh_custom(raw.ModVAvg) << std::endl;
+            std::cout << "    CellVMax: " << be16toh_custom(raw.CellVMax) << std::endl;
+            std::cout << "    CellVMaxMod: " << be16toh_custom(raw.CellVMaxMod) << std::endl;
+            std::cout << "    CellVMaxStk: " << be16toh_custom(raw.CellVMaxStk) << std::endl;
+            std::cout << "    CellVMin: " << be16toh_custom(raw.CellVMin) << std::endl;
+            std::cout << "    CellVMinMod: " << be16toh_custom(raw.CellVMinMod) << std::endl;
+            std::cout << "    CellVMinStk: " << be16toh_custom(raw.CellVMinStk) << std::endl;
+            std::cout << "    CellVAvg: " << be16toh_custom(raw.CellVAvg) << std::endl;
+            std::cout << "    TmpMax: " << be16toh_custom_s(raw.TmpMax) << std::endl;
+            std::cout << "    TmpMaxMod: " << be16toh_custom(raw.TmpMaxMod) << std::endl;
+            std::cout << "    TmpMin: " << be16toh_custom_s(raw.TmpMin) << std::endl;
+            std::cout << "    TmpMinMod: " << be16toh_custom(raw.TmpMinMod) << std::endl;
+            std::cout << "    TmpAvg: " << be16toh_custom_s(raw.TmpAvg) << std::endl;
+            std::cout << "    Evt1: " << be32toh_custom(raw.Evt1) << std::endl;
+            std::cout << "    Evt2: " << be32toh_custom(raw.Evt2) << std::endl;
+            std::cout << "    EvtVnd1: " << be32toh_custom(raw.EvtVnd1) << std::endl;
+            std::cout << "    EvtVnd2: " << be32toh_custom(raw.EvtVnd2) << std::endl;
+            std::cout << "    ModV_SF: " << be16toh_custom_s(raw.ModV_SF) << std::endl;
+            std::cout << "    CellV_SF: " << be16toh_custom_s(raw.CellV_SF) << std::endl;
+            std::cout << "    Tmp_SF: " << be16toh_custom_s(raw.Tmp_SF) << std::endl;
+            std::cout << "    SoC_SF: " << be16toh_custom_s(raw.SoC_SF) << std::endl;
+            std::cout << "    OCV_SF: " << be16toh_custom_s(raw.OCV_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model807_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model807_module_Raw);
+        // Loop for group: module
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model807_module_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model807_module_Raw*>(cur_ptr);
+            std::cout << "    Group module[" << i << "]:" << std::endl;
+            std::cout << "    ModIdx: " << be16toh_custom(grp->ModIdx) << std::endl;
+            std::cout << "    ModNStk: " << be16toh_custom(grp->ModNStk) << std::endl;
+            std::cout << "    ModSt: " << be32toh_custom(grp->ModSt) << std::endl;
+            std::cout << "    ModSoC: " << be16toh_custom(grp->ModSoC) << std::endl;
+            std::cout << "    ModOCV: " << be16toh_custom(grp->ModOCV) << std::endl;
+            std::cout << "    ModV: " << be16toh_custom(grp->ModV) << std::endl;
+            std::cout << "    ModCellVMax: " << be16toh_custom(grp->ModCellVMax) << std::endl;
+            std::cout << "    ModCellVMaxCell: " << be16toh_custom(grp->ModCellVMaxCell) << std::endl;
+            std::cout << "    ModCellVMin: " << be16toh_custom(grp->ModCellVMin) << std::endl;
+            std::cout << "    ModCellVMinCell: " << be16toh_custom(grp->ModCellVMinCell) << std::endl;
+            std::cout << "    ModCellVAvg: " << be16toh_custom(grp->ModCellVAvg) << std::endl;
+            std::cout << "    ModAnoTmp: " << be16toh_custom(grp->ModAnoTmp) << std::endl;
+            std::cout << "    ModCatTmp: " << be16toh_custom(grp->ModCatTmp) << std::endl;
+            std::cout << "    ModConSt: " << be32toh_custom(grp->ModConSt) << std::endl;
+            std::cout << "    ModEvt1: " << be32toh_custom(grp->ModEvt1) << std::endl;
+            std::cout << "    ModEvt2: " << be32toh_custom(grp->ModEvt2) << std::endl;
+            std::cout << "    ModConFail: " << be16toh_custom(grp->ModConFail) << std::endl;
+            std::cout << "    ModSetEna: " << be16toh_custom(grp->ModSetEna) << std::endl;
+            std::cout << "    ModSetCon: " << be16toh_custom(grp->ModSetCon) << std::endl;
+            std::cout << "    ModDisRsn: " << be16toh_custom(grp->ModDisRsn) << std::endl;
+            cur_ptr += sizeof(Model807_module_Raw);
+        }
+        }
     }
 
 };

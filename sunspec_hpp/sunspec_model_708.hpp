@@ -23,21 +23,21 @@ struct Model708_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Crv
+// Group: Crv
 #pragma pack(push, 1)
 struct Model708_Crv_Raw {
     uint16_t ReadOnly;
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MustTrip
+// Group: Crv_MustTrip
 #pragma pack(push, 1)
 struct Model708_Crv_MustTrip_Raw {
     uint16_t ActPt;
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MustTrip_Pt
+// Group: Crv_MustTrip_Pt
 #pragma pack(push, 1)
 struct Model708_Crv_MustTrip_Pt_Raw {
     uint16_t V;
@@ -45,14 +45,14 @@ struct Model708_Crv_MustTrip_Pt_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MayTrip
+// Group: Crv_MayTrip
 #pragma pack(push, 1)
 struct Model708_Crv_MayTrip_Raw {
     uint16_t ActPt;
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MayTrip_Pt
+// Group: Crv_MayTrip_Pt
 #pragma pack(push, 1)
 struct Model708_Crv_MayTrip_Pt_Raw {
     uint16_t V;
@@ -60,14 +60,14 @@ struct Model708_Crv_MayTrip_Pt_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MomCess
+// Group: Crv_MomCess
 #pragma pack(push, 1)
 struct Model708_Crv_MomCess_Raw {
     uint16_t ActPt;
 };
 #pragma pack(pop)
 
-// Repeating group: Crv_MomCess_Pt
+// Group: Crv_MomCess_Pt
 #pragma pack(push, 1)
 struct Model708_Crv_MomCess_Pt_Raw {
     uint16_t V;
@@ -161,13 +161,70 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
-        std::cout << "    AdptCrvReq: " << be16toh_custom(raw.AdptCrvReq) << std::endl;
-        std::cout << "    AdptCrvRslt: " << be16toh_custom(raw.AdptCrvRslt) << std::endl;
-        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
-        std::cout << "    NCrvSet: " << be16toh_custom(raw.NCrvSet) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
+            std::cout << "    Ena: " << be16toh_custom(raw.Ena) << std::endl;
+            std::cout << "    AdptCrvReq: " << be16toh_custom(raw.AdptCrvReq) << std::endl;
+            std::cout << "    AdptCrvRslt: " << be16toh_custom(raw.AdptCrvRslt) << std::endl;
+            std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+            std::cout << "    NCrvSet: " << be16toh_custom(raw.NCrvSet) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model708_Raw);
+        // Loop for group: Crv
+        for (size_t i = 0; i < be16toh_custom(raw.NCrvSet); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model708_Crv_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model708_Crv_Raw*>(cur_ptr);
+            std::cout << "    Group Crv[" << i << "]:" << std::endl;
+            std::cout << "    ReadOnly: " << be16toh_custom(grp->ReadOnly) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_Raw);
+        // Group: MustTrip (Single)
+        if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MustTrip_Raw) <= (size_t)(get_raw_L() * 2 + 4)) {
+            auto* grp = reinterpret_cast<const Model708_Crv_MustTrip_Raw*>(cur_ptr);
+            std::cout << "    Group MustTrip:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MustTrip_Raw);
+        // Loop for group: Pt
+        for (size_t i = 0; i < be16toh_custom(raw.NPt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MustTrip_Pt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model708_Crv_MustTrip_Pt_Raw*>(cur_ptr);
+            std::cout << "    Group Pt[" << i << "]:" << std::endl;
+            std::cout << "    V: " << be16toh_custom(grp->V) << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(grp->Tms) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MustTrip_Pt_Raw);
+        }
+        }
+        // Group: MayTrip (Single)
+        if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MayTrip_Raw) <= (size_t)(get_raw_L() * 2 + 4)) {
+            auto* grp = reinterpret_cast<const Model708_Crv_MayTrip_Raw*>(cur_ptr);
+            std::cout << "    Group MayTrip:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MayTrip_Raw);
+        // Loop for group: Pt
+        for (size_t i = 0; i < be16toh_custom(raw.NPt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MayTrip_Pt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model708_Crv_MayTrip_Pt_Raw*>(cur_ptr);
+            std::cout << "    Group Pt[" << i << "]:" << std::endl;
+            std::cout << "    V: " << be16toh_custom(grp->V) << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(grp->Tms) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MayTrip_Pt_Raw);
+        }
+        }
+        // Group: MomCess (Single)
+        if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MomCess_Raw) <= (size_t)(get_raw_L() * 2 + 4)) {
+            auto* grp = reinterpret_cast<const Model708_Crv_MomCess_Raw*>(cur_ptr);
+            std::cout << "    Group MomCess:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MomCess_Raw);
+        // Loop for group: Pt
+        for (size_t i = 0; i < be16toh_custom(raw.NPt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model708_Crv_MomCess_Pt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model708_Crv_MomCess_Pt_Raw*>(cur_ptr);
+            std::cout << "    Group Pt[" << i << "]:" << std::endl;
+            std::cout << "    V: " << be16toh_custom(grp->V) << std::endl;
+            std::cout << "    Tms: " << be32toh_custom(grp->Tms) << std::endl;
+            cur_ptr += sizeof(Model708_Crv_MomCess_Pt_Raw);
+        }
+        }
+        }
     }
 
 };

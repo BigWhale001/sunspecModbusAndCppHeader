@@ -56,11 +56,12 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    LocRemCtl: " << be16toh_custom(raw.LocRemCtl) << std::endl;
-        std::cout << "    DERHb: " << be32toh_custom(raw.DERHb) << std::endl;
-        std::cout << "    ControllerHb: " << be32toh_custom(raw.ControllerHb) << std::endl;
-        std::cout << "    AlarmReset: " << be16toh_custom(raw.AlarmReset) << std::endl;
-        std::cout << "    OpCtl: " << be16toh_custom(raw.OpCtl) << std::endl;
+            std::cout << "    LocRemCtl: " << be16toh_custom(raw.LocRemCtl) << std::endl;
+            std::cout << "    DERHb: " << be32toh_custom(raw.DERHb) << std::endl;
+            std::cout << "    ControllerHb: " << be32toh_custom(raw.ControllerHb) << std::endl;
+            std::cout << "    AlarmReset: " << be16toh_custom(raw.AlarmReset) << std::endl;
+            std::cout << "    OpCtl: " << be16toh_custom(raw.OpCtl) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model715_Raw);
     }
 
 };

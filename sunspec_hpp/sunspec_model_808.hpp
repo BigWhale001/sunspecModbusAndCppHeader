@@ -17,7 +17,7 @@ struct Model808_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: stack
+// Group: stack
 #pragma pack(push, 1)
 struct Model808_stack_Raw {
     uint16_t StackTBD;
@@ -56,7 +56,20 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    ModuleTBD: " << be16toh_custom(raw.ModuleTBD) << std::endl;
+            std::cout << "    ModuleTBD: " << be16toh_custom(raw.ModuleTBD) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model808_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model808_stack_Raw);
+        // Loop for group: stack
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model808_stack_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model808_stack_Raw*>(cur_ptr);
+            std::cout << "    Group stack[" << i << "]:" << std::endl;
+            std::cout << "    StackTBD: " << be16toh_custom(grp->StackTBD) << std::endl;
+            cur_ptr += sizeof(Model808_stack_Raw);
+        }
+        }
     }
 
 };

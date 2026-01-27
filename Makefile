@@ -1,6 +1,6 @@
 CXX = g++
 MODBUS_DIR = ThirdParty/x86_64/libmodbus
-CXXFLAGS = -std=c++11 -Iinclude -Igenerated -I. $(MODBUS_INC) -pthread
+CXXFLAGS = -std=c++11 -Iinclude -Isunspec_hpp -I. $(MODBUS_INC) -pthread
 MODBUS_INC = -I$(MODBUS_DIR)/include
 MODBUS_LDFLAGS = -L$(MODBUS_DIR)/lib -lmodbus -Wl,-rpath,$(abspath $(MODBUS_DIR)/lib)
 LDFLAGS = -pthread
@@ -13,7 +13,7 @@ SRC_DIR = src
 $(shell mkdir -p $(BIN_DIR))
 
 # Targets
-all: $(BIN_DIR)/mb_server $(BIN_DIR)/mb_client $(BIN_DIR)/sunspec_demo
+all: $(BIN_DIR)/mb_server $(BIN_DIR)/mb_client $(BIN_DIR)/sunspec_demo $(BIN_DIR)/simple_demo
 
 # Objects
 $(BIN_DIR)/modbus_server.o: $(SRC_DIR)/modbus_server.cpp include/modbus_server.hpp
@@ -31,6 +31,9 @@ $(BIN_DIR)/mb_client: $(SRC_DIR)/modbus_client_main.cpp $(BIN_DIR)/modbus_client
 
 $(BIN_DIR)/sunspec_demo: $(SRC_DIR)/sunspec_decoder_demo.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+
+$(BIN_DIR)/simple_demo: $(SRC_DIR)/simple_server_demo.cpp $(BIN_DIR)/modbus_server.o
+	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS) $(MODBUS_LDFLAGS)
 
 clean:
 	rm -rf $(BIN_DIR)/*

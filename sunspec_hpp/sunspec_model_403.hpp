@@ -29,7 +29,7 @@ struct Model403_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: string
+// Group: string
 #pragma pack(push, 1)
 struct Model403_string_Raw {
     uint16_t InID;
@@ -125,19 +125,36 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
-        std::cout << "    DCAhr_SF: " << be16toh_custom_s(raw.DCAhr_SF) << std::endl;
-        std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
-        std::cout << "    DCAMax: " << be16toh_custom(raw.DCAMax) << std::endl;
-        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
-        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
-        std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
-        std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
-        std::cout << "    DCAhr: " << be32toh_custom(raw.DCAhr) << std::endl;
-        std::cout << "    DCV: " << be16toh_custom_s(raw.DCV) << std::endl;
-        std::cout << "    Tmp: " << be16toh_custom_s(raw.Tmp) << std::endl;
-        std::cout << "    InDCA_SF: " << be16toh_custom_s(raw.InDCA_SF) << std::endl;
-        std::cout << "    InDCAhr_SF: " << be16toh_custom_s(raw.InDCAhr_SF) << std::endl;
+            std::cout << "    DCA_SF: " << be16toh_custom_s(raw.DCA_SF) << std::endl;
+            std::cout << "    DCAhr_SF: " << be16toh_custom_s(raw.DCAhr_SF) << std::endl;
+            std::cout << "    DCV_SF: " << be16toh_custom_s(raw.DCV_SF) << std::endl;
+            std::cout << "    DCAMax: " << be16toh_custom(raw.DCAMax) << std::endl;
+            std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+            std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+            std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
+            std::cout << "    DCA: " << be16toh_custom_s(raw.DCA) << std::endl;
+            std::cout << "    DCAhr: " << be32toh_custom(raw.DCAhr) << std::endl;
+            std::cout << "    DCV: " << be16toh_custom_s(raw.DCV) << std::endl;
+            std::cout << "    Tmp: " << be16toh_custom_s(raw.Tmp) << std::endl;
+            std::cout << "    InDCA_SF: " << be16toh_custom_s(raw.InDCA_SF) << std::endl;
+            std::cout << "    InDCAhr_SF: " << be16toh_custom_s(raw.InDCAhr_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model403_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model403_string_Raw);
+        // Loop for group: string
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model403_string_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model403_string_Raw*>(cur_ptr);
+            std::cout << "    Group string[" << i << "]:" << std::endl;
+            std::cout << "    InID: " << be16toh_custom(grp->InID) << std::endl;
+            std::cout << "    InEvt: " << be32toh_custom(grp->InEvt) << std::endl;
+            std::cout << "    InEvtVnd: " << be32toh_custom(grp->InEvtVnd) << std::endl;
+            std::cout << "    InDCA: " << be16toh_custom_s(grp->InDCA) << std::endl;
+            std::cout << "    InDCAhr: " << be32toh_custom(grp->InDCAhr) << std::endl;
+            cur_ptr += sizeof(Model403_string_Raw);
+        }
+        }
     }
 
 };

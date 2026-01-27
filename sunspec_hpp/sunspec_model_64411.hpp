@@ -64,7 +64,7 @@ struct Model64411_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Prof
+// Group: Prof
 #pragma pack(push, 1)
 struct Model64411_Prof_Raw {
     char Name[64];
@@ -72,7 +72,7 @@ struct Model64411_Prof_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: Prof_Pt
+// Group: Prof_Pt
 #pragma pack(push, 1)
 struct Model64411_Prof_Pt_Raw {
     uint16_t Tms;
@@ -359,72 +359,99 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    Phases: " << be16toh_custom(raw.Phases) << std::endl;
-        std::cout << "    PhaseAngle: " << be16toh_custom(raw.PhaseAngle) << std::endl;
-        std::cout << "    VNom: " << be16toh_custom(raw.VNom) << std::endl;
-        std::cout << "    VMax: " << be16toh_custom(raw.VMax) << std::endl;
-        std::cout << "    IMax: " << be16toh_custom(raw.IMax) << std::endl;
-        std::cout << "    Freq: " << be16toh_custom(raw.Freq) << std::endl;
-        std::cout << "    Output: " << be16toh_custom(raw.Output) << std::endl;
-        std::cout << "    Relay: " << be16toh_custom(raw.Relay) << std::endl;
-        std::cout << "    Regen: " << be16toh_custom(raw.Regen) << std::endl;
-        std::cout << "    VSet: " << be16toh_custom(raw.VSet) << std::endl;
-        std::cout << "    VSetA: " << be16toh_custom(raw.VSetA) << std::endl;
-        std::cout << "    VSetB: " << be16toh_custom(raw.VSetB) << std::endl;
-        std::cout << "    VSetC: " << be16toh_custom(raw.VSetC) << std::endl;
-        std::cout << "    FreqSlew: " << be16toh_custom(raw.FreqSlew) << std::endl;
-        std::cout << "    VSlew: " << be16toh_custom(raw.VSlew) << std::endl;
-        std::cout << "    VA: " << be32toh_custom(raw.VA) << std::endl;
-        std::cout << "    VB: " << be32toh_custom(raw.VB) << std::endl;
-        std::cout << "    VC: " << be32toh_custom(raw.VC) << std::endl;
-        std::cout << "    Hz: " << be32toh_custom(raw.Hz) << std::endl;
-        std::cout << "    IA: " << be32toh_custom(raw.IA) << std::endl;
-        std::cout << "    IB: " << be32toh_custom(raw.IB) << std::endl;
-        std::cout << "    IC: " << be32toh_custom(raw.IC) << std::endl;
-        std::cout << "    VHarA: ";
-        for(size_t i=0; i<sizeof(raw.VHarA) && raw.VHarA[i] != 0; ++i) std::cout << raw.VHarA[i];
-        std::cout << std::endl;
-        std::cout << "    VHarB: ";
-        for(size_t i=0; i<sizeof(raw.VHarB) && raw.VHarB[i] != 0; ++i) std::cout << raw.VHarB[i];
-        std::cout << std::endl;
-        std::cout << "    VHarC: ";
-        for(size_t i=0; i<sizeof(raw.VHarC) && raw.VHarC[i] != 0; ++i) std::cout << raw.VHarC[i];
-        std::cout << std::endl;
-        std::cout << "    IHarA: ";
-        for(size_t i=0; i<sizeof(raw.IHarA) && raw.IHarA[i] != 0; ++i) std::cout << raw.IHarA[i];
-        std::cout << std::endl;
-        std::cout << "    IHarB: ";
-        for(size_t i=0; i<sizeof(raw.IHarB) && raw.IHarB[i] != 0; ++i) std::cout << raw.IHarB[i];
-        std::cout << std::endl;
-        std::cout << "    IHarC: ";
-        for(size_t i=0; i<sizeof(raw.IHarC) && raw.IHarC[i] != 0; ++i) std::cout << raw.IHarC[i];
-        std::cout << std::endl;
-        std::cout << "    IIntHarA: ";
-        for(size_t i=0; i<sizeof(raw.IIntHarA) && raw.IIntHarA[i] != 0; ++i) std::cout << raw.IIntHarA[i];
-        std::cout << std::endl;
-        std::cout << "    IIntHarB: ";
-        for(size_t i=0; i<sizeof(raw.IIntHarB) && raw.IIntHarB[i] != 0; ++i) std::cout << raw.IIntHarB[i];
-        std::cout << std::endl;
-        std::cout << "    IIntHarC: ";
-        for(size_t i=0; i<sizeof(raw.IIntHarC) && raw.IIntHarC[i] != 0; ++i) std::cout << raw.IIntHarC[i];
-        std::cout << std::endl;
-        std::cout << "    VThdA: " << be16toh_custom(raw.VThdA) << std::endl;
-        std::cout << "    VThdB: " << be16toh_custom(raw.VThdB) << std::endl;
-        std::cout << "    VThdC: " << be16toh_custom(raw.VThdC) << std::endl;
-        std::cout << "    IThdA: " << be16toh_custom(raw.IThdA) << std::endl;
-        std::cout << "    IThdB: " << be16toh_custom(raw.IThdB) << std::endl;
-        std::cout << "    IThdC: " << be16toh_custom(raw.IThdC) << std::endl;
-        std::cout << "    EnaProf: " << be16toh_custom(raw.EnaProf) << std::endl;
-        std::cout << "    ProfRslt: " << be16toh_custom(raw.ProfRslt) << std::endl;
-        std::cout << "    NProf: " << be16toh_custom(raw.NProf) << std::endl;
-        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
-        std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
-        std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
-        std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
-        std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
-        std::cout << "    HzSlew_SF: " << be16toh_custom_s(raw.HzSlew_SF) << std::endl;
-        std::cout << "    VSlew_SF: " << be16toh_custom_s(raw.VSlew_SF) << std::endl;
-        std::cout << "    THD_SF: " << be16toh_custom_s(raw.THD_SF) << std::endl;
+            std::cout << "    Phases: " << be16toh_custom(raw.Phases) << std::endl;
+            std::cout << "    PhaseAngle: " << be16toh_custom(raw.PhaseAngle) << std::endl;
+            std::cout << "    VNom: " << be16toh_custom(raw.VNom) << std::endl;
+            std::cout << "    VMax: " << be16toh_custom(raw.VMax) << std::endl;
+            std::cout << "    IMax: " << be16toh_custom(raw.IMax) << std::endl;
+            std::cout << "    Freq: " << be16toh_custom(raw.Freq) << std::endl;
+            std::cout << "    Output: " << be16toh_custom(raw.Output) << std::endl;
+            std::cout << "    Relay: " << be16toh_custom(raw.Relay) << std::endl;
+            std::cout << "    Regen: " << be16toh_custom(raw.Regen) << std::endl;
+            std::cout << "    VSet: " << be16toh_custom(raw.VSet) << std::endl;
+            std::cout << "    VSetA: " << be16toh_custom(raw.VSetA) << std::endl;
+            std::cout << "    VSetB: " << be16toh_custom(raw.VSetB) << std::endl;
+            std::cout << "    VSetC: " << be16toh_custom(raw.VSetC) << std::endl;
+            std::cout << "    FreqSlew: " << be16toh_custom(raw.FreqSlew) << std::endl;
+            std::cout << "    VSlew: " << be16toh_custom(raw.VSlew) << std::endl;
+            std::cout << "    VA: " << be32toh_custom(raw.VA) << std::endl;
+            std::cout << "    VB: " << be32toh_custom(raw.VB) << std::endl;
+            std::cout << "    VC: " << be32toh_custom(raw.VC) << std::endl;
+            std::cout << "    Hz: " << be32toh_custom(raw.Hz) << std::endl;
+            std::cout << "    IA: " << be32toh_custom(raw.IA) << std::endl;
+            std::cout << "    IB: " << be32toh_custom(raw.IB) << std::endl;
+            std::cout << "    IC: " << be32toh_custom(raw.IC) << std::endl;
+            std::cout << "    VHarA: ";
+            for(size_t i=0; i<sizeof(raw.VHarA) && raw.VHarA[i] != 0; ++i) std::cout << raw.VHarA[i];
+            std::cout << std::endl;
+            std::cout << "    VHarB: ";
+            for(size_t i=0; i<sizeof(raw.VHarB) && raw.VHarB[i] != 0; ++i) std::cout << raw.VHarB[i];
+            std::cout << std::endl;
+            std::cout << "    VHarC: ";
+            for(size_t i=0; i<sizeof(raw.VHarC) && raw.VHarC[i] != 0; ++i) std::cout << raw.VHarC[i];
+            std::cout << std::endl;
+            std::cout << "    IHarA: ";
+            for(size_t i=0; i<sizeof(raw.IHarA) && raw.IHarA[i] != 0; ++i) std::cout << raw.IHarA[i];
+            std::cout << std::endl;
+            std::cout << "    IHarB: ";
+            for(size_t i=0; i<sizeof(raw.IHarB) && raw.IHarB[i] != 0; ++i) std::cout << raw.IHarB[i];
+            std::cout << std::endl;
+            std::cout << "    IHarC: ";
+            for(size_t i=0; i<sizeof(raw.IHarC) && raw.IHarC[i] != 0; ++i) std::cout << raw.IHarC[i];
+            std::cout << std::endl;
+            std::cout << "    IIntHarA: ";
+            for(size_t i=0; i<sizeof(raw.IIntHarA) && raw.IIntHarA[i] != 0; ++i) std::cout << raw.IIntHarA[i];
+            std::cout << std::endl;
+            std::cout << "    IIntHarB: ";
+            for(size_t i=0; i<sizeof(raw.IIntHarB) && raw.IIntHarB[i] != 0; ++i) std::cout << raw.IIntHarB[i];
+            std::cout << std::endl;
+            std::cout << "    IIntHarC: ";
+            for(size_t i=0; i<sizeof(raw.IIntHarC) && raw.IIntHarC[i] != 0; ++i) std::cout << raw.IIntHarC[i];
+            std::cout << std::endl;
+            std::cout << "    VThdA: " << be16toh_custom(raw.VThdA) << std::endl;
+            std::cout << "    VThdB: " << be16toh_custom(raw.VThdB) << std::endl;
+            std::cout << "    VThdC: " << be16toh_custom(raw.VThdC) << std::endl;
+            std::cout << "    IThdA: " << be16toh_custom(raw.IThdA) << std::endl;
+            std::cout << "    IThdB: " << be16toh_custom(raw.IThdB) << std::endl;
+            std::cout << "    IThdC: " << be16toh_custom(raw.IThdC) << std::endl;
+            std::cout << "    EnaProf: " << be16toh_custom(raw.EnaProf) << std::endl;
+            std::cout << "    ProfRslt: " << be16toh_custom(raw.ProfRslt) << std::endl;
+            std::cout << "    NProf: " << be16toh_custom(raw.NProf) << std::endl;
+            std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+            std::cout << "    V_SF: " << be16toh_custom_s(raw.V_SF) << std::endl;
+            std::cout << "    A_SF: " << be16toh_custom_s(raw.A_SF) << std::endl;
+            std::cout << "    Tms_SF: " << be16toh_custom_s(raw.Tms_SF) << std::endl;
+            std::cout << "    Hz_SF: " << be16toh_custom_s(raw.Hz_SF) << std::endl;
+            std::cout << "    HzSlew_SF: " << be16toh_custom_s(raw.HzSlew_SF) << std::endl;
+            std::cout << "    VSlew_SF: " << be16toh_custom_s(raw.VSlew_SF) << std::endl;
+            std::cout << "    THD_SF: " << be16toh_custom_s(raw.THD_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model64411_Raw);
+        // Loop for group: Prof
+        for (size_t i = 0; i < be16toh_custom(raw.NProf); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model64411_Prof_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model64411_Prof_Raw*>(cur_ptr);
+            std::cout << "    Group Prof[" << i << "]:" << std::endl;
+            std::cout << "    Name: ";
+            for(size_t i=0; i<sizeof(grp->Name) && grp->Name[i] != 0; ++i) std::cout << grp->Name[i];
+            std::cout << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            cur_ptr += sizeof(Model64411_Prof_Raw);
+        // Loop for group: Pt
+        for (size_t i = 0; i < be16toh_custom(raw.NPt); ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model64411_Prof_Pt_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model64411_Prof_Pt_Raw*>(cur_ptr);
+            std::cout << "    Group Pt[" << i << "]:" << std::endl;
+            std::cout << "    Tms: " << be16toh_custom(grp->Tms) << std::endl;
+            std::cout << "    VA: " << be16toh_custom(grp->VA) << std::endl;
+            std::cout << "    VB: " << be16toh_custom(grp->VB) << std::endl;
+            std::cout << "    VC: " << be16toh_custom(grp->VC) << std::endl;
+            std::cout << "    Hz: " << be16toh_custom(grp->Hz) << std::endl;
+            std::cout << "    PhaseAngleA: " << be16toh_custom(grp->PhaseAngleA) << std::endl;
+            std::cout << "    PhaseAngleB: " << be16toh_custom(grp->PhaseAngleB) << std::endl;
+            std::cout << "    PhaseAngleC: " << be16toh_custom(grp->PhaseAngleC) << std::endl;
+            cur_ptr += sizeof(Model64411_Prof_Pt_Raw);
+        }
+        }
     }
 
 };

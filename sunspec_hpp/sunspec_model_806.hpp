@@ -17,7 +17,7 @@ struct Model806_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: battery_string
+// Group: battery_string
 #pragma pack(push, 1)
 struct Model806_battery_string_Raw {
     uint16_t BatStTBD;
@@ -56,7 +56,20 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    BatTBD: " << be16toh_custom(raw.BatTBD) << std::endl;
+            std::cout << "    BatTBD: " << be16toh_custom(raw.BatTBD) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model806_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model806_battery_string_Raw);
+        // Loop for group: battery_string
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model806_battery_string_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model806_battery_string_Raw*>(cur_ptr);
+            std::cout << "    Group battery_string[" << i << "]:" << std::endl;
+            std::cout << "    BatStTBD: " << be16toh_custom(grp->BatStTBD) << std::endl;
+            cur_ptr += sizeof(Model806_battery_string_Raw);
+        }
+        }
     }
 
 };

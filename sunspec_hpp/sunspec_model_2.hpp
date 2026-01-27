@@ -73,16 +73,17 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    AID: " << be16toh_custom(raw.AID) << std::endl;
-        std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
-        std::cout << "    UN: " << be16toh_custom(raw.UN) << std::endl;
-        std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
-        std::cout << "    StVnd: " << be16toh_custom(raw.StVnd) << std::endl;
-        std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
-        std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
-        std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
-        std::cout << "    CtlVnd: " << be32toh_custom(raw.CtlVnd) << std::endl;
-        std::cout << "    CtlVl: " << be32toh_custom(raw.CtlVl) << std::endl;
+            std::cout << "    AID: " << be16toh_custom(raw.AID) << std::endl;
+            std::cout << "    N: " << be16toh_custom(raw.N) << std::endl;
+            std::cout << "    UN: " << be16toh_custom(raw.UN) << std::endl;
+            std::cout << "    St: " << be16toh_custom(raw.St) << std::endl;
+            std::cout << "    StVnd: " << be16toh_custom(raw.StVnd) << std::endl;
+            std::cout << "    Evt: " << be32toh_custom(raw.Evt) << std::endl;
+            std::cout << "    EvtVnd: " << be32toh_custom(raw.EvtVnd) << std::endl;
+            std::cout << "    Ctl: " << be16toh_custom(raw.Ctl) << std::endl;
+            std::cout << "    CtlVnd: " << be32toh_custom(raw.CtlVnd) << std::endl;
+            std::cout << "    CtlVl: " << be32toh_custom(raw.CtlVl) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model2_Raw);
     }
 
 };

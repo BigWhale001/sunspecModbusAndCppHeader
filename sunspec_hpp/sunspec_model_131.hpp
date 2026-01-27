@@ -26,7 +26,7 @@ struct Model131_Raw {
 };
 #pragma pack(pop)
 
-// Repeating group: curve
+// Group: curve
 #pragma pack(push, 1)
 struct Model131_curve_Raw {
     uint16_t ActPt;
@@ -147,16 +147,76 @@ public:
     void print_attributes() const override {
         std::cout << "    ID: " << get_raw_ID() << std::endl;
         std::cout << "    L: " << get_raw_L() << std::endl;
-        std::cout << "    ActCrv: " << be16toh_custom(raw.ActCrv) << std::endl;
-        std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
-        std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
-        std::cout << "    RvrtTms: " << be16toh_custom(raw.RvrtTms) << std::endl;
-        std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
-        std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
-        std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
-        std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
-        std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
-        std::cout << "    RmpIncDec_SF: " << be16toh_custom_s(raw.RmpIncDec_SF) << std::endl;
+            std::cout << "    ActCrv: " << be16toh_custom(raw.ActCrv) << std::endl;
+            std::cout << "    ModEna: " << be16toh_custom(raw.ModEna) << std::endl;
+            std::cout << "    WinTms: " << be16toh_custom(raw.WinTms) << std::endl;
+            std::cout << "    RvrtTms: " << be16toh_custom(raw.RvrtTms) << std::endl;
+            std::cout << "    RmpTms: " << be16toh_custom(raw.RmpTms) << std::endl;
+            std::cout << "    NCrv: " << be16toh_custom(raw.NCrv) << std::endl;
+            std::cout << "    NPt: " << be16toh_custom(raw.NPt) << std::endl;
+            std::cout << "    W_SF: " << be16toh_custom_s(raw.W_SF) << std::endl;
+            std::cout << "    PF_SF: " << be16toh_custom_s(raw.PF_SF) << std::endl;
+            std::cout << "    RmpIncDec_SF: " << be16toh_custom_s(raw.RmpIncDec_SF) << std::endl;
+        const uint8_t* cur_ptr = base_addr + sizeof(Model131_Raw);
+        {
+            size_t rem_bytes = (get_raw_L() * 2 + 4) - (size_t)(cur_ptr - base_addr);
+            size_t count = rem_bytes / sizeof(Model131_curve_Raw);
+        // Loop for group: curve
+        for (size_t i = 0; i < count; ++i) {
+            if ((cur_ptr - base_addr) + sizeof(Model131_curve_Raw) > (size_t)(get_raw_L() * 2 + 4)) break;
+            auto* grp = reinterpret_cast<const Model131_curve_Raw*>(cur_ptr);
+            std::cout << "    Group curve[" << i << "]:" << std::endl;
+            std::cout << "    ActPt: " << be16toh_custom(grp->ActPt) << std::endl;
+            std::cout << "    W1: " << be16toh_custom_s(grp->W1) << std::endl;
+            std::cout << "    PF1: " << be16toh_custom_s(grp->PF1) << std::endl;
+            std::cout << "    W2: " << be16toh_custom_s(grp->W2) << std::endl;
+            std::cout << "    PF2: " << be16toh_custom_s(grp->PF2) << std::endl;
+            std::cout << "    W3: " << be16toh_custom_s(grp->W3) << std::endl;
+            std::cout << "    PF3: " << be16toh_custom_s(grp->PF3) << std::endl;
+            std::cout << "    W4: " << be16toh_custom_s(grp->W4) << std::endl;
+            std::cout << "    PF4: " << be16toh_custom_s(grp->PF4) << std::endl;
+            std::cout << "    W5: " << be16toh_custom_s(grp->W5) << std::endl;
+            std::cout << "    PF5: " << be16toh_custom_s(grp->PF5) << std::endl;
+            std::cout << "    W6: " << be16toh_custom_s(grp->W6) << std::endl;
+            std::cout << "    PF6: " << be16toh_custom_s(grp->PF6) << std::endl;
+            std::cout << "    W7: " << be16toh_custom_s(grp->W7) << std::endl;
+            std::cout << "    PF7: " << be16toh_custom_s(grp->PF7) << std::endl;
+            std::cout << "    W8: " << be16toh_custom_s(grp->W8) << std::endl;
+            std::cout << "    PF8: " << be16toh_custom_s(grp->PF8) << std::endl;
+            std::cout << "    W9: " << be16toh_custom_s(grp->W9) << std::endl;
+            std::cout << "    PF9: " << be16toh_custom_s(grp->PF9) << std::endl;
+            std::cout << "    W10: " << be16toh_custom_s(grp->W10) << std::endl;
+            std::cout << "    PF10: " << be16toh_custom_s(grp->PF10) << std::endl;
+            std::cout << "    W11: " << be16toh_custom_s(grp->W11) << std::endl;
+            std::cout << "    PF11: " << be16toh_custom_s(grp->PF11) << std::endl;
+            std::cout << "    W12: " << be16toh_custom_s(grp->W12) << std::endl;
+            std::cout << "    PF12: " << be16toh_custom_s(grp->PF12) << std::endl;
+            std::cout << "    W13: " << be16toh_custom_s(grp->W13) << std::endl;
+            std::cout << "    PF13: " << be16toh_custom_s(grp->PF13) << std::endl;
+            std::cout << "    W14: " << be16toh_custom_s(grp->W14) << std::endl;
+            std::cout << "    PF14: " << be16toh_custom_s(grp->PF14) << std::endl;
+            std::cout << "    W15: " << be16toh_custom_s(grp->W15) << std::endl;
+            std::cout << "    PF15: " << be16toh_custom_s(grp->PF15) << std::endl;
+            std::cout << "    W16: " << be16toh_custom_s(grp->W16) << std::endl;
+            std::cout << "    PF16: " << be16toh_custom_s(grp->PF16) << std::endl;
+            std::cout << "    W17: " << be16toh_custom_s(grp->W17) << std::endl;
+            std::cout << "    PF17: " << be16toh_custom_s(grp->PF17) << std::endl;
+            std::cout << "    W18: " << be16toh_custom_s(grp->W18) << std::endl;
+            std::cout << "    PF18: " << be16toh_custom_s(grp->PF18) << std::endl;
+            std::cout << "    W19: " << be16toh_custom_s(grp->W19) << std::endl;
+            std::cout << "    PF19: " << be16toh_custom_s(grp->PF19) << std::endl;
+            std::cout << "    W20: " << be16toh_custom_s(grp->W20) << std::endl;
+            std::cout << "    PF20: " << be16toh_custom_s(grp->PF20) << std::endl;
+            std::cout << "    CrvNam: ";
+            for(size_t i=0; i<sizeof(grp->CrvNam) && grp->CrvNam[i] != 0; ++i) std::cout << grp->CrvNam[i];
+            std::cout << std::endl;
+            std::cout << "    RmpPT1Tms: " << be16toh_custom(grp->RmpPT1Tms) << std::endl;
+            std::cout << "    RmpDecTmm: " << be16toh_custom(grp->RmpDecTmm) << std::endl;
+            std::cout << "    RmpIncTmm: " << be16toh_custom(grp->RmpIncTmm) << std::endl;
+            std::cout << "    ReadOnly: " << be16toh_custom(grp->ReadOnly) << std::endl;
+            cur_ptr += sizeof(Model131_curve_Raw);
+        }
+        }
     }
 
 };
